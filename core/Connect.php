@@ -5,7 +5,7 @@
 
 $host = "localhost";
 $username = "root";
-$password = "123456";
+$password = "";
 $dbname = "dbwebphim";
 
 $my_connect = mysql_connect($host, $username, $password);
