@@ -36,9 +36,6 @@
 			VALUES ('$filmLeName','$filmLeNameVi',$namSX,$theLoai1,$theLoai2,$theLoai3,
 			'$nuocSX','$nhaSX','$noiDung','$avatar','$cover','$tenDaoDien','$tenDienVien', 
 			CURRENT_DATE(),'$linkFilm',0,0)";
-			if($_FILES['link']['name']!=null){
-				move_uploaded_file($_FILES['link']['tmp_name'], "upload/".$_FILES['link']['tmp_name']);
-			}
 
 			if (mysql_query($sql)) {
 				// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');

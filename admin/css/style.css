@@ -13,3 +13,7 @@
     /*overflow-y: hidden;*/
     /*border: 1px solid #dddddd;*/
  }
+progress{
+    border-radius: 10px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}

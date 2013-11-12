@@ -1,15 +1,79 @@
-﻿					
+﻿					<script>
+						var fileName;
+						function _(el) {
+							return document.getElementById(el);
+						}
+
+						function uploadFile() {
+							var file = _("file1").files[0];
+							//alert(file.name+" | "+file.size+" | "+file.type);
+							var formdata = new FormData();
+							formdata.append("file1", file);
+							var ajax = new XMLHttpRequest();
+							ajax.upload.addEventListener("progress", progressHandler, false);
+							ajax.addEventListener("load", completeHandler, false);
+							ajax.addEventListener("error", errorHandler, false);
+							ajax.addEventListener("abort", abortHandler, false);
+							ajax.open("POST", "../admin/include/file_upload_parser.php");
+							ajax.send(formdata);
+						}
+
+						function progressHandler(event) {
+							_("loaded_n_total").innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+							var percent = (event.loaded / event.total) * 100;
+							_("progressBar").value = Math.round(percent);
+							_("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
+						}
+
+						function completeHandler(event) {
+							fileName = event.target.responseText;
+							_("link").value = fileName;
+							//alert(fileName);
+							_("status").innerHTML = event.target.responseText + " Upload Thành Công";
+							_("progressBar").value = 0;
+						}
+
+						function errorHandler(event) {
+							_("status").innerHTML = "Upload Failed";
+						}
+
+						function abortHandler(event) {
+							_("status").innerHTML = "Upload Aborted";
+						}
+					</script>
 					<?php
-						$querySLC = "select * from film_cataloge order by film_cataloge_id asc";
-						$resultSLC = mysql_query($querySLC);
-						$querySLCon = "select * from film_country order by film_country_id asc";
-						$resultSLCon = mysql_query($querySLCon);
-						$querySLNSX = "select * from film_nhasx order by film_nhasx_id asc";
-						$resultSLNSX = mysql_query($querySLNSX);
+					$querySLC = "select * from film_cataloge order by film_cataloge_id asc";
+					$resultSLC = mysql_query($querySLC);
+					$querySLCon = "select * from film_country order by film_country_id asc";
+					$resultSLCon = mysql_query($querySLCon);
+					$querySLNSX = "select * from film_nhasx order by film_nhasx_id asc";
+					$resultSLNSX = mysql_query($querySLNSX);
 					?>
 					<div class="tab-pane fade" id="addFilmLe">
 					<h1 class="text-center text-danger">Thêm Dữ Liệu Phim Lẻ</h1>
+					
 					<div class="well">
+						<form class="form-horizontal" id="upload_form" enctype="multipart/form-data" method="post">
+  							<div class="form-group">
+  								<label class="control-label col-md-2">Upload Phim</label>
+  								<div class="col-md-8">
+  									<input class="form-control required" type="file" name="file1" id="file1">
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<label class="control-label col-md-2"></label>
+  								<div class="col-md-8">
+  									<input type="button" class="btn btn-primary" value="Upload File" onclick="uploadFile()">
+  								</div>
+  							</div>
+  							<div class="form-group">
+  								<div class="col-md-offset-2 col-md-8">
+  									<progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+  									<h3 class="text-success" id="status"></h3>
+  									<p class="text-info" id="loaded_n_total"></p>
+  								</div>
+  							</div>
+						</form>
 						<form method="POST" action="addEditDelete/addFilmLe.php" class="form-horizontal" id="management">
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Phim Lẻ</label>
@@ -35,13 +99,13 @@
 											?>
 											<option selected="" value="<?php echo($i); ?>"><?php echo($i); ?></option>
 											<?php
-										}
-										else {
+											}
+											else {
 											?>
 											<option value="<?php echo($i); ?>"><?php echo($i); ?></option>
 											<?php
-										}
-									}
+											}
+											}
 									?>
 								</select>
 								</div>
@@ -169,7 +233,7 @@
 							<div class="form-group">
 								<label class="control-label col-md-2">Link Phim</label>
 								<div class="col-md-8">
-								<input type="file" name="link" class="form-control required" value="" placeholder="Nhập Link Phim"  />
+								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Nhập Link Phim"  />
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
@@ -251,7 +315,7 @@
 									<td><?php echo($row['1']); ?></td>
 									<td><?php echo($row['2']); ?></td>
 									<td><?php echo($row['3']); ?></td>
-									<td><?php echo($row['4']." | ".$row['5']." | ".$row['6']); ?></td>
+									<td><?php echo($row['4'] . " | " . $row['5'] . " | " . $row['6']); ?></td>
 									<td><?php echo($row['7']); ?></td>
 									<td><?php echo($row['8']); ?></td>
 									<td><?php echo($row['9']); ?></td>
