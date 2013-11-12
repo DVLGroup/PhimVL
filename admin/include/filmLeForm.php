@@ -7,15 +7,17 @@
 						function uploadFile() {
 							var file = _("file1").files[0];
 							//alert(file.name+" | "+file.size+" | "+file.type);
-							var formdata = new FormData();
-							formdata.append("file1", file);
-							var ajax = new XMLHttpRequest();
-							ajax.upload.addEventListener("progress", progressHandler, false);
-							ajax.addEventListener("load", completeHandler, false);
-							ajax.addEventListener("error", errorHandler, false);
-							ajax.addEventListener("abort", abortHandler, false);
-							ajax.open("POST", "../admin/include/file_upload_parser.php");
-							ajax.send(formdata);
+							if (file != null) {
+								var formdata = new FormData();
+								formdata.append("file1", file);
+								var ajax = new XMLHttpRequest();
+								ajax.upload.addEventListener("progress", progressHandler, false);
+								ajax.addEventListener("load", completeHandler, false);
+								ajax.addEventListener("error", errorHandler, false);
+								ajax.addEventListener("abort", abortHandler, false);
+								ajax.open("POST", "../admin/include/file_upload_parser.php");
+								ajax.send(formdata);
+							}
 						}
 
 						function progressHandler(event) {
