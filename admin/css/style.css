@@ -1,0 +1,15 @@
+.rq, .error {
+	color: red;
+}
+#bttop{
+	position:fixed;
+    bottom:60px;
+    right:10px;
+    display: none;
+}
+.table-scrollable  {
+    width: 100%;
+    overflow: auto;
+    /*overflow-y: hidden;*/
+    /*border: 1px solid #dddddd;*/
+ }
