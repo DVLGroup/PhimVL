@@ -1,4 +1,3 @@
-//haha
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +7,7 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>PhimVL - Phim hay nhat qua datc</title>
+		<title>PhimVL - Phim hay nhat qua dat</title>
 		<meta name="description" content="Trang xem phim nay do 2 designer Trong Loi thiet ke fornt-end va Trung Viet thiet ke phan back-end" />
 		<meta name="author" content="trong_000" />
 

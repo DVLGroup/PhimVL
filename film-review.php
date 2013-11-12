@@ -6,20 +6,22 @@
 	$filmID 	= null;
 	$film 		= null;
 	$isFilmBo 	= FALSE;
+	$filmParName = null;//Tên biến filmBoID hoặc filmLeID
+	
 	
 	if((isset($_REQUEST['filmBoID']) OR isset($_REQUEST['filmLeID'])) ){
 		if(isset($_REQUEST['filmBoID'])){
 			$filmID	= $_REQUEST['filmBoID'];
 			$film 	= "film_bo_"; 
 			$query 	= "SELECT * FROM film_bo WHERE film_bo_id = '".$filmID."'";
-			$filmID = "filmBoID";
+			$filmParName  = "filmBoID";
 			$isFilmBo = TRUE;
 		}
 		elseif(isset($_REQUEST['filmLeID'])){
 			$filmID = $_REQUEST['filmLeID'];
 			$film 	= "film_le_";
 			$query 	= "SELECT * FROM film_le WHERE film_le_id = '".$filmID."'";
-			$filmID = "filmLeID";
+			$filmParName = "filmLeID";
 		}
 	}
 			
@@ -99,7 +101,7 @@
 					<b>Thời lượng:</b> 111 phút
 				</p>
 				<p>
-					<a href="index.php?filmPlay=1&<?php echo $filmID ?>=<?php echo $row[''.$film.'id'] ?><?php if($isFilmBo) echo '&ep=1' ?>">
+					<a href="index.php?filmPlay=1&<?php echo $filmParName ?>=<?php echo $filmID?><?php if($isFilmBo) echo '&ep=1' ?>">
 					<button type="button" class="btn btn-lg btn-primary">
 						<i class="glyphicon glyphicon-play"></i> Xem Phim
 					</button></a>

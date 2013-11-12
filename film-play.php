@@ -2,37 +2,43 @@
 <?php
 	include 'core/Connect.php';
 	
-	$query = null;
-	$link = null;
-	$filmID = null;
-	$isFilmBo = false;
+	$query 		= null;
+	$link		= null;//đường dẫn video của phim
+	$filmID 	= null;
+	$film		= null;//tiền tố film_bo_ hay film_le_
+	$ep			= null;//Tập bao nhiêu
+	$isFilmBo	= false;
 	
 	if(isset($_REQUEST['filmBoID'])){
 		$filmID = ($_REQUEST['filmBoID']);
-		$query = "SELECT * FROM film_bo WHERE film_bo_id = '".$filmID."' ";
+		$film	= "film_bo_";
+		$query 	= "SELECT * FROM film_bo WHERE film_bo_id = '".$filmID."' ";
 		$isFilmBo = true;
 	}
 	elseif(isset($_REQUEST['filmLeID'])){
 		$filmID = ($_REQUEST['filmLeID']);
+		$film	= "film_le_";
 		$query = "SELECT * FROM film_le WHERE film_le_id = '".$filmID."' ";
 	}
 	
 	$result = mysql_query( $query, $my_connect);
 	$row = mysql_fetch_array($result);
-	
-	
 ?>
 
 
-
+<!--Facebook public -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=531718326909547";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+	( function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=531718326909547";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk')); 
+</script>
 
 
 
@@ -48,10 +54,10 @@
 				}
 				mysql_free_result($rs);
 			}
-			
 		?>
 	</ul>
 </div>
+<!--Facebook Share button -->
 <div class="pull-right" style="width: 300px; border: 1px solid #000">
 	<a href="#" 
 	  onclick="
@@ -66,12 +72,12 @@
 </div>
 <div class="clearfix"></div>
 
+
 <div class="">
-	<h1 class="text-primary"><?= $row[2]?> - <?= $row[1]?> - <?= $row[3]?></h1>
+	<h1 class="text-primary"><?php echo $row[''.$film.'name_vi'];?> - <?php echo $row[''.$film.'name'];?> - <?php echo $row[''.$film.'namsx'];?></h1>
+	<!--Facebook comment -->
 	<div class="fb-comments" data-href="http://example.com/comments" data-colorscheme="dark" data-numposts="10" data-width="1040"></div>
 </div>
-
-
 
 
 <div class="list-film">
@@ -176,3 +182,4 @@
 </div>
 <div class="clearfix"></div>
 
+<?php mysql_close($my_connect); ?>

@@ -2,45 +2,48 @@
 <?php
 	include 'core/Connect.php';
 	
-	$img;
 	$filmID = null;
-	$sql = "";
-	
-	$link = null;
+	$film	= null;
+	$filmParName 	= null;
+	$query_cover 	= null;
+	$quey_linkFilm	= null;
+	$link 	= null;		//Đường link của video phim
 	
 	if((isset($_REQUEST['filmLeID']) OR (isset($_REQUEST['filmBoID'])) AND !isset($_REQUEST['filmPlay']))){
 		if(isset($_REQUEST['filmLeID'])){
-			$img = "film_le_cover";
 			$filmID = $_REQUEST['filmLeID'];
-			$sql = "SELECT film_le_cover FROM film_le WHERE film_le_id = '".$filmID."'";
+			$film 	= "film_le_";
+			$query 	= "SELECT film_le_cover FROM film_le WHERE film_le_id = '".$filmID."'";
 		}
 	
 		elseif(isset($_REQUEST['filmBoID'])){
-			$img = "film_bo_cover";
 			$filmID = $_REQUEST['filmBoID'];
-			$sql = "SELECT film_bo_cover FROM film_bo WHERE film_bo_id = '".$filmID."'";
+			$film 	= "film_bo_";
+			$query 	= "SELECT film_bo_cover FROM film_bo WHERE film_bo_id = '".$filmID."'";
 		}
-		$result = mysql_query($sql, $my_connect);
-		$row = mysql_fetch_array($result);
-		echo '<img class="cover" src="'.$row[$img].'">';
-		
+		$result_filmPlay	= mysql_query($query, $my_connect);
+		$row_filmPlay		= mysql_fetch_array($result_filmPlay);
+		//Hiển thị hình cover vào slider của website
+		echo '<img class="cover" src="'.$row_filmPlay[''.$film.'cover'].'">';
 	}
 	elseif(isset($_REQUEST['filmPlay'])){
 		if(isset($_REQUEST['filmLeID'])){
-			$filmID = $_REQUEST['filmLeID'];
-			$sql = "SELECT film_le_link FROM film_le WHERE film_le_id = '".$filmID."'";
+			$filmID	= $_REQUEST['filmLeID'];
+			$film 	= "film_le_";
+			$query_linkFilm	= "SELECT film_le_link FROM film_le WHERE film_le_id = '".$filmID."'";
 		}
 	
 		elseif(isset($_REQUEST['filmBoID'])){
-			$ep = $_REQUEST['ep'];
+			$ep 	= $_REQUEST['ep'];
 			$filmID = $_REQUEST['filmBoID'];
-			$sql = "SELECT film_bo_ct_link FROM film_bo_ct WHERE film_bo_ct_id = '".$filmID."' AND film_bo_ct_tap = '".$ep."'";
+			$film 	= "film_bo_";
+			$query_linkFilm = "SELECT film_bo_ct_link FROM film_bo_ct WHERE film_bo_ct_id = '".$filmID."' AND film_bo_ct_tap = '".$ep."'";
 		}
 		
-		$result = mysql_query($sql, $my_connect);
+		$result = mysql_query($query_linkFilm, $my_connect);
 		$row = mysql_fetch_array($result);
 		$link = $row[0];
-		echo $link;
+		echo '<iframe width="100%" height="100%" src="//www.youtube.com/embed/kPYvE_AlXpQ" frameborder="0" allowfullscreen></iframe>';
 	}
 	else{
 ?>

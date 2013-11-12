@@ -30,11 +30,11 @@
 						echo '<li>';
 					echo 	'<a href="index.php?filmRapID='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
-					echo 		'<span class="name_vi"> <a href="">'.$row[''.$film.'name_vi'].'</a> </span>';
+					echo 		'<span class="name_vi"> <a href="index.php?filmRapID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span class="name_en"> <a href="">'.$row[''.$film.'name'].'</a> </span>';
+					echo 		'<span class="name_en"> <a href="index.php?filmRapID='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span > <a href="">'.$row[''.$film.'namsx'].'</a> </span>';
+					echo 		'<span > <a href="index.php?filmRapID='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
 					echo 	'</div>';
 					echo '</li>';
 					}
@@ -64,11 +64,11 @@
 					echo '<li>';
 					echo 	'<a href="index.php?filmLeID='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
-					echo 		'<span class="name_vi"> <a href="">'.$row[''.$film.'name_vi'].'</a> </span>';
+					echo 		'<span class="name_vi"> <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span class="name_en"> <a href="">'.$row[''.$film.'name'].'</a> </span>';
+					echo 		'<span class="name_en"> <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span > <a href="">'.$row[''.$film.'namsx'].'</a> </span>';
+					echo 		'<span > <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
 					echo 	'</div>';
 					echo '</li>';
 				}
@@ -103,7 +103,7 @@
 					echo 		'<br>';
 					echo 		'<span class="name_en"> <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span > <a href="">'.$row[''.$film.'namsx'].'</a> </span>';
+					echo 		'<span > <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
 					echo 	'</div>';
 					echo '</li>';
 				}

@@ -7,18 +7,21 @@
 	$result = null;
 	$filmID = null;
 	$film	= null;
+	$filmParName = null;
 	
 	if(isset($_REQUEST['dsPhimLe'])){
 		$query 	= "SELECT * FROM film_le LIMIT $limit";
 		$title 	= "Danh sách phim lẻ";
-		$filmID = "filmLeID";
+		$filmID = $_REQUEST['dsPhimLe'];
 		$film	= "film_le_";
+		$filmParName = "filmLeID";
 	}
 	elseif(isset($_REQUEST['dsPhimBo'])){
 		$query 	= "SELECT * FROM film_bo LIMIT $limit";
 		$title 	= "Danh sách phim bộ";
-		$filmID = "filmBoID";
+		$filmID = $_REQUEST['dsPhimBo'];
 		$film	= "film_bo_";
+		$filmParName = "filmBoID";
 	}
 	elseif(isset($_REQUEST['filmCatID'])){
 		$query 	= "SELECT * FROM film_bo, film_le" + 
@@ -52,13 +55,13 @@
 					$result = mysql_query($query, $my_connect);
 					while($row = mysql_fetch_array($result)){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmID.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
-						echo 		'<span class="name_vi"> <a href="index.php?'.$filmID.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span class="name_en"> <a href="index.php?'.$filmID.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span > <a href="">'.$row[''.$film.'namsx'].'</a> </span>';
+						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
 						echo 	'</div>';
 						echo '</li>';
 					}
