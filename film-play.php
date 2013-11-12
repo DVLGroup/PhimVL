@@ -58,16 +58,15 @@
 	</ul>
 </div>
 <!--Facebook Share button -->
-<div class="pull-right" style="width: 300px; border: 1px solid #000">
+<div class="pull-right" style="width: 300px">
 	<a href="#" 
 	  onclick="
 	    window.open(
-	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://www.facebook.com/ltloi'), 
+	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('http://trongloi193.vv.si/'), 
 	      'facebook-share-dialog', 
 	      'width=626,height=436'); 
 	    return false;">
-	    Share
-	  <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
+	    <img class="pull-right" src="images/share-buttons.png" title="Chia sẻ phim lên facebook" style="width: 100px; height: 30px"/>
 	</a>
 </div>
 <div class="clearfix"></div>

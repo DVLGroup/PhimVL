@@ -30,7 +30,6 @@
         <!-- Chèn link JavaScript-->
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="js/holder.js" type="text/javascript"></script>
         <script src="navbar.js" type="text/javascript"></script>
         <script src="js/jquery.wysibb.js" type="text/javascript"></script>
         

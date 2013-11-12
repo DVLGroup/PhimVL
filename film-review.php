@@ -106,8 +106,9 @@
 						<i class="glyphicon glyphicon-play"></i> Xem Phim
 					</button></a>
 				</p>
+				</br>
+				</br>
 				<p>
-					Like button
 					<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
 				</p>
 			</div>
@@ -122,6 +123,235 @@
 	</div>
 	<div class="devider"></div>
 </div>
+
+
+<?php //Show film with cataloge 
+	
+	$query_TLFilm	= "SELECT ".$film."cataloge_id_first, ".$film."cataloge_id_second, ".$film."cataloge_id_third FROM ".rtrim($film,'_')." WHERE ".$film."id = '$filmID'";
+	
+	$result_TLFilm	= mysql_query($query_TLFilm, $my_connect);
+	
+	echo $query_TLFilm;
+	
+	
+	while($row = mysql_fetch_array($result_TLFilm)){		
+		$sql	= "SELECT * FROM ".rtrim($film,'_')." WHERE ".$film."cataloge_id_first = '$row[0]' OR ".$film."cataloge_id_second = '$row[0]' OR ".$film."cataloge_id_third = '$row[0]' ";
+		$sql	.= "OR ".$film."cataloge_id_first = '$row[1]' OR ".$film."cataloge_id_second = '$row[1]' OR ".$film."cataloge_id_third = '$row[1]' ";
+		$sql	.= "OR ".$film."cataloge_id_first = '$row[2]' OR ".$film."cataloge_id_second = '$row[2]' OR ".$film."cataloge_id_third = '$row[2]' ";
+	}
+	
+	//foreach($results as $result){
+		//$sql	= "SELECT * FROM ".rtrim($film,'_')." WHERE ".$film."cataloge_id_first = '$result[0]' OR ".$film."cataloge_id_second = '$result[0]' OR ".$film."cataloge_id_third = '$result[0]' ";
+		//$sql	.= "OR ".$film."cataloge_id_first = '$result[1]' OR ".$film."cataloge_id_second = '$result[1]' OR ".$film."cataloge_id_third = '$result[1]' ";
+		//$sql	.= "OR ".$film."cataloge_id_first = '$result[2]' OR ".$film."cataloge_id_second = '$result[2]' OR ".$film."cataloge_id_third = '$result[2]' ";
+		echo $sql;
+		$rs		= mysql_query($sql, $my_connect);
+		while($rw = mysql_fetch_array($rs)){
+			$results_filmCungTL[] = $rw;
+		}
+	//}
+	
+
+?>
+<div class="row">
+	<?php /* Danh sách phim */ ?>
+	<div class="list-film col-lg-8 pull-left ">
+		<div class="list-film-header">
+			<p class="title">
+				Phim cùng thể loại
+			</p>
+		</div>
+		<div class="list-film-body">
+			<ul class="film-show-list-ul list-unstyled">
+				<?php
+					foreach($results_filmCungTL as $row){
+						echo '<li class="list-flim-li-22">';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<div class="name">';
+						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+						echo 		'<br>';
+						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+						echo 		'<br>';
+						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+						echo 	'</div>';
+						echo '</li>';
+					}
+				?>
+				<li class="list-flim-li-22">
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li class="list-flim-li-22">
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li class="list-flim-li-22">
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<div class="list-film-footer"></div>	
+	</div>
+	
+	
+	
+	
+	
+	
+	<?php /* Cột slider bar */ ?>
+	<div class="sliderbar col-lg-4 pull-right">
+		
+		
+		<div class="sliderbar-content">
+			<div class="sliderbar-heading">
+				<h4 class="sliderbar-title" >PHIM XEM NHIỀU TRONG NGÀY</h4>
+			</div>
+			<div class="sliderbar-body">
+				<ul class="list-film-thumbnail list-unstyled">
+					<li>
+						<div class="media">
+							<a class="pull-left" href="#"> <img class="media-object" src="images/film/thumbnail/Ip-Man-The-Final-Fight-2013.jpg" alt="..."> </a>
+							<div class="media-body">
+								<span class="media-heading">Ip Man The Final - Trận đánh cuối cùng - 2013</span></br>
+								<span> <small> Nội dung phim:  Series phim truyền hình Mỹ cực kỳ hấp dẫn. Prison Break là 1 serie phim truyền hình xuất sắc thuộc thể loại hình sự,...
+									</small> </span>
+								<span>
+									</br>
+									Lượt xem: 50239 </span>
+							</div>
+						</div>
+					</li>
+					
+					<li>
+						<div class="media">
+							<a class="pull-left" href="#"> <img class="media-object" src="images/film/thumbnail/Ip-Man-The-Final-Fight-2013.jpg" alt="..."> </a>
+							<div class="media-body">
+								<span class="media-heading">Ip Man The Final - Trận đánh cuối cùng - 2013</span></br>
+								<span> <small> Nội dung phim:  Series phim truyền hình Mỹ cực kỳ hấp dẫn. Prison Break là 1 serie phim truyền hình xuất sắc thuộc thể loại hình sự,...
+									</small> </span>
+								<span>
+									</br>
+									Lượt xem: 50239 </span>
+							</div>
+						</div>
+					</li>				
+				</ul>
+			</div>
+		</div>			
+		
+		
+		
+		
+		
+		<div class="sliderbar-content">
+			<div class="sliderbar-heading">
+				<h4 class="sliderbar-title" >PHIM THEO THỂ LOẠI</h4>
+			</div>
+			<div class="sliderbar-body">
+				<ul class="list-cataloge list-unstyled">
+					 <?php
+						$sql = "SELECT * FROM film_cataloge";
+						$result = mysql_query($sql, $my_connect);
+						while($row = mysql_fetch_array($result)){
+							echo "<li>";
+							echo 	"<a href='index.php?filmCatID=$row[0]'>$row[1]</a>";
+							echo "</li>";	
+						}
+						mysql_free_result($result);
+					 ?>
+					<div class="clearfix"></div>							
+				</ul>
+			</div>
+		</div>	
+		
+		<div class="sliderbar-content">
+			<div class="sliderbar-heading">
+				<h4 class="sliderbar-title" >PHIM THEO QUỐC GIA</h4>
+			</div>
+			<div class="sliderbar-body">
+				<ul class="list-cataloge list-unstyled">
+					 <?php
+						$sql = "SELECT * FROM film_country";
+						$result = mysql_query( $sql,$my_connect);
+						while($row = mysql_fetch_array($result)){
+							echo "<li>";
+							echo 	"<a href='index.php?filmCountryID=$row[0]'>$row[1]</a>";
+							echo "</li>";	
+						}
+						mysql_free_result($result);
+					 ?>
+					<div class="clearfix"></div>			
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+		
+				
+</div>
+<div class="clearfix"></div>
 
 
 
