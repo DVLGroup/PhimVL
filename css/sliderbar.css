@@ -1,0 +1,56 @@
+
+.sliderbar {
+}
+
+.sliderbar > .sliderbar-content{
+	margin-bottom: 50px;
+}
+
+.sliderbar-content > .sliderbar-heading{
+	height: 37px;
+	background: url('../images/sliderbar-heading.png') repeat-x;
+}
+
+	.sliderbar-heading > .sliderbar-title{
+		font-weight: bold;
+		padding: 10px;
+		font-size: 13px;	
+		color: #FFF;
+	}
+
+.sliderbar-content > .sliderbar-body  > ul.list-film-thumbnail li .media img{
+	width: 70px; 
+	height: 100px; 
+	padding: 2px; 
+	border: 1px solid #CCC;
+}
+
+.sliderbar-body ul.list-film-thumbnail li{
+	margin: 15px 0px;
+}
+
+.sliderbar-body ul.list-film-thumbnail li .media .media-body .media-heading{
+	color: #0072FF;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.sliderbar-body ul.list-cataloge{
+	margin-top: 7px;
+    padding: 0;
+}
+
+
+.sliderbar-body ul.list-cataloge li{
+	background: none;
+    padding: 0;
+    padding-top: 5px;
+    width: 164px;
+    height: 25px;
+    float: left;
+    text-align: center;
+}
+
+.sliderbar-body ul.list-cataloge li a{
+	color: #FCFCFC;
+}

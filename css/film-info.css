@@ -1,0 +1,48 @@
+
+@font-face
+{
+	font-family: title;
+	src: url('../fonts/UVNTinTuc_R.ttf')
+}
+
+
+#filmReview > .title{
+	color: #006DCC;
+	font-weight: bold;
+	font-family: title;
+}
+
+#filmReview > #dt{
+	
+}
+
+#filmReview #dt img.cover{
+	float: left;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	width: 300px;
+	height: 450px;
+}
+
+
+#dt > .info{
+	float: left;
+	margin: 0 15px;
+	width: 690px;
+}
+
+#filmReview > .entry > .tomtatPhim{
+	margin-top: 20px;
+	line-height: 1.7;
+}
+
+#filmReview > .entry > .picture img {
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	width: 900px;
+	height: auto;
+	border: 2px solid #999999
+}
+
+

@@ -1,0 +1,82 @@
+body {
+	background-color: #005580;
+}
+
+.mg-15{
+	margin: 15px;
+}
+
+
+#layout{
+	margin: 0 auto;
+	max-width: 1366px;
+	min-width:  480px;
+}
+
+
+header{
+	height: 170px;
+}
+
+#body{
+	position: relative;
+	background: url('../images/bg.png') no-repeat;
+}
+
+#layout-left, #layout-right{
+	height: 713px;
+	width: 174px;
+	overflow: hidden;
+	background: url("../images/t_l_i.png") no-repeat scroll 0px 0px transparent;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -714px;
+}
+
+#layout-right{
+	height: 713px;
+	width: 134px;	
+	overflow: hidden;
+	background: url("../images/t_r_i.png") no-repeat scroll 0px 0px transparent;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: 540px;
+}
+
+#layout-center{
+	margin: 0 auto;
+	max-width: 1080px;
+	height: auto;
+	
+}
+
+#layout-center-B{
+	box-shadow: 15px 0 15px -15px , -15px 0 15px -15px ;
+}
+
+
+#slider{
+	padding: 27px 25px 10px 25px;
+	height: 520px;
+}
+
+
+
+nav{
+	
+}
+
+#container{
+	max-width: 1080px;
+}
+
+#sliderbar{
+	max-width: 400px;
+}
+
+
+footer{
+	height: 200px;
+}

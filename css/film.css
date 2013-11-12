@@ -1,0 +1,79 @@
+/* 
+    Document   : showfilm
+    Created on : Jun 4, 2013, 5:09:58 PM
+    Author     : TrongLoi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@font-face
+{
+font-family: list-film-title;
+src: url('../fonts/UVNDaLat_R.ttf')
+}
+
+.list-flim-li-22 {
+	margin: 0 22px;
+}
+
+.list-film{
+	display: block;
+	//padding: 15px;
+}
+
+.list-film ul li{
+    float: left;
+	display: block;
+}
+
+.list-film-header > .title {
+	color: rgb(0, 114, 255);
+	font-size: 38px;
+	font-weight: bold;
+	font-family: list-film-title;
+}
+
+.list-film-body{
+
+}
+
+.film-show-list-ul{
+    margin: 15px 0px;
+}
+
+ul.film-show-list-ul li {
+    margin: 0px 10px;
+    width: 185px;
+    height: 365px;
+}
+
+ul.film-show-list-ul li .poster{
+    width: 185px;
+    height: 265px;
+    padding: 5px;
+    box-shadow: 0 0 1px;
+}
+ul.film-show-list-ul li .name{
+    padding-top: 3px;
+    text-align: center;
+}
+ul.film-show-list-ul li .name a{
+    text-decoration: none;
+    color: #0072FF;
+}
+ul.film-show-list-ul li .name a:hover{
+    text-decoration: underline;
+}
+ul.film-show-list-ul li .name_vi a{
+    font-weight: bold;
+}
+
+
+.list-film-footer{
+	width: 100%;
+	height:1px;
+	background: transparent url('../images/devider.png') no-repeat;
+}
+
+
+
