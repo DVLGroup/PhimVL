@@ -1,5 +1,5 @@
 <?php
-$link = mysql_connect('localhost', 'root', '123456');
+$link = mysql_connect('localhost', 'root', '');
 if (!$link) {
 	die('Lỗi kết nối: ' . mysql_error());
 } else {
