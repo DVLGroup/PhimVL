@@ -233,7 +233,7 @@
 							<div class="form-group">
 								<label class="control-label col-md-2">Link Phim</label>
 								<div class="col-md-8">
-								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Nhập Link Phim"  />
+								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Bạn Phải Upload Để Lưu Link Phim"  />
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
