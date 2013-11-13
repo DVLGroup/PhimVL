@@ -19,7 +19,7 @@
 		include 'film-moi.php';
 	}
 	//Chèn trang 
-	elseif(isset($_GET['dsPhimLe']) || isset($_REQUEST['dsPhimBo']) || isset($_REQUEST['filmCatID']) || isset($_REQUEST['filmCountryID']) || isset($_REQUEST['resultSearch'])){
+	elseif(isset($_GET['dsPhimLe']) || isset($_REQUEST['dsPhimBo'])){
 		//$dsPhimLe		= $_REQUEST['dsPhimLe'];//True hoac false
 		include 'list-film.php';
 	}
@@ -33,6 +33,10 @@
 		include 'film-play.php';
 	}
 	
+	elseif(isset($_REQUEST['filmCatID']) OR isset($_REQUEST['filmCountryID']) ){
+		include 'list-film-2.php';
+	}
+	
 	elseif(isset($_REQUEST['requestFilm'])){
 		$requestFilm	= $_REQUEST['requestFilm'];//True hoac false	
 		$includePage = $requestFilm;
@@ -40,4 +44,5 @@
 	else {
 		include 'film-moi.php';
 	}
+	
 	

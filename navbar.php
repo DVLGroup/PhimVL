@@ -29,10 +29,10 @@
 								</button>
 								<ul class="dropdown-menu">
 									<?php
-										$sql = "SELECT film_cataloge_name FROM film_cataloge";
+										$sql = "SELECT * FROM film_cataloge";
 										$rs = mysql_query( $sql, $my_connect);
 										while($row = mysql_fetch_array($rs)){
-											echo '<li><a href="#">'.$row[0].'</a></li>';
+											echo '<li><a href="index.php?filmCatID='.$row[0].'">'.$row[1].'</a></li>';
 										}
 										mysql_free_result($rs);
 										
@@ -47,10 +47,10 @@
 								</button>
 								<ul class="dropdown-menu">
 									<?php
-										$sql = "SELECT film_country_name FROM film_country";
+										$sql = "SELECT * FROM film_country";
 										$rs = mysql_query( $sql, $my_connect);
 										while($row = mysql_fetch_array($rs)){
-											echo '<li><a href="#">'.$row[0].'</a></li>';
+											echo '<li><a href="index.php?filmCountryID='.$row[0].'">'.$row[1].'</a></li>';
 										}
 										mysql_free_result($rs);
 										
