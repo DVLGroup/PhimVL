@@ -25,17 +25,27 @@
 							var percent = (event.loaded / event.total) * 100;
 							_("progressBar").value = Math.round(percent);
 							_("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
+
 						}
 
 						function completeHandler(event) {
 							fileName = event.target.responseText;
-							if(fileName != "Không")
+							if(fileName == "Không")
 							{
-								_("link").value = fileName;
+								_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
+								
 							}
 							//alert(fileName);
-							_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
-							_("progressBar").value = 0;
+							else if(fileName == "Có Rồi")
+							{
+								_("status").innerHTML = "File Upload Đã " + event.target.responseText + " Upload Không Thành Công";
+							}
+							else{
+								_("link").value = fileName;
+								_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
+							}
+							
+							_("progressBar").value = 100;
 						}
 
 						function errorHandler(event) {
@@ -62,14 +72,14 @@
   							<div class="form-group">
   								<label class="control-label col-md-2">Upload Phim</label>
   								<div class="col-md-8">
-  									<input accept="" class="form-control required" type="file" name="file1" id="file1">
-  									<h4 class="text-danger">Không Nên Chọn File Upload Có Unicode</h4>
+  									<input accept="video/*" class="form-control required" type="file" name="file1" id="file1">
+  									<h4 class="text-danger"><strong>KHÔNG</strong> Chọn File Upload Có Unicode</h4>
   								</div>
   							</div>
   							<div class="form-group">
   								<label class="control-label col-md-2"></label>
   								<div class="col-md-8">
-  									<input type="button" class="btn btn-primary" value="Upload File" onclick="uploadFile()">
+  									<input type="button" id="uploadButton" class="btn btn-primary" value="Upload File" onclick="uploadFile()">
   								</div>
   							</div>
   							<div class="form-group">
@@ -337,7 +347,7 @@
 									<td>
 										<a href="addEditDelete/editOneFilmLe.php?filmLeID=<?php echo($row['0']); ?>">Sửa</a>
 										&nbsp;
-										<a href="addEditDelete/deleteOneFilmLe.php?filmLeID=<?php echo($row['0']); ?>&filmLeName=<?php echo($row['1']); ?>">Xóa</a>
+										<a href="addEditDelete/deleteOneFilmLe.php?filmLeID=<?php echo($row['0']); ?>&filmLeName=<?php echo($row['1']); ?>&link=<?php echo($row['13']); ?>">Xóa</a>
 									</td>
 								</tr>
 								<?php

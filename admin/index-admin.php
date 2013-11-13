@@ -54,6 +54,11 @@
 						right : "250px"
 					}, 800);
 				});
+				$('#submit').click(function(){
+					$('body,html').animate({
+						scrollTop : 0
+					}, 300);
+				});
 			});
 		</script>
 		<?php

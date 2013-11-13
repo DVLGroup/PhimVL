@@ -87,7 +87,7 @@
 								<label class="control-label col-md-2">Link Phim</label>
 								<div class="col-md-8">
 								
-								<input type="text" name="linkPhim" type="text" class="form-control url required" value="<?php echo($linkFilm); ?>" placeholder="Nhập Link Phim" />
+								<input readonly="readonly" type="text" name="linkPhim" type="text" class="form-control url required" value="<?php echo($linkFilm); ?>" placeholder="Nhập Link Phim" />
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
