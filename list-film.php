@@ -10,32 +10,20 @@
 	$filmParName = null;
 	
 	if(isset($_REQUEST['dsPhimLe'])){
-		$query 	= "SELECT * FROM film_le LIMIT $limit";
+		//$query 	= "SELECT * FROM film_le LIMIT $limit";
 		$title 	= "Danh sách phim lẻ";
 		$filmID = $_REQUEST['dsPhimLe'];
 		$film	= "film_le_";
 		$filmParName = "filmLeID";
+		$self = $_SERVER['PHP_SELF']."?dsPhimLe";
 	}
 	elseif(isset($_REQUEST['dsPhimBo'])){
-		$query 	= "SELECT * FROM film_bo LIMIT $limit";
+		//$query 	= "SELECT * FROM film_bo LIMIT $limit";
 		$title 	= "Danh sách phim bộ";
 		$filmID = $_REQUEST['dsPhimBo'];
 		$film	= "film_bo_";
 		$filmParName = "filmBoID";
-	}
-	elseif(isset($_REQUEST['filmCatID'])){
-		$query 	= "SELECT * FROM film_bo, film_le" + 
-					"WHERE film_cataloge_id = '"+$filmCatID+"' LIMIT $limit";
-		$title 	= "Phim ";
-		
-	}
-	elseif(isset($_REQUEST['filmCountryID'])){
-		$query 	= "SELECT * FROM film_bo, film_le"+
-					"WHERE film_country_id = '"+$filmCountryID+"' LIMIT $limit";
-		$title 	= "Phim ";
-	}
-	else {
-		
+		$self = $_SERVER['PHP_SELF']."?dsPhimBo";
 	}
 	
 				
@@ -51,8 +39,30 @@
 		</div>
 		<div class="list-film-body">
 			<ul class="film-show-list-ul list-unstyled">
+<?php
+	
+	$page 		= 1;
+	$perPage	= 1;	// Elements on per page
+	
+	$start		= 0;		//Oder number of first element on this page
+	
+	$sql_totalPage = "SELECT COUNT(*) FROM film_bo";
+	$rs = mysql_query($sql_totalPage);
+	$rw = mysql_fetch_array($rs);
+	$totalPage = $rw[0];
+	
+	if(isset($_REQUEST['page'])){
+		$page = $_REQUEST['page'];
+	}
+	
+	if($page > 1){
+		$start	= ($page - 1) * $perPage;
+	}
+	
+	$query 	= "SELECT * FROM ".rtrim($film,'_')." LIMIT $start, $perPage";
+?>
 				<?php
-					$result = mysql_query($query, $my_connect);
+					$result = mysql_query($query);
 					while($row = mysql_fetch_array($result)){
 						echo '<li class="list-flim-li-22">';
 						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
@@ -143,6 +153,40 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="list-film-footer"></div>	
+		
+		
+<!--PHAN TRANG -->
+		<div align="center">
+			<ul class="pagination">
+			<?php
+			
+				if($page == 1){
+					echo '<li class="disabled"><a href="#">&laquo;</a></li>';
+				}
+				else {
+					echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
+				}
+				
+				for($i = 1; $i <= $totalPage; $i++){
+					if($i == $page){
+						echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+					}
+					else {
+						echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+					}
+				}
+				
+				if($page == $totalPage){
+					echo '<li class="disabled"><a href="#">&raquo;</a></li>';
+				}
+				else {
+					echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
+				}
+			?>
+			
+			</ul>
+
+		</div>
 	</div>
 	
 	

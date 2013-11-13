@@ -177,6 +177,7 @@
 	
 	<div class="list-film-footer">
 		<div class="divider"></div>
+		
 	</div>
 </div>
 <div class="clearfix"></div>

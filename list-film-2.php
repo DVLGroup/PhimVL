@@ -1,6 +1,10 @@
 <?php
     include 'core/Connect.php';
 	
+	
+	
+	
+	
 	if(isset($_REQUEST['filmCatID'])){
 		$filmCatID	= $_REQUEST['filmCatID'];
 		$query_FilmBo	= "SELECT * FROM film_bo WHERE film_bo_cataloge_id_first = $filmCatID " ;
@@ -15,6 +19,8 @@
 		$rs_nameCat		= mysql_query($query_nameCat, $my_connect);
 		$rw_nameCat		= mysql_fetch_array($rs_nameCat);
 		$title		= $rw_nameCat['film_cataloge_name'];
+		
+		$self = $_SERVER['PHP_SELF']."?filmCatID=$filmCatID";
 	}
 	elseif(isset($_REQUEST['filmCountryID'])){
 		$filmCountryID = $_REQUEST['filmCountryID'];
@@ -25,10 +31,38 @@
 		$rs_nameCountry		= mysql_query($query_nameCountry, $my_connect);
 		$rw_nameCountry		= mysql_fetch_array($rs_nameCountry);
 		$title		= $rw_nameCountry['film_country_name'];
+		
+		$self = $_SERVER['PHP_SELF']."?filmCountryID=$filmCountryID";
 	}
 		
 		
 	
+?>
+
+
+<?php
+	
+	$page 		= 1;
+	$perPage	= 1;	// Elements on per page
+	
+	$start		= 0;		//Oder number of first element on this page
+	
+	
+	$sql_totalPage = "SELECT COUNT(*) FROM film_bo";
+	$rs = mysql_query($sql_totalPage);
+	$rw = mysql_fetch_array($rs);
+	$totalPage = $rw[0];
+	
+	if(isset($_REQUEST['page'])){
+		$page = $_REQUEST['page'];
+	}
+	
+	if($page > 1){
+		$start	= ($page - 1) * $perPage;
+	}
+	
+	$query_FilmBo 	.= " LIMIT $start, $perPage";
+	$query_FilmLe 	.= " LIMIT $start, $perPage";
 ?>
 
 <div class="row">
@@ -137,6 +171,7 @@
 		<div class="list-film-footer"></div>	
 		
 		
+		
 		<div class="list-film-header">
 			<p class="title">
 				Phim Bộ <?php echo $title ?>
@@ -238,7 +273,38 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="list-film-footer"></div>
-		
+		<!--PHAN TRANG -->
+		<div align="center">
+			<ul class="pagination">
+			<?php
+			
+				if($page == 1){
+					echo '<li class="disabled"><a href="#">&laquo;</a></li>';
+				}
+				else {
+					echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
+				}
+				
+				for($i = 1; $i <= $totalPage; $i++){
+					if($i == $page){
+						echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+					}
+					else {
+						echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+					}
+				}
+				
+				if($page == $totalPage){
+					echo '<li class="disabled"><a href="#">&raquo;</a></li>';
+				}
+				else {
+					echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
+				}
+			?>
+			
+			</ul>
+
+		</div>
 		
 	</div>
 	
@@ -339,5 +405,3 @@
 				
 </div>
 <div class="clearfix"></div>
-
-<
