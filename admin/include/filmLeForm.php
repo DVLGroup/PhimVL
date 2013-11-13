@@ -29,9 +29,12 @@
 
 						function completeHandler(event) {
 							fileName = event.target.responseText;
-							_("link").value = fileName;
+							if(fileName != "Không")
+							{
+								_("link").value = fileName;
+							}
 							//alert(fileName);
-							_("status").innerHTML = event.target.responseText + " Upload Thành Công";
+							_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
 							_("progressBar").value = 0;
 						}
 
@@ -59,7 +62,8 @@
   							<div class="form-group">
   								<label class="control-label col-md-2">Upload Phim</label>
   								<div class="col-md-8">
-  									<input class="form-control required" type="file" name="file1" id="file1">
+  									<input accept="" class="form-control required" type="file" name="file1" id="file1">
+  									<h4 class="text-danger">Không Nên Chọn File Upload Có Unicode</h4>
   								</div>
   							</div>
   							<div class="form-group">
@@ -76,7 +80,15 @@
   								</div>
   							</div>
 						</form>
+						
 						<form method="POST" action="addEditDelete/addFilmLe.php" class="form-horizontal" id="management">
+							<div class="form-group">
+								<label class="control-label col-md-2">Link Phim</label>
+								<div class="col-md-8">
+								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Bạn Phải Upload Để Lưu Link Phim"  />
+								</div>
+								<div class="col-md-offset-2"></div>
+							</div>
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Phim Lẻ</label>
 								<div class="col-md-8">
@@ -232,13 +244,7 @@
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-md-2">Link Phim</label>
-								<div class="col-md-8">
-								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Bạn Phải Upload Để Lưu Link Phim"  />
-								</div>
-								<div class="col-md-offset-2"></div>
-							</div>
+							
 							<div class="form-group">
 								<div class="col-md-offset-2 col-md-8">
 									<div class="btn-group">

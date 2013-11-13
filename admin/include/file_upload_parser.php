@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if (isset($_FILES["file1"]["name"])) {
 	$fileName = $_FILES["file1"]["name"];
 	// The file name
@@ -14,10 +14,11 @@ if (isset($_FILES["file1"]["name"])) {
 		echo "ERROR: Please browse for a file before clicking the upload button.";
 		exit();
 	}
-	if (move_uploaded_file($_FILES["file1"]["tmp_name"], "../upload/" . $_FILES["file1"]["name"])) {
-		echo "$fileName";
+	if (move_uploaded_file(mb_convert_encoding($fileTmpLoc,"UTF8"), "../upload/" . mb_convert_encoding($fileName,"UTF8"))) {
+		echo(mb_convert_encoding($fileName,"UTF8"));
 	} else {
-		echo "move_uploaded_file function failed";
+		echo "Không";
+		
 	}
 }
 ?>
