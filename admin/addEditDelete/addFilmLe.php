@@ -8,7 +8,7 @@
 		<link href="../css/docs.css" rel="stylesheet" type="text/css" />
 		<script src="../js/jquery.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.js" type="text/javascript"></script>
-		
+
 	</head>
 	<body>
 		<?php
@@ -27,18 +27,18 @@
 		$cover = $_POST['cover'];
 		$tenDaoDien = $_POST['tenDaoDien'];
 		$tenDienVien = $_POST['tenDienVien'];
-		$linkFilm = $_POST['link']; 
+		$linkFilm = $_POST['link'];
 		if ($filmLeName != null && $filmLeNameVi != null && $namSX != null && $theLoai1 != null && $theLoai2 != null && $theLoai3 != null && $nuocSX != null && $nhaSX != null  && $avatar != null && $cover != null && $tenDaoDien != null && $tenDienVien != null) {
-			$sql = "INSERT INTO `film_le`(`film_le_name`, `film_le_name_vi`, `film_le_namsx`, 
-			`film_le_cataloge_id_first`, `film_le_cataloge_id_second`, `film_le_cataloge_id_third`, `film_le_country_id`, 
-			`film_le_nhasx_id`, `film_le_content`, `film_le_avatar`, `film_le_cover`, `film_le_daodien`, `film_le_dienvien`, 
-			`film_le_postdate`,`film_le_link`, `film_le_viewed`, `film_le_rate`) 
-			VALUES ('$filmLeName','$filmLeNameVi',$namSX,$theLoai1,$theLoai2,$theLoai3,
-			'$nuocSX','$nhaSX','$noiDung','$avatar','$cover','$tenDaoDien','$tenDienVien', 
-			CURRENT_DATE(),'$linkFilm',0,0)";
+		$sql = "INSERT INTO `film_le`(`film_le_name`, `film_le_name_vi`, `film_le_namsx`,
+		`film_le_cataloge_id_first`, `film_le_cataloge_id_second`, `film_le_cataloge_id_third`, `film_le_country_id`,
+		`film_le_nhasx_id`, `film_le_content`, `film_le_avatar`, `film_le_cover`, `film_le_daodien`, `film_le_dienvien`,
+		`film_le_postdate`,`film_le_link`, `film_le_viewed`, `film_le_rate`)
+		VALUES ('$filmLeName','$filmLeNameVi',$namSX,$theLoai1,$theLoai2,$theLoai3,
+		'$nuocSX','$nhaSX','$noiDung','$avatar','$cover','$tenDaoDien','$tenDienVien',
+		CURRENT_DATE(),'$linkFilm',0,0)";
 
-			if (mysql_query($sql)) {
-				// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');
+		if (mysql_query($sql)) {
+		// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');
 		?>
 		<div class="container">
 			<form method="GET" class="form-horizontal" action="../index-admin.php">
@@ -64,8 +64,10 @@
 
 		</div>
 		<?php
-			mysql_close($link);
+		mysql_close($link);
 		} else {
+
+		unlink("../upload/$linkFilm");
 		?>
 		<div class="container">
 			<form method="GET" action="../index-admin.php" class="form-horizontal">
@@ -90,11 +92,11 @@
 
 		</div>
 		<?php
-			mysql_close($link);
-			}
+		mysql_close($link);
+		}
 		}
 		else
-			header('Location: ../index-admin.php');
+		header('Location: ../index-admin.php');
 		?>
 	</body>
 </html>

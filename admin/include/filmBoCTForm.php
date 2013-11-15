@@ -6,7 +6,7 @@
 					<div class="tab-pane fade" id="addCTFilmBo">
 					<h1 class="text-center text-danger">Thêm Dữ Liệu Chi Tiết Phim Bộ</h1>
 					<div class="well">
-						<form method="POST" action="addEditDelete/addCTFilmBo.php" class="form-horizontal" id="management">
+						<form method="POST" action="addEditDelete/beginUploadBo.php" class="form-horizontal" id="management">
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Phim Bộ</label>
 								<div class="col-md-8">
@@ -27,12 +27,12 @@
 									<input type="text" name="cTFilmBoTap" class="form-control digits required" value="" placeholder="Nhập Tập"  />
 								</div>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="control-label col-md-2">Link Phim</label>
 								<div class="col-md-8">
 									<input type="text" name="cTFilmBoLink" class="form-control url required" minlength="3" value="" placeholder="Nhập Link Phim"  />
 								</div>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<div class="col-md-offset-2 col-md-8">
 									<div class="btn-group">
@@ -63,7 +63,7 @@
 					?>
 					<h1 class="text-danger">Bảng Dữ Liệu Chi Tiết Phim Bộ</h1>
 					<div class="btn-group">
-						<a href="#addCTFilmBo" data-toggle="tab" class="btn btn-info">Thêm Mới</a>
+						<a href="#addCTFilmBo" data-toggle="tab" class="btn btn-info">Upload Phim Bộ</a>
 					</div>
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=7" class="btn btn-default">Trở Về Bảng Phim Bộ</a>

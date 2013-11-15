@@ -1,4 +1,4 @@
-﻿					<script>
+﻿					<!-- <script>
 						var fileName;
 						function _(el) {
 							return document.getElementById(el);
@@ -55,7 +55,7 @@
 						function abortHandler(event) {
 							_("status").innerHTML = "Upload Aborted";
 						}
-					</script>
+					</script> -->
 					<?php
 					$querySLC = "select * from film_cataloge order by film_cataloge_id asc";
 					$resultSLC = mysql_query($querySLC);
@@ -65,10 +65,10 @@
 					$resultSLNSX = mysql_query($querySLNSX);
 					?>
 					<div class="tab-pane fade" id="addFilmLe">
-					<h1 class="text-center text-danger">Thêm Dữ Liệu Phim Lẻ</h1>
+					<h1 class="text-center text-danger">Thông Tin Phim Lẻ</h1>
 					
 					<div class="well">
-						<form class="form-horizontal" id="upload_form" enctype="multipart/form-data" method="post">
+						<!-- <form class="form-horizontal" id="upload_form" enctype="multipart/form-data" method="post">
   							<div class="form-group">
   								<label class="control-label col-md-2">Upload Phim</label>
   								<div class="col-md-8">
@@ -89,16 +89,16 @@
   									<p class="text-info" id="loaded_n_total"></p>
   								</div>
   							</div>
-						</form>
+						</form> -->
 						
-						<form method="POST" action="addEditDelete/addFilmLe.php" class="form-horizontal" id="management">
-							<div class="form-group">
+						<form method="POST" action="addEditDelete/beginUploadLe.php" class="form-horizontal" id="management">
+							<!-- <div class="form-group">
 								<label class="control-label col-md-2">Link Phim</label>
 								<div class="col-md-8">
 								<input type="text" readonly="readonly" id="link" name="link" class="form-control required" value="" placeholder="Bạn Phải Upload Để Lưu Link Phim"  />
 								</div>
 								<div class="col-md-offset-2"></div>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Phim Lẻ</label>
 								<div class="col-md-8">
@@ -262,7 +262,7 @@
 									</div>
 									
 									<div class="btn-group">
-										<button type="submit" class="btn btn-default">Đồng Ý</button>
+										<button type="submit" class="btn btn-default">Chọn File Upload</button>
 									</div>
 									
 									<div class="btn-group">
@@ -289,7 +289,7 @@
 					?>
 					<h1 class="text-danger">Bảng Dữ Liệu Phim Lẻ</h1>
 					<div class="btn-group">
-						<a href="#addFilmLe" data-transition="flow" data-toggle="tab" class="btn btn-info">Thêm Mới</a>
+						<a href="#addFilmLe" data-transition="flow" data-toggle="tab" class="btn btn-info">Upload Phim Lẻ</a>
 					</div>
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=8" class="btn btn-default">Làm Tươi Trang</a>

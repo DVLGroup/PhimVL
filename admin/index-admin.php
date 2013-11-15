@@ -203,7 +203,7 @@
 					&copy; 2012 - <?php echo date('Y');
 					//mysql_close($link);
 					?>
-					by DVL Grp. All rights reserved. Designed (with Bootstrap 3.0) and coded this admin page by one of the member of DVL <a href="#">VIET_NT</a>
+					by DVL Grp. All rights reserved. Designed (with Bootstrap 3.0) and coded this admin page by one of the member of DVL <strong><a href="#">VIET_NT</a></strong>
 				</p>
 
 			</div>

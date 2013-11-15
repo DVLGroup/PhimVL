@@ -58,6 +58,7 @@
 		<?php
 			mysql_close($link);
 		} else {
+			unlink("../upload/$cTFilmBoLink");
 		?>
 		<div class="container">
 			<form method="GET" action="../index-admin.php" class="form-horizontal">
