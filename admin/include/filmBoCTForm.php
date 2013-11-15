@@ -95,7 +95,7 @@
 									<td><?php echo($row1['2']); ?></td>
 									<td><a href="addEditDelete/editOneFilmBoCT.php?cTFilmBoID=<?php echo($row1['0']); ?>&cTFilmBoTap=<?php echo($row1['1']); ?>&cTFilmBoName=<?php echo($row1['3']); ?>">Sửa</a>
 										&nbsp;
-										<a href="addEditDelete/deleteOneFilmBoCT.php?cTFilmBoID=<?php echo($row1['0']); ?>&cTFilmBoTap=<?php echo($row1['1']); ?>&cTFilmBoName=<?php echo($row1['3']); ?>">Xóa</a>
+										<a href="addEditDelete/deleteOneFilmBoCT.php?cTFilmBoID=<?php echo($row1['0']); ?>&cTFilmBoTap=<?php echo($row1['1']); ?>&cTFilmBoName=<?php echo($row1['3']); ?>&cTFilmBoLink=<?php echo($row1['2']); ?>">Xóa</a>
 									</td>
 									
 								</tr>

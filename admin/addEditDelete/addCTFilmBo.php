@@ -18,6 +18,7 @@
 		$cTFilmBoTap = $_POST['cTFilmBoTap'];
 		$cTFilmBoLink = $_POST['cTFilmBoLink'];
 		$filmSoTap;
+		
 		if ($cTFilmBoID != null && $cTFilmBoTap != null && $cTFilmBoLink != null) {
 			$sql = "INSERT INTO `film_bo_ct`(`film_bo_ct_id`, `film_bo_ct_tap`, `film_bo_ct_link`) VALUES (".$cTFilmBoID.",".$cTFilmBoTap.",'".$cTFilmBoLink."')";
 			$sqlSelect = "SELECT film_bo_sotap from film_bo where film_bo_id = ".$cTFilmBoID."";

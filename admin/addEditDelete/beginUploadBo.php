@@ -10,9 +10,18 @@
 				return document.getElementById(el);
 			}
 
+			function changeFile() {
+				var file = _("file1").files[0];
+
+				if (file.type != "video/x-flv" && file.type != "video/mp4") {
+					alert("Không Phải Định Dạng Cho Phép!");
+					_("file1").value = null;
+				}
+			}
+
 			function uploadFile() {
 				var file = _("file1").files[0];
-				//alert(file.name+" | "+file.size+" | "+file.type);
+
 				if (file != null) {
 					var formdata = new FormData();
 					formdata.append("file1", file);
@@ -24,6 +33,7 @@
 					ajax.open("POST", "file_upload_parser.php");
 					ajax.send(formdata);
 				}
+
 			}
 
 			function progressHandler(event) {
@@ -42,10 +52,11 @@
 					_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
 
 				}
-				//alert(fileName);
+
 				else if (fileName == "Có Rồi") {
 					_("status").innerHTML = "File Upload Đã " + event.target.responseText + " Upload Không Thành Công";
 				} else {
+					$("#cancelButton").attr("disabled", "disabeled");
 					_("link").value = fileName;
 					_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
 					$("#upload_form").submit();
@@ -73,7 +84,7 @@
 				<div class="form-group">
 					<label class="control-label col-md-2">Upload Phim</label>
 					<div class="col-md-8">
-						<input accept="video/*" class="form-control required" type="file" name="file1" id="file1">
+						<input accept="video/*" onchange="changeFile()" class="form-control required" type="file" name="file1" id="file1">
 						<h4 class="text-danger"><strong>KHÔNG</strong> Chọn File Upload Có Unicode</h4>
 					</div>
 				</div>
@@ -96,7 +107,7 @@
 					<label class="control-label col-md-2"></label>
 					<div class="col-md-8">
 						<input type="button" id="uploadButton" class="btn btn-primary" value="Bắt Đầu Upload" onclick="uploadFile()">
-						<a class="btn btn-info" href="../index-admin.php?changePage=9&filmBoID=<?php echo($_POST['cTFilmBoID']); ?>">Hủy</a>
+						<a id="cancelButton" class="btn btn-info" href="../index-admin.php?changePage=9&filmBoID=<?php echo($_POST['cTFilmBoID']); ?>">Hủy</a>
 					</div>
 				</div>
 				<input type="hidden" name="cTFilmBoID" value="<?php echo($_POST['cTFilmBoID']); ?>" />

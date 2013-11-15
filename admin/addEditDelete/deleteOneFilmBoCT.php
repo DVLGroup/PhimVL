@@ -29,7 +29,7 @@
 						<div class="col-md-2 col-md-offset-5">
 							<input type="hidden" name="changePage" value="9" />
 							<input type="hidden" name="filmBoID" value="<?php echo($_REQUEST['cTFilmBoID'])?>" />
-							<a href="../addEditDelete/deleteFilmBoCT.php?cTFilmBoTranID=<?php echo($_REQUEST['cTFilmBoID']); ?>&cTFilmBoTranTap=<?php echo($_REQUEST['cTFilmBoTap']); ?>" class="btn btn-default btn-block">Có</a>
+							<a href="../addEditDelete/deleteFilmBoCT.php?cTFilmBoTranID=<?php echo($_REQUEST['cTFilmBoID']); ?>&cTFilmBoTranTap=<?php echo($_REQUEST['cTFilmBoTap']); ?>&cTFilmBoTranLink=<?php echo($_REQUEST['cTFilmBoLink']); ?>" class="btn btn-default btn-block">Có</a>
 							<button class="btn btn-info btn-block" type="submit" >
 								Không
 							</button>

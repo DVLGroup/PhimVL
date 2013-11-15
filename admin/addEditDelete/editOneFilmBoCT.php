@@ -42,7 +42,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-2">Link Phim</label>
 						<div class="col-md-8">
-							<input type="text" name="cTFilmBoTranLink" class="form-control url required" value="<?php echo($cTFilmBoLinkEdit); ?>" placeholder="Nhập Link Phim"  />
+							<input type="text" readonly="readonly" name="cTFilmBoTranLink" class="form-control url required" value="<?php echo($cTFilmBoLinkEdit); ?>" placeholder="Nhập Link Phim"  />
 						</div>
 						<div class="col-md-offset-2"></div>
 					</div>									
