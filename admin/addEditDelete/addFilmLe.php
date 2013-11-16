@@ -23,8 +23,8 @@
 		$nuocSX = $_POST['nuocSX'];
 		$nhaSX = $_POST['nhaSX'];
 		$noiDung = $_POST['noiDung'];
-		$avatar = $_POST['avatar'];
-		$cover = $_POST['cover'];
+		$avatar = $_FILES['avatar']['name'];
+		$cover = $_FILES['cover']['name'];
 		$tenDaoDien = $_POST['tenDaoDien'];
 		$tenDienVien = $_POST['tenDienVien'];
 		$linkFilm = $_POST['link'];
@@ -39,6 +39,10 @@
 
 		if (mysql_query($sql)) {
 		// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');
+			if($_FILES['cover']['name']!=null&&$_FILES['avatar']['name']){
+				move_uploaded_file($_FILES['cover']['tmp_name'], "../upload/hinhPhimCover/".$_FILES['cover']['name']);
+				move_uploaded_file($_FILES['avatar']['tmp_name'], "../upload/hinhPhimAvatar/".$_FILES['avatar']['name']);
+			}
 		?>
 		<div class="container">
 			<form method="GET" class="form-horizontal" action="../index-admin.php">

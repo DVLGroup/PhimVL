@@ -13,14 +13,34 @@
 				var file = _("file1").files[0];
 
 				if (file.type != "video/x-flv" && file.type != "video/mp4") {
-					alert("Không Phải Định Dạng Cho Phép!");
+					alert("Không Phải Định Dạng Video Cho Phép (MP4 và FLV)!");
 					_("file1").value = null;
+				}
+			}
+			function changeImageCover() {
+				
+				var cover = _("cover").files[0];
+				// var avatar = _("avatar").files[0];
+				if (cover.type != "image/jpeg" && cover.type != "image/png") {
+					alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+					_("cover").value = null;
+				}
+			}
+			function changeImageAvatar() {
+				
+				// var cover = _("cover").files[0];
+				var avatar = _("avatar").files[0];
+				if (avatar.type != "image/jpeg" && avatar.type != "image/png") {
+					alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+					_("avatar").value = null;
 				}
 			}
 			function uploadFile() {
 				var file = _("file1").files[0];
+				var cover = _("cover").files[0];
+				var avatar = _("avatar").files[0];
 				//alert(file.name+" | "+file.size+" | "+file.type);
-				if (file != null) {
+				if (file != null && cover != null && avatar != null) {
 					var formdata = new FormData();
 					formdata.append("file1", file);
 					var ajax = new XMLHttpRequest();
@@ -79,13 +99,26 @@
 		<div class="container well">
 			<form class="form-horizontal" id="upload_form" action="../addEditDelete/addFilmLe.php" enctype="multipart/form-data" method="post">
 				<div class="form-group">
+					<label class="col-md-2 control-label">Chọn Hình Cover</label>
+					<div class="col-md-8">
+						<input accept="image/*" onchange="changeImageCover()" class="form-control" type="file" id="cover" name="cover" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">Chọn Hình Avatar</label>
+					<div class="col-md-8">
+						<input accept="image/*" onchange="changeImageAvatar()" class="form-control" type="file" id="avatar" name="avatar" />
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label class="control-label col-md-2">Upload Phim</label>
 					<div class="col-md-8">
 						<input accept="video/*" onchange="changeFile()" class="form-control required" type="file" name="file1" id="file1">
 						<h4 class="text-danger"><strong>KHÔNG</strong> Chọn File Upload Có Unicode</h4>
 					</div>
 				</div>
-
+				
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-8">
 						<progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
@@ -116,8 +149,8 @@
 				<input type="hidden" name="nuocSX" value="<?php echo($_POST['nuocSX']); ?>" />
 				<input type="hidden" name="nhaSX" value="<?php echo($_POST['nhaSX']); ?>" />
 				<input type="hidden" name="noiDung" value="<?php echo($_POST['noiDung']); ?>" />
-				<input type="hidden" name="avatar" value="<?php echo($_POST['avatar']); ?>" />
-				<input type="hidden" name="cover" value="<?php echo($_POST['cover']); ?>" />
+				<!-- <input type="hidden" name="avatar" value="<?php echo($_POST['avatar']); ?>" />
+				<input type="hidden" name="cover" value="<?php echo($_POST['cover']); ?>" /> -->
 				<input type="hidden" name="tenDaoDien" value="<?php echo($_POST['tenDaoDien']); ?>" />
 				<input type="hidden" name="tenDienVien" value="<?php echo($_POST['tenDienVien']); ?>" />
 			</form>

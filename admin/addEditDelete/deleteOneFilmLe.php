@@ -9,7 +9,7 @@
 		<script src="../js/jquery.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.js" type="text/javascript"></script>
 		<?php
-			if (!isset($_REQUEST['filmLeID'])||!isset($_REQUEST['filmLeName'])||!isset($_REQUEST['link'])) {
+			if (!isset($_REQUEST['filmLeID'])||!isset($_REQUEST['filmLeName'])||!isset($_REQUEST['link'])||!isset($_REQUEST['cover'])||!isset($_REQUEST['avatar'])) {
 				header('Location: ../index-admin.php');
 			}
 		?>
@@ -28,7 +28,7 @@
 						</div>
 						<div class="col-md-2 col-md-offset-5">
 							<input type="hidden" name="changePage" value="8" />
-							<a href="../addEditDelete/deleteFilmLe.php?filmLeTranID=<?php echo($_REQUEST['filmLeID']); ?>&filmLeLink=<?php echo($_REQUEST['link']); ?>" class="btn btn-default btn-block">Có</a>
+							<a href="../addEditDelete/deleteFilmLe.php?filmLeTranID=<?php echo($_REQUEST['filmLeID']); ?>&filmLeLink=<?php echo($_REQUEST['link']); ?>&tranCover=<?php echo($_REQUEST['cover']); ?>&tranAvatar=<?php echo($_REQUEST['avatar']); ?>" class="btn btn-default btn-block">Có</a>
 							<button class="btn btn-info btn-block" type="submit" >
 								Không
 							</button>

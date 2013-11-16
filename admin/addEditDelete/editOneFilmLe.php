@@ -239,7 +239,7 @@
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="control-label col-md-2">Hình Avatar</label>
 								<div class="col-md-8">
 								<input type="text" name="avatar" class="form-control url required" value="<?php echo($avatar); ?>" placeholder="Nhập URL Hình"  />
@@ -252,7 +252,7 @@
 								<input type="text" name="cover" class="form-control url required" value="<?php echo($cover); ?>" placeholder="Nhập URL Hình"  />
 								</div>
 								<div class="col-md-offset-2"></div>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Đạo Diễn</label>
 								<div class="col-md-8">
