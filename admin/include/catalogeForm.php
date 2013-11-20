@@ -39,9 +39,9 @@
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=5" class="btn btn-default">Làm Tươi Trang</a>
 					</div>
-					<hr />
+					<hr id="One" />
 					<div class="table-responsive">
-						<table class="table table-striped table-hover table-responsive">
+						<table id="tableOne" class="table table-striped table-hover table-responsive">
 							<thead>
 								<tr>
 									<th class="lead">STT</th>
