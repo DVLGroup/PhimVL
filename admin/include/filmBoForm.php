@@ -1,4 +1,40 @@
-﻿					<script>
+﻿					<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
+					<script>
+						$(document).ready(function() {
+
+							//Setup the sorting for the table with the first column initially sorted ascending
+							//and the rows striped using the zebra widget
+							$("#tableFour").tablesorter({
+								sortList : [[0, 0]],
+								widgets : ['zebra']
+							});
+
+							//Setup the quickSearch plugin with on onAfter event that first checks to see how
+							//many rows are visible in the body of the table. If there are rows still visible
+							//call tableSorter functions to update the sorting and then hide the tables footer.
+							//Else show the tables footer
+							$("#tableFour tbody tr").quicksearch({
+								labelText : 'Tìm Kiếm: ',
+								attached : '#Four',
+								position : 'before',
+								delay : 100,
+								loaderText : 'Loading...',
+								onAfter : function() {
+									if ($("#tableFour tbody tr:visible").length != 0) {
+										$("#tableFour").trigger("update");
+										$("#tableFour").trigger("appendCache");
+										$("#tableFour tfoot tr").hide();
+									} else {
+										$("#tableFour tfoot tr").show();
+									}
+								}
+							});
+
+						});
+					</script>
+					<script>
 						function _(el) {
 							return document.getElementById(el);
 						}
@@ -230,8 +266,8 @@
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=7" class="btn btn-default">Làm Tươi Trang</a>
 					</div>
-					<hr />
-					<div class="table-responsive table-scrollable">
+					<hr id="Four" />
+					<div id="tableFour" class="table-responsive table-scrollable">
 						<table class="table table-bordered table-condensed table-striped table-hover">
 							<thead style="white-space: nowrap;">
 								<tr>

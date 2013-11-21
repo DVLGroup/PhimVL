@@ -1,4 +1,40 @@
-﻿				<div class="tab-pane active fade in" id="">
+﻿				<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
+					<script>
+						$(document).ready(function() {
+
+							//Setup the sorting for the table with the first column initially sorted ascending
+							//and the rows striped using the zebra widget
+							$("#tableSix").tablesorter({
+								sortList : [[0, 0]],
+								widgets : ['zebra']
+							});
+
+							//Setup the quickSearch plugin with on onAfter event that first checks to see how
+							//many rows are visible in the body of the table. If there are rows still visible
+							//call tableSorter functions to update the sorting and then hide the tables footer.
+							//Else show the tables footer
+							$("#tableSix tbody tr").quicksearch({
+								labelText : 'Tìm Kiếm: ',
+								attached : '#Six',
+								position : 'before',
+								delay : 100,
+								loaderText : 'Loading...',
+								onAfter : function() {
+									if ($("#tableSix tbody tr:visible").length != 0) {
+										$("#tableSix").trigger("update");
+										$("#tableSix").trigger("appendCache");
+										$("#tableSix tfoot tr").hide();
+									} else {
+										$("#tableSix tfoot tr").show();
+									}
+								}
+							});
+
+						});
+					</script>
+				<div class="tab-pane active fade in" id="">
 					<?php
 					$query = "select film_yeucau_id,user.user_email,film_yeucau_name,film_yeucau_name_vi,film_yeucau_namsx,film_yeucau_postdate 
 					from user,film_yeucau where user.user_id = film_yeucau.film_yeucau_user_id order by user.user_id asc";
@@ -10,8 +46,8 @@
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=6" class="btn btn-default">Làm Tươi Trang</a>
 					</div>
-					<hr />
-					<div class="table-responsive table-scrollable">
+					<hr id="Six" />
+					<div id="tableSix" class="table-responsive table-scrollable">
 						<table class="table table-striped table-hover">
 							<thead style="white-space: nowrap;">
 								<tr>

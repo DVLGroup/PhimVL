@@ -1,4 +1,40 @@
-﻿					<div class="tab-pane fade" id="addCataloge">
+﻿					<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
+					<script type="text/javascript">
+						$(document).ready(function() {
+
+							//Setup the sorting for the table with the first column initially sorted ascending
+							//and the rows striped using the zebra widget
+							$("#tableOne").tablesorter({
+								sortList : [[0, 0]],
+								widgets : ['zebra']
+							});
+
+							//Setup the quickSearch plugin with on onAfter event that first checks to see how
+							//many rows are visible in the body of the table. If there are rows still visible
+							//call tableSorter functions to update the sorting and then hide the tables footer.
+							//Else show the tables footer
+							$("#tableOne tbody tr").quicksearch({
+								labelText : 'Tìm Kiếm: ',
+								attached : '#One',
+								position : 'before',
+								delay : 100,
+								loaderText : 'Loading...',
+								onAfter : function() {
+									if ($("#tableOne tbody tr:visible").length != 0) {
+										$("#tableOne").trigger("update");
+										$("#tableOne").trigger("appendCache");
+										$("#tableOne tfoot tr").hide();
+									} else {
+										$("#tableOne tfoot tr").show();
+									}
+								}
+							});
+
+						});
+					</script>
+					<div class="tab-pane fade" id="addCataloge">
 					<h1 class="text-center text-danger">Thêm Dữ Liệu Thể Loại Film</h1>
 					<div class="well">
 						<form method="POST" action="addEditDelete/addCataloge.php" class="form-horizontal" id="management">
@@ -28,9 +64,9 @@
 				</div>
 					<div class="tab-pane active fade in" id="tableCataloge">
 					<?php
-						$queryCataloge = 'select * from film_cataloge order by film_cataloge_id asc';
-						$resultCataloge = mysql_query($queryCataloge);
-						mysql_close($link);
+					$queryCataloge = 'select * from film_cataloge order by film_cataloge_id asc';
+					$resultCataloge = mysql_query($queryCataloge);
+					mysql_close($link);
 					?>
 					<h1 class="text-danger">Bảng Dữ Liệu Thể Loại Film</h1>
 					<div class="btn-group">

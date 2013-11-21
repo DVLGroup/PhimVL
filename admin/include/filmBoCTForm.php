@@ -1,4 +1,40 @@
-﻿					<?php
+﻿					<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
+					<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
+					<script>
+						$(document).ready(function() {
+
+							//Setup the sorting for the table with the first column initially sorted ascending
+							//and the rows striped using the zebra widget
+							$("#tableThree").tablesorter({
+								sortList : [[0, 0]],
+								widgets : ['zebra']
+							});
+
+							//Setup the quickSearch plugin with on onAfter event that first checks to see how
+							//many rows are visible in the body of the table. If there are rows still visible
+							//call tableSorter functions to update the sorting and then hide the tables footer.
+							//Else show the tables footer
+							$("#tableThree tbody tr").quicksearch({
+								labelText : 'Tìm Kiếm: ',
+								attached : '#Three',
+								position : 'before',
+								delay : 100,
+								loaderText : 'Loading...',
+								onAfter : function() {
+									if ($("#tableThree tbody tr:visible").length != 0) {
+										$("#tableThree").trigger("update");
+										$("#tableThree").trigger("appendCache");
+										$("#tableThree tfoot tr").hide();
+									} else {
+										$("#tableThree tfoot tr").show();
+									}
+								}
+							});
+
+						});
+					</script>
+					<?php
 					$filmBoIDAdd = $_REQUEST['filmBoID'];
 					$querySLFB = "select film_bo_id, film_bo_name from film_bo where film_bo_id = $filmBoIDAdd order by film_bo_id";
 					$resultSLFB = mysql_query($querySLFB);
@@ -68,9 +104,9 @@
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=7" class="btn btn-default">Trở Về Bảng Phim Bộ</a>
 					</div>
-					<hr />
+					<hr id="Three" />
 					<div class="table-responsive">
-						<table class="table table-striped table-hover table-responsive">
+						<table id="tableThree" class="table table-striped table-hover table-responsive">
 							<thead>
 								<tr>
 									<th class="lead">STT</th>
