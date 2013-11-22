@@ -36,7 +36,9 @@
 	elseif(isset($_REQUEST['filmCatID']) OR isset($_REQUEST['filmCountryID']) ){
 		include 'list-film-2.php';
 	}
-	
+	elseif(isset($_REQUEST['searchFilm'])){
+		include 'list-film-2.php';
+	}
 	elseif(isset($_REQUEST['requestFilm'])){
 		$requestFilm	= $_REQUEST['requestFilm'];//True hoac false	
 		$includePage = $requestFilm;

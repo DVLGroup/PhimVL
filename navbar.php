@@ -59,12 +59,19 @@
 							</div>
 						</div>
 						</form>
-						<form class="navbar-form pull-right" role="search">
+						
+						<form class="navbar-form pull-right" role="search" action="" method="GET" style="position: relative">
 							<div class="form-group">
-								<input type="text" class="form-control " placeholder="Search" style="width: 300px">
+								<input id="search" class="form-control" type="text" placeholder="Nhập từ khóa tìm kiếm"  name="searchFilm_query" style="width: 300px"/>
 							</div>
-							<button type="submit" class="btn btn-primary">Tìm kiếm</button>					
+							<button type="submit" id="search-btn" class="btn btn-primary" name="searchFilm" value="1">Tìm kiếm</button>
+							
+							<div id="resultSearch">
+								<p id="searchFilmTitle">Kết quả tìm kiếm: <b id="value-search"></b> </p>
+								<ul id="results" class="list-unstyled"></ul>
+							</div>
 						</form>
+						
 					</div>
 					<!--@@ END Navigation TOOLS -->
 				</nav>

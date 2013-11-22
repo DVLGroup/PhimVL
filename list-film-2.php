@@ -1,10 +1,6 @@
 <?php
     include 'core/Connect.php';
 	
-	
-	
-	
-	
 	if(isset($_REQUEST['filmCatID'])){
 		$filmCatID	= $_REQUEST['filmCatID'];
 		$query_FilmBo	= "SELECT * FROM film_bo WHERE film_bo_cataloge_id_first = $filmCatID " ;
@@ -33,9 +29,7 @@
 		$title		= $rw_nameCountry['film_country_name'];
 		
 		$self = $_SERVER['PHP_SELF']."?filmCountryID=$filmCountryID";
-	}
-		
-		
+	}		
 	
 ?>
 
@@ -93,78 +87,6 @@
 					}
 					mysql_free_result($rs_FilmLe);
 				?>
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
 			</ul>
 		</div>
 		<div class="clearfix"></div>
@@ -197,82 +119,11 @@
 					}
 					mysql_free_result($rs_FilmBo);
 				?>
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
 			</ul>
 		</div>
 		<div class="clearfix"></div>
 		<div class="list-film-footer"></div>
+		
 		<!--PHAN TRANG -->
 		<div align="center">
 			<ul class="pagination">

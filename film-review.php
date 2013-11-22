@@ -1,4 +1,8 @@
-
+<script>
+$(document).ready(function() {
+  $("#editor").wysibb()
+})
+</script>
 <?php
 	include 'core/Connect.php';	
 	
@@ -122,7 +126,12 @@
 	</div>
 	<div class="entry">
 		<p class="tomtatPhim">
-			<?php echo $row_filmReview[''.$film.'content']?> 
+			<textarea id="editor">
+			<?php 
+				$contentFilm = $row_filmReview[''.$film.'content'];
+				echo $contentFilm;
+			?>
+			</textarea>
 		</p>
 	</div>
 	<div class="divider"></div>

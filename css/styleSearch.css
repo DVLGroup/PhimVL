@@ -1,0 +1,39 @@
+
+div#resultSearch{
+	display: none;
+	position: absolute;
+	top: 36px;
+	border-radius: 10px;
+	background-color: rgb(7, 6, 4);
+	padding: 5px;
+	width: 302px;
+	color: #000000;
+}
+
+p#searchFilmTitle{
+}
+
+ul#results{
+}
+ul#results li ul li{
+	margin: 5px 0;
+	border: 1px solid #CCC;
+	padding: 5px;
+}
+ul#results li ul li a img{
+	float: left;
+	width: 50px;
+	height: 70px;
+}
+ul#results li ul li a h4{
+	float: left;
+	margin-left: 10px;
+}
+
+ul#results span.media-heading{
+	padding-left: 10px;
+}
+
+.nonedisplay{
+	display: none;
+}

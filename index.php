@@ -25,12 +25,13 @@
 		<link rel="stylesheet" href="css/film.css" type="text/css" media="screen,print" />
 		<link rel="stylesheet" href="css/sliderbar.css" type="text/css"  media="print,screen" />
 		<link rel="stylesheet" href="css/film-info.css" type="text/css"  media="print,screen" />
+		<link rel="stylesheet" href="css/styleSearch.css" type="text/css"  media="print,screen" />
 		<link rel="stylesheet" href="css/wbbtheme.css" type="text/css"  media="print,screen" />
 		
         <!-- Chèn link JavaScript-->
-        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="navbar.js" type="text/javascript"></script>
+        <script src="js/searchFilm.js" type="text/javascript"></script>
         <script src="js/jquery.wysibb.js" type="text/javascript"></script>
         
 		
@@ -49,8 +50,7 @@
 					<!--@ Start WOWSlider.com BODY section -->
 					<div id="slider">
 						<?php
-							include 'slider.php';
-							//include 'film-play.php';
+							//include 'slider.php';
 						?><!--@@ End WOWSlider.com BODY section -->
 					</div>
 					
