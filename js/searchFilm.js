@@ -5,6 +5,13 @@
 $(document).ready(function(){
 	
 	
+	$('button#search-btn').on('click', function(){
+		$search_string = $("input#search").val();
+		if($search_string == '' || $search_string == ' '){
+			alert("ko");
+		}
+	});
+	
 	function search(){
 		//Từ khóa tìm kiếm
 		var tu_khoa = $("input#search").val();
