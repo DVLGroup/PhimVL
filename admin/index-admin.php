@@ -13,10 +13,46 @@
 		<script src="js/wysibb/jquery.wysibb.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/messages_vi.js"></script>
+		<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+		<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
+		<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+
+				//Setup the sorting for the table with the first column initially sorted ascending
+				//and the rows striped using the zebra widget
+				$("#tableOne").tablesorter({
+					sortList : [[0, 0]],
+					widgets : ['zebra']
+				});
+
+				//Setup the quickSearch plugin with on onAfter event that first checks to see how
+				//many rows are visible in the body of the table. If there are rows still visible
+				//call tableSorter functions to update the sorting and then hide the tables footer.
+				//Else show the tables footer
+				$("#tableOne tbody tr").quicksearch({
+					labelText : 'Tìm Kiếm: ',
+					attached : '#One',
+					position : 'before',
+					delay : 100,
+					loaderText : 'Loading...',
+					onAfter : function() {
+						if ($("#tableOne tbody tr:visible").length != 0) {
+							$("#tableOne").trigger("update");
+							$("#tableOne").trigger("appendCache");
+							$("#tableOne tfoot tr").hide();
+						} else {
+							$("#tableOne tfoot tr").show();
+						}
+					}
+				});
+
+			});
+			$(document).ready(function() {
 				$("#editor").wysibb();
-				$('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+				$('[data-toggle="tooltip"]').tooltip({
+					'placement' : 'top'
+				});
 			})
 			$(document).ready(function() {
 				$("#management").validate({
@@ -27,7 +63,7 @@
 						},
 					}
 				});
-				
+
 			});
 		</script>
 		<?php
@@ -54,7 +90,7 @@
 						right : "250px"
 					}, 800);
 				});
-				$('#submit').click(function(){
+				$('#submit').click(function() {
 					$('body,html').animate({
 						scrollTop : 0
 					}, 300);
@@ -127,7 +163,8 @@
 						<li class="dropdown">
 							<a href="#" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> <?php
 							echo($_SESSION["adminLog"]);
-							?> <span class="caret"></span> </a>
+						?>
+							<span class="caret"></span> </a>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<a href="configPage.php"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;Tùy Chỉnh Tài Khoản&nbsp;&nbsp;&nbsp;</a>

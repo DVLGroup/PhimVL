@@ -8,11 +8,11 @@ if (!isset($_REQUEST['filmLeTranID'])||!isset($_REQUEST['filmLeLink'])||!isset($
 	$resultDeleteFL = mysql_query($queryDeleteFL);
 	mysql_close($link);
 	$fileName = $_REQUEST['filmLeLink'];
-	$cover = $_REQUEST['tranCover'];
-	$avatar = $_REQUEST['tranAvatar'];
+	// $cover = $_REQUEST['tranCover'];
+	// $avatar = $_REQUEST['tranAvatar'];
 	unlink("../upload/$fileName");
-	unlink("../upload/hinhPhimCover/$cover");
-	unlink("../upload/hinhPhimAvatar/$avatar");
+	// unlink("../upload/hinhPhimCover/$cover");
+	// unlink("../upload/hinhPhimAvatar/$avatar");
 	header('Location: ../index-admin.php?changePage=8');
 }
 ?>

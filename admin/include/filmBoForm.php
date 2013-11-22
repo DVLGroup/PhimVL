@@ -1,16 +1,40 @@
-﻿					
+﻿					<script>
+						function _(el) {
+							return document.getElementById(el);
+						}
+
+						function changeImageCover() {
+
+							var cover = _("cover").files[0];
+							// var avatar = _("avatar").files[0];
+							if (cover.type != "image/jpeg" && cover.type != "image/png") {
+								alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+								_("cover").value = null;
+							}
+						}
+
+						function changeImageAvatar() {
+
+							// var cover = _("cover").files[0];
+							var avatar = _("avatar").files[0];
+							if (avatar.type != "image/jpeg" && avatar.type != "image/png") {
+								alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+								_("avatar").value = null;
+							}
+						}
+					</script>
 					<?php
-						$querySLC = "select * from film_cataloge order by film_cataloge_id asc";
-						$resultSLC = mysql_query($querySLC);
-						$querySLCon = "select * from film_country order by film_country_id asc";
-						$resultSLCon = mysql_query($querySLCon);
-						$querySLNSX = "select * from film_nhasx order by film_nhasx_id asc";
-						$resultSLNSX = mysql_query($querySLNSX);
+					$querySLC = "select * from film_cataloge order by film_cataloge_id asc";
+					$resultSLC = mysql_query($querySLC);
+					$querySLCon = "select * from film_country order by film_country_id asc";
+					$resultSLCon = mysql_query($querySLCon);
+					$querySLNSX = "select * from film_nhasx order by film_nhasx_id asc";
+					$resultSLNSX = mysql_query($querySLNSX);
 					?>
 					<div class="tab-pane fade" id="addFilmBo">
 					<h1 class="text-center text-danger">Thêm Dữ Liệu Phim Bộ</h1>
 					<div class="well">
-						<form method="POST" action="addEditDelete/addFilmBo.php" class="form-horizontal" id="management">
+						<form method="POST" action="addEditDelete/addFilmBo.php" class="form-horizontal" id="management" enctype="multipart/form-data">
 							<div class="form-group">
 								<label class="control-label col-md-2">Tên Phim Bộ</label>
 								<div class="col-md-8">
@@ -36,14 +60,13 @@
 											?>
 											<option selected="" value="<?php echo($i); ?>"><?php echo($i); ?></option>
 											<?php
-										}
-										else {
+											}
+											else {
 											?>
 											<option value="<?php echo($i); ?>"><?php echo($i); ?></option>
 											<?php
-										}
-									}
-									?>
+											}
+											} ?>
 								</select>
 								</div>
 								<div class="col-md-offset-2"></div>
@@ -142,14 +165,14 @@
 							<div class="form-group">
 								<label class="control-label col-md-2">Hình Avatar</label>
 								<div class="col-md-8">
-								<input type="text" name="avatar" class="form-control url required" value="" placeholder="Nhập URL Hình"  />
+								<input type="file" accept="jpeg|png|jpg" onchange="changeImageAvatar()" id="avatar" name="avatar" class="form-control required" value=""  />
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-md-2">Hình Cover</label>
 								<div class="col-md-8">
-								<input type="text" name="cover" class="form-control url required" value="" placeholder="Nhập URL Hình"  />
+								<input type="file" accept="jpeg|png|jpg" onchange="changeImageCover()" id="cover" name="cover" class="form-control required" value=""   />
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
@@ -250,7 +273,7 @@
 										<a data-toggle="tooltip"  title="Chi Tiết Phim" href="index-admin.php?changePage=9&filmBoID=<?php echo($row['0']); ?>"><?php echo($row['3']); ?></a>
 									</td>
 									<td><?php echo($row['4']); ?></td>
-									<td><?php echo($row['5']." | ".$row['6']." | ".$row['7']); ?></td>
+									<td><?php echo($row['5'] . " | " . $row['6'] . " | " . $row['7']); ?></td>
 									<td><?php echo($row['8']); ?></td>
 									<td><?php echo($row['9']); ?></td>
 									<td><?php echo($row['10']); ?></td>
@@ -263,7 +286,7 @@
 									<td>
 										<a href="addEditDelete/editOneFilmBo.php?filmBoID=<?php echo($row['0']); ?>">Sửa</a>
 										&nbsp;
-										<a href="addEditDelete/deleteOneFilmBo.php?filmBoID=<?php echo($row['0']); ?>&filmBoName=<?php echo($row['1']); ?>">Xóa</a>
+										<a href="addEditDelete/deleteOneFilmBo.php?filmBoID=<?php echo($row['0']); ?>&filmBoName=<?php echo($row['1']); ?>&cover=<?php echo($row['11']); ?>&avatar=<?php echo($row['10']); ?>">Xóa</a>
 									</td>
 								</tr>
 								<?php
