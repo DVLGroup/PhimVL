@@ -1,39 +1,4 @@
-﻿					<script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
-					<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
-					<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script>
-					<script>
-						$(document).ready(function() {
-
-							//Setup the sorting for the table with the first column initially sorted ascending
-							//and the rows striped using the zebra widget
-							$("#tableFive").tablesorter({
-								sortList : [[0, 0]],
-								widgets : ['zebra']
-							});
-
-							//Setup the quickSearch plugin with on onAfter event that first checks to see how
-							//many rows are visible in the body of the table. If there are rows still visible
-							//call tableSorter functions to update the sorting and then hide the tables footer.
-							//Else show the tables footer
-							$("#tableFive tbody tr").quicksearch({
-								labelText : 'Tìm Kiếm: ',
-								attached : '#Five',
-								position : 'before',
-								delay : 100,
-								loaderText : 'Loading...',
-								onAfter : function() {
-									if ($("#tableFive tbody tr:visible").length != 0) {
-										$("#tableFive").trigger("update");
-										$("#tableFive").trigger("appendCache");
-										$("#tableFive tfoot tr").hide();
-									} else {
-										$("#tableFive tfoot tr").show();
-									}
-								}
-							});
-
-						});
-					</script>
+﻿
 					<!-- <script>
 						var fileName;
 						function _(el) {
@@ -329,6 +294,12 @@
 					</div>
 					<div class="btn-group">
 						<a href="index-admin.php?changePage=8" class="btn btn-default">Làm Tươi Trang</a>
+					</div>
+					<div class="btn-group">
+						<input placeholder="Tìm Kiếm..." type="search" name="search" class="form-control" value="" id="id_search" />
+					</div>
+					<div class="btn-group">
+						<span class="loading text-primary">Loading...</span>
 					</div>
 					<hr id="Five" />
 					<div id="tableFive" class="table-responsive table-scrollable">

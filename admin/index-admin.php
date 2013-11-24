@@ -13,11 +13,19 @@
 		<script src="js/wysibb/jquery.wysibb.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/messages_vi.js"></script>
+		<script src="js/jquery.quicksearch.js" type="text/javascript"></script>
 		<!-- <script src="_assets/js/jquery-1.2.6.min.js" type="text/javascript"></script>
 		<script src="_assets/js/jquery.tablesorter-2.0.4.js" type="text/javascript"></script>
 		<script src="_assets/js/jquery.quicksearch.js" type="text/javascript"></script> -->
 		<script type="text/javascript">
-			
+			$(document).ready(function() {
+				$("#id_search").quicksearch("table tbody tr", {
+					noResults : '#noresults',
+					stripeRows : ['odd', 'even'],
+					loader : 'span.loading',
+					minValLength : 2
+				});
+			});
 			$(document).ready(function() {
 				$("#editor").wysibb();
 				$('[data-toggle="tooltip"]').tooltip({
