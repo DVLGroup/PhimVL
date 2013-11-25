@@ -42,14 +42,14 @@ src: url('../fonts/UVNDaLat_R.ttf')
 }
 
 ul.film-show-list-ul li {
-    margin: 0px 10px;
-    width: 185px;
-    height: 365px;
+    margin: 0px 8px;
+    width: 170px;
+    height: 330px;
 }
 
 ul.film-show-list-ul li .poster{
-    width: 185px;
-    height: 265px;
+    width: 170px;
+	height: 245px;
     padding: 5px;
     box-shadow: 0 0 1px;
 }
@@ -70,6 +70,7 @@ ul.film-show-list-ul li .name_vi a{
 
 
 .list-film-footer{
+	margin: 20px 0;
 	width: 100%;
 	height:1px;
 	background: transparent url('../images/devider.png') no-repeat;

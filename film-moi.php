@@ -39,6 +39,67 @@
 					echo '</li>';
 					}
 			?>
+			
+			
+			<li class="list-flim-li-22">
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li class="list-flim-li-22">
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
+
+				<li>
+					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
+
+					<div class="name">
+						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
+						<br>
+						<span class="name_en"> <a href="">First of Legend</a> </span>
+						<br>
+						<span > <a href="">2013</a> </span>
+					</div>
+				</li>
 			<div class="clearfix"></div>
 		</ul>
 	</div>

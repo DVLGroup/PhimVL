@@ -50,7 +50,7 @@
 					<!--@ Start WOWSlider.com BODY section -->
 					<div id="slider">
 						<?php
-							//include 'slider.php';
+							include 'slider.php';
 						?><!--@@ End WOWSlider.com BODY section -->
 					</div>
 					

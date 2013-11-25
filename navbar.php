@@ -4,7 +4,7 @@
 ?>
 
 <!--@ NAVIGATION BAR -->
-<nav class="navbar navbar-static-top navbar-inverse" >
+<nav class="navbar navbar-static-top navbar-black" >
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-Tools">
 							<span class="sr-only">Select Option</span>

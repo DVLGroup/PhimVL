@@ -10,7 +10,7 @@ body {
 #layout{
 	margin: 0 auto;
 	max-width: 1366px;
-	min-width:  480px;
+	min-width:  960px;
 }
 
 
@@ -20,14 +20,15 @@ header{
 
 #body{
 	position: relative;
-	background: url('../images/bg.png') no-repeat;
+	--background: url('../images/bg.png') no-repeat;
+	background: transparent url("../images/repeat-y.png") center repeat-y ;
 }
 
 #layout-left, #layout-right{
 	height: 713px;
-	width: 174px;
+	width: 234px;
 	overflow: hidden;
-	background: url("../images/t_l_i.png") no-repeat scroll 0px 0px transparent;
+	background: url("../images/t_l_i.png")no-repeat scroll 0px 0px transparent;
 	position: absolute;
 	top: 0px;
 	left: 50%;
@@ -36,30 +37,32 @@ header{
 
 #layout-right{
 	height: 713px;
-	width: 134px;	
+	width: 234px;	
 	overflow: hidden;
 	background: url("../images/t_r_i.png") no-repeat scroll 0px 0px transparent;
 	position: absolute;
 	top: 0px;
 	left: 50%;
-	margin-left: 540px;
+	margin-left: 480px;
 }
 
 #layout-center{
 	margin: 0 auto;
-	max-width: 1080px;
+	max-width: 960px;
 	height: auto;
 	
 }
 
 #layout-center-B{
-	box-shadow: 15px 0 15px -15px , -15px 0 15px -15px ;
+	--box-shadow: 15px 0 15px -15px , -15px 0 15px -15px ;
+	
 }
 
 
 #slider{
-	padding: 27px 25px 10px 25px;
-	height: 515px;
+	--padding: 27px 25px 10px 25px;
+	padding: 44px 30px 5px 30px;
+	height: 439px;
 }
 
 
@@ -78,5 +81,6 @@ nav{
 
 
 footer{
-	height: 200px;
+	height: 120px;
+	background: transparent url("../images/footer.png") top center no-repeat;
 }

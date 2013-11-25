@@ -75,7 +75,7 @@
 <div class="">
 	<h1 class="text-primary"><?php echo $row[''.$film.'name_vi'];?> - <?php echo $row[''.$film.'name'];?> - <?php echo $row[''.$film.'namsx'];?></h1>
 	<!--Facebook comment -->
-	<div class="fb-comments" data-href="http://example.com/comments" data-colorscheme="dark" data-numposts="10" data-width="1040"></div>
+	<div class="fb-comments" data-href="http://example.com/comments" data-colorscheme="dark" data-numposts="10" data-width="920"></div>
 </div>
 
 
