@@ -81,7 +81,8 @@ function bbcode_to_html($bbtext){
     '[*]' => '<li>','[/*]' => '</li>',
     '[code]' => '<code>','[/code]' => '</code>',
     '[preformatted]' => '<pre>','[/preformatted]' => '</pre>',
-    '[pre]' => '<pre>','[/pre]' => '</pre>',     
+    '[pre]' => '<pre>','[/pre]' => '</pre>',
+    '[video]' => '<br/><iframe src="http://youtube.com/embed/','[/video]' =>  '"width="640" height="480" frameborder="0"></iframe><br/>'   
   );
 
   $bbtext = str_ireplace(array_keys($bbtags), array_values($bbtags), $bbtext);
