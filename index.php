@@ -42,6 +42,7 @@
 	<body>
 		<div id="layout">
 			<header>
+				
 				<img class="logo" src="images/header/logo.png">
 			</header>
 			
