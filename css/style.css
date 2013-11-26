@@ -9,14 +9,22 @@ body{
 }
 
 header{
-	background: transparent url('../images/header/main-tail.gif') top left;
+	position: relative;
+	--background: transparent url('../images/header/main-tail.gif') top left;
 }
 
 header > .logo{
-	position: relative;
-	top: 50px;
+	position: absolute;
+	top: 40px;
 	left: 200px;
-	
+}
+header .fbloginbtn{
+	width: 280px;
+	height: 55px;
+	position: absolute;
+	top: 35px;
+	right: 245px;
+	--background: transparent url('../images/fbloginbtn.png') no-repeat;
 }
 
 header > #Navbar{

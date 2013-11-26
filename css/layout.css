@@ -15,7 +15,8 @@ body {
 
 
 header{
-	height: 170px;
+	min-width: 1366px;
+	height: 120px;
 }
 
 #body{
