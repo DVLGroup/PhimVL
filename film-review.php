@@ -82,7 +82,7 @@ function bbcode_to_html($bbtext){
     '[code]' => '<code>','[/code]' => '</code>',
     '[preformatted]' => '<pre>','[/preformatted]' => '</pre>',
     '[pre]' => '<pre>','[/pre]' => '</pre>',
-    '[video]' => '<br/><iframe src="http://youtube.com/embed/','[/video]' =>  '"width="640" height="480" frameborder="0"></iframe><br/>'   
+    '[video]' => '<br/><iframe src="http://youtube.com/embed/','[/video]' =>  '"width="100%" height="480" frameborder="0"></iframe><br/>'   
   );
 
   $bbtext = str_ireplace(array_keys($bbtags), array_values($bbtags), $bbtext);
