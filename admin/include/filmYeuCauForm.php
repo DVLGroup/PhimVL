@@ -9,6 +9,9 @@
 					?>
 					<h1 class="text-danger">Bảng Dữ Liệu Film Yêu Cầu</h1>
 					<div class="btn-group">
+						<a href="index-admin.php?changePage=10" class="btn btn-info">Thống Kê Yêu Cầu</a>
+					</div>
+					<div class="btn-group">
 						<a href="index-admin.php?changePage=6" class="btn btn-default">Làm Tươi Trang</a>
 					</div>
 					<div class="btn-group">
@@ -18,7 +21,7 @@
 						<span class="loading text-primary">Loading...</span>
 					</div>
 					<hr id="Six" />
-					<div id="tableSix" class="table-responsive table-scrollable">
+					<div id="tableSix" class="table-responsive">
 						<table class="table table-striped table-hover">
 							<thead style="white-space: nowrap;">
 								<tr>

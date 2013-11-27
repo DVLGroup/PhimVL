@@ -165,42 +165,46 @@
 				<?php
 				if(isset($_GET['changePage']))
 				{
-				if($_GET['changePage']=='1')
-				{
-				require 'include/userForm.php';
-				}
-				else if($_GET['changePage']=='2')
-				{
-				require 'include/userLevelForm.php';
-				}
-				else if($_GET['changePage']=='3')
-				{
-				require 'include/countryForm.php';
-				}
-				else if($_GET['changePage']=='4')
-				{
-				require 'include/productionForm.php';
-				}
-				else if($_GET['changePage']=='5')
-				{
-				require 'include/catalogeForm.php';
-				}
-				else if($_GET['changePage']=='6')
-				{
-				require 'include/filmYeuCauForm.php';
-				}
-				else if($_GET['changePage']=='7')
-				{
-				require 'include/filmBoForm.php';
-				}
-				else if($_GET['changePage']=='8')
-				{
-				require 'include/filmLeForm.php';
-				}
-				else if($_GET['changePage']=='9')
-				{
-				require 'include/filmBoCTForm.php';
-				}
+					if($_GET['changePage']=='1')
+					{
+						require 'include/userForm.php';
+					}
+					else if($_GET['changePage']=='2')
+					{
+						require 'include/userLevelForm.php';
+					}
+					else if($_GET['changePage']=='3')
+					{
+						require 'include/countryForm.php';
+					}
+					else if($_GET['changePage']=='4')
+					{
+						require 'include/productionForm.php';
+					}
+					else if($_GET['changePage']=='5')
+					{
+						require 'include/catalogeForm.php';
+					}
+					else if($_GET['changePage']=='6')
+					{
+						require 'include/filmYeuCauForm.php';
+					}
+					else if($_GET['changePage']=='7')
+					{
+						require 'include/filmBoForm.php';
+					}
+					else if($_GET['changePage']=='8')
+					{
+						require 'include/filmLeForm.php';
+					}
+					else if($_GET['changePage']=='9')
+					{
+						require 'include/filmBoCTForm.php';
+					}
+					else if($_GET['changePage']=='10')
+					{
+						require 'include/reportYeuCau.php';
+					}
 				}
 				else {
 				?>
