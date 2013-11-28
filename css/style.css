@@ -1,3 +1,5 @@
+
+
 *{
 	color: #D4D4D4;
 	font-size: 13px;
@@ -8,6 +10,11 @@ body{
 	
 }
 
+.wrap{
+	margin: 0 auto;
+	width: 960px;	
+}
+
 header{
 	position: relative;
 	--background: transparent url('../images/header/main-tail.gif') top left;
@@ -16,16 +23,70 @@ header{
 header > .logo{
 	position: absolute;
 	top: 40px;
-	left: 200px;
 }
-header .fbloginbtn{
-	width: 280px;
-	height: 55px;
+header #flogin{
+	float: right;
 	position: absolute;
 	top: 35px;
-	right: 245px;
-	--background: transparent url('../images/fbloginbtn.png') no-repeat;
+	right: 0;
+	line-height: 30px;
 }
+header #flogin #user p{
+	float: left;
+	white-space: nowrap;
+	margin-left: 10px;
+}
+header .fbloginbtn{
+	width: 265px;
+	height: 52px;
+	--position: absolute;
+	--top: 35px;
+	--right: 245px;
+	--background: transparent url('../images/fbloginbtn.png') no-repeat;
+--}
+header .fbloginbtn:hover{
+	cursor: pointer;
+}
+
+
+div#flogin .modal-dialog{
+	width:360px;
+}
+
+div#signup{
+	padding: 20px;
+}
+.signup-black{
+	color: #C4C4C4;
+	background-color: #111111;
+}
+.signup-default{
+	
+}
+
+div#signup h3{
+	font-weight: bold;
+}
+div#signup .success, .error{
+	display: none;
+}
+div#signup .form-control{
+	width: 300px;
+	
+}
+
+div#signup .btnAction{
+	float: right;
+}
+div#signup .loader{
+	display: none;
+}
+div#signup .warning{
+	display: none;
+	color: #D11919;
+}
+
+
 
 header > #Navbar{
 	position: relative;

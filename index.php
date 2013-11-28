@@ -31,6 +31,7 @@
         <!-- Chèn link JavaScript-->
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/js.js" type="text/javascript"></script>
         <script src="js/searchFilm.js" type="text/javascript"></script>
         <script src="js/jquery.wysibb.js" type="text/javascript"></script>
         
@@ -41,9 +42,82 @@
 
 	<body>
 		<div id="layout">
-			<header>
+			<header class="wrap">
 				
 				<img class="logo" src="images/header/logo.png">
+				
+				<div id='flogin' class="pull-right">
+			<!-- Button trigger modal -->
+			<a href="#myModal" data-toggle="modal" data-target="#myModal"> Đăng ký </a>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div id='signup' class="signup-black">
+							<h3 class="text-warning text-center">ĐĂNG KÝ TÀI KHOẢN</h3>
+							<form method="POST" action="#myModal">
+								<div class="form-group" align="center">
+									<span class='success text-success'>Đăng ký thành công!</span>
+									<span class='error text-danger'>Đăng ký thất bại!</span>
+								</div>
+								<div class="signup-content">
+									<div id='user_name' class="form-group">
+										<label>Họ và tên: </label>
+										<i class="iwarning glyphicon"> </i>
+										<input type="text" class="form-control" name='user_name'/>
+										<p class="nameError warning">
+											Ít nhất 4 ký tự!
+										</p>
+									</div>
+									<div id='user_email' class="form-group">
+										<label>Email: </label>
+										<i class="iwarning glyphicon"> </i>
+										<input name='user_email' type="email" class="form-control"/>
+										<p class="emailError warning">
+											Email không hợp lệ!
+										</p>
+										<p class="emailExistError warning">
+											Email đã được tạo !
+										</p>
+									</div>
+									<div id='user_password' class="form-group">
+										<label>Mật khẩu: </label>
+										<i class="iwarning glyphicon"> </i>
+										<input name='user_password' type="password" class="form-control"/>
+										<p class="passwordError warning">
+											Ít nhất 6 ký tự!
+										</p>
+									</div>
+									<div id='user_password2' class="form-group">
+										<label>Xác thực mật khẩu: </label>
+										<i class="iwarning glyphicon"> </i>
+										<input name='user_password2' type="password" class="form-control"/>
+										<p class='password2Error warning'>
+											Mật khẩu xác thực không trùng khớp !
+										</p>
+									</div>
+									<div class="form-group btnAction">
+										<span class="loader"><img src="images/loader.gif"> </span>
+										<button type="button" class="btn btn-sm btn-primary" onclick="checkSignup()">
+											Đăng ký
+										</button>
+										<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+											Hủy
+										</button>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div><!-- /.modal -->
+			&nbsp&nbsp&nbsp
+			<a href="#">Đăng nhập</a>
+			&nbsp&nbsp&nbsp
+			<img class='fbloginbtn' src="images/fbloginbtn.png" />
+		</div>
 			</header>
 			
 			<div id="body">
