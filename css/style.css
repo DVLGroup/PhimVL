@@ -26,7 +26,7 @@ header > .logo{
 }
 header #flogin{
 	float: right;
-	position: absolute;
+	position: relative;
 	top: 35px;
 	right: 0;
 	line-height: 30px;
@@ -52,7 +52,12 @@ header .fbloginbtn:hover{
 div#flogin .modal-dialog{
 	width:360px;
 }
-
+div#flogin a#btnShowLogin, a#btnShowSignup{
+	padding: 8px;	
+}
+div#flogin a#btnShowLogin:hover{
+	cursor: pointer;
+}
 div#signup{
 	padding: 20px;
 }
@@ -85,8 +90,26 @@ div#signup .warning{
 	display: none;
 	color: #D11919;
 }
-
-
+div#login-form{
+	display: none;
+	padding: 10px;
+	position: absolute;
+	top: 40px;
+	left: -74px;
+	width: 220px;
+	background-color: #333333;
+	z-index: 998;
+}
+.afterClick{
+	padding: 8px;
+	background-color: #333333;
+	box-shadow: 0px 0px 20px #000;
+	width: 50px;
+	z-index:999;
+}
+div#login-form .btnAction{
+	float:right;
+}
 
 header > #Navbar{
 	position: relative;
