@@ -38,18 +38,15 @@
 		CURRENT_DATE(),0,0)";
 
 		if (mysql_query($sql)) {
-		// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');
 			if($_FILES['cover']['name']!=null&&$_FILES['avatar']['name']){
 				$cover = $_FILES['cover']['name'];
 				$avatar = $_FILES['avatar']['name'];
 				if(!is_file("../upload/hinhPhimCover/$cover"))
 				{
 					move_uploaded_file($_FILES['cover']['tmp_name'], "../upload/hinhPhimCover/".$_FILES['cover']['name']);
-					// move_uploaded_file($_FILES['avatar']['tmp_name'], "../upload/hinhPhimAvatar/".$_FILES['avatar']['name']);
 				}
 				if(!is_file("../upload/hinhPhimAvatar/$avatar"))
 				{
-					// move_uploaded_file($_FILES['cover']['tmp_name'], "../upload/hinhPhimCover/".$_FILES['cover']['name']);
 					move_uploaded_file($_FILES['avatar']['tmp_name'], "../upload/hinhPhimAvatar/".$_FILES['avatar']['name']);
 				}
 			}

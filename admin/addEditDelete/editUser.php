@@ -8,7 +8,7 @@ if (!isset($_REQUEST['userIDEdit']) || !isset($_REQUEST['userLevelEdit']) || !is
 	//echo($_REQUEST['emailEdit']);
 	echo($_REQUEST['userLevelEdit']);
 	echo($_REQUEST['passwordEdit']);
-	$queryEditUser = "update user set user_password = '" . $_REQUEST['passwordEdit'] . "',user_level_id = '" . $_REQUEST['userLevelEdit'] . "'where user_id = " . $_REQUEST['userIDEdit'];
+	$queryEditUser = "update user set user_password = '" . sha1($_REQUEST['passwordEdit']) . "',user_level_id = '" . $_REQUEST['userLevelEdit'] . "'where user_id = " . $_REQUEST['userIDEdit'];
 	$resultEditUser = mysql_query($queryEditUser);
 	mysql_close($link);
 	header('Location: ../index-admin.php?changePage=1');

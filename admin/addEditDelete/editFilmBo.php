@@ -11,6 +11,24 @@ if (!isset($_REQUEST['filmBoTranID']) || !isset($_REQUEST['filmBoTranName']) || 
 	`film_bo_avatar`='".$_REQUEST['avatar']."',`film_bo_cover`='".$_REQUEST['cover']."',`film_bo_daodien`='".$_REQUEST['tenDaoDien']."',
 	`film_bo_dienvien`='".$_REQUEST['tenDienVien']."' WHERE `film_bo_id`=".$_REQUEST['filmBoTranID'];
 	$resultEditFilmBo = mysql_query($queryEditFilmBo);
+	if($resultEditFilmBo){
+		if($_FILES['coverNew']['name']!=null){
+				$cover = $_FILES['coverNew']['name'];
+				echo("upload thanh cong!");
+				if(!is_file("../upload/hinhPhimCover/$cover"))
+				{
+					move_uploaded_file($_FILES['coverNew']['tmp_name'], "../upload/hinhPhimCover/".$_FILES['coverNew']['name']);
+				}
+			}
+		if($_FILES['avatarNew']['name']!=null){
+				
+				$avatar = $_FILES['avatarNew']['name'];
+				if(!is_file("../upload/hinhPhimAvatar/$avatar"))
+				{
+					move_uploaded_file($_FILES['avatarNew']['tmp_name'], "../upload/hinhPhimAvatar/".$_FILES['avatarNew']['name']);
+				}
+			}
+	}
 	mysql_close($link);
 	header('Location: ../index-admin.php?changePage=7');
 }

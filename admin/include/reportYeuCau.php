@@ -33,7 +33,7 @@ mysql_close($link);
 				<td><?php echo($i++); ?></td>
 				<td><?php echo($row['0']); ?></td>
 				<td><?php echo($row['1']); ?></td>
-				<td><?php echo('<strong class="text-danger">'.$row['2'].'</strong>'); ?></td>
+				<td><?php echo('<h4><strong class="text-danger">'.$row['2'].'</strong></h4>'); ?></td>
 			</tr>
 			<?php
 				}

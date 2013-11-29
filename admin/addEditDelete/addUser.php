@@ -17,8 +17,9 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$userLevel = $_POST['userLevel'];
+		$hash_pass = sha1($password);
 		if ($email != null && $password != null && $userLevel != null) {
-			$sql = "INSERT INTO `user`(`user_email`, `user_password`, `user_level_id`) VALUES ('$email','$password','$userLevel')";
+			$sql = "INSERT INTO `user`(`user_email`, `user_password`, `user_level_id`) VALUES ('$email','$hash_pass','$userLevel')";
 
 			if (mysql_query($sql)) {
 				// header('"Location: http://theos.in/"localhost/phptest/admin/index-admin.php?changePage=1');

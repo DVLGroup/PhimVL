@@ -4,6 +4,38 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
 		<link href="../css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+		<script>
+			var fileName;
+			function _(el) {
+				return document.getElementById(el);
+			}
+			function changeImageCover() {
+				
+				var cover = _("coverNew").files[0];
+				// var avatar = _("avatar").files[0];
+				if (cover.type != "image/jpeg" && cover.type != "image/png") {
+					alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+					_("coverNew").value = null;
+				}
+				else
+				{
+					_("cover").value = cover.name;
+				}
+			}
+			function changeImageAvatar() {
+				
+				// var cover = _("cover").files[0];
+				var avatar = _("avatarNew").files[0];
+				if (avatar.type != "image/jpeg" && avatar.type != "image/png") {
+					alert("Không Phải Định Dạng Hình Ảnh Cho Phép (PNG, JPG và JPEG)!");
+					_("avatarNew").value = null;
+				}
+				else
+				{
+					_("avatar").value = avatar.name;
+				}
+			}
+		</script>
 		<?php
 		if (!isset($_REQUEST['filmBoID'])) {
 			header('Location: ../index-admin.php');
@@ -67,7 +99,7 @@
 	<body>
 		<div class="container">
 			<div class="well">
-				<form method="POST" action="../addEditDelete/editFilmBo.php" class="form-horizontal" id="management">
+				<form method="POST" action="../addEditDelete/editFilmBo.php" class="form-horizontal" id="management" enctype="multipart/form-data">
 					<input type="hidden" name="filmBoTranID" value="<?php echo($filmBoID); ?>" />
 					<div class="form-group">
 						<label class="control-label col-md-2">Tên Phim</label>
@@ -239,17 +271,34 @@
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
+							
 							<div class="form-group">
-								<!-- <label class="control-label col-md-2">Hình Avatar</label> -->
+								<label class="control-label col-md-2">Hình Avatar</label>
 								<div class="col-md-8">
-								<input type="hidden" name="avatar" class="form-control url required" value="<?php echo($avatar); ?>" placeholder="Nhập URL Hình"  />
+								<input type="text" readonly="readonly" name="avatar" id="avatar" class="form-control required" value="<?php echo($avatar); ?>" placeholder="Nhập URL Hình"  />							
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
 							<div class="form-group">
-								<!-- <label class="control-label col-md-2">Hình Cover</label> -->
+								<label class="control-label col-md-2">Chọn Hình Avatar Mới</label>
 								<div class="col-md-8">
-								<input type="hidden" name="cover" class="form-control url required" value="<?php echo($cover); ?>" placeholder="Nhập URL Hình"  />
+								<input onchange="changeImageAvatar()" type="file" name="avatarNew" id="avatarNew" class="form-control"/>
+								<h5 class="text-danger"><strong>Cần Nhắc Trước Khi Chọn Hình Mới Vì Hình Cũ Sẽ Mất Đi</strong></h5>
+								</div>
+								<div class="col-md-offset-2"></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2">Hình Cover</label>
+								<div class="col-md-8">
+								<input type="text" readonly="readonly" name="cover" id="cover" class="form-control required" value="<?php echo($cover); ?>" placeholder="Nhập URL Hình"  />
+								</div>
+								<div class="col-md-offset-2"></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2">Chọn Hình Cover Mới</label>
+								<div class="col-md-8">
+								<input onchange="changeImageCover()" type="file" name="coverNew" id="coverNew" class="form-control"/>
+								<h5 class="text-danger"><strong>Cần Nhắc Trước Khi Chọn Hình Mới Vì Hình Cũ Sẽ Mất Đi</strong></h5>
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>

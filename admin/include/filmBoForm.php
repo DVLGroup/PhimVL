@@ -239,17 +239,17 @@
 					</div>
 					<hr id="Four" />
 					<div id="tableFour" class="table-responsive table-scrollable">
-						<table class="table table-bordered table-condensed table-striped table-hover">
+						<table class="table table-striped table-hover">
 							<thead style="white-space: nowrap;">
 								<tr>
 									<th class="lead">STT</th>
 									<th class="lead">ID Phim</th>
 									<th class="lead">Tên Phim</th>
-									<th class="lead">Tên Phim(Tiếng Việt)</th>
+									<th class="lead">Tên Tiếng Việt</th>
 									<th class="lead">Số Tập</th>
-									<th class="lead">Năm Sản Xuất</th>
+									<th class="lead">Năm SX</th>
 									<th class="lead">Thể Loại</th>
-									<th class="lead">Nước</th>
+									<!-- <th class="lead">Nước</th>
 									<th class="lead">Nhà SX</th>
 									<th class="lead">Ảnh Avatar</th>
 									<th class="lead">Ảnh Cover</th>
@@ -257,7 +257,7 @@
 									<th class="lead">Diễn Viên</th>
 									<th class="lead">Ngày Đăng</th>
 									<th class="lead">Lượt View</th>
-									<th class="lead">Rating</th>
+									<th class="lead">Rating</th> -->
 									<th>&nbsp;</th>
 								</tr>
 								
@@ -281,21 +281,113 @@
 									</td>
 									<td><?php echo($row['4']); ?></td>
 									<td><?php echo($row['5'] . " | " . $row['6'] . " | " . $row['7']); ?></td>
-									<td><?php echo($row['8']); ?></td>
-									<td><?php echo($row['9']); ?></td>
-									<td><?php echo($row['10']); ?></td>
-									<td><?php echo($row['11']); ?></td>
-									<td><?php echo($row['12']); ?></td>
-									<td><?php echo($row['13']); ?></td>
-									<td><?php echo($row['14']); ?></td>
-									<td><?php echo($row['15']); ?></td>
-									<td><?php echo($row['16']); ?></td>
+									<td style="display: none;"><?php echo($row['8']); ?></td>
+									<td style="display: none;"><?php echo($row['9']); ?></td>
+									<td style="display: none;"><?php echo($row['10']); ?></td>
+									<td style="display: none;"><?php echo($row['11']); ?></td>
+									<td style="display: none;"><?php echo($row['12']); ?></td>
+									<td style="display: none;"><?php echo($row['13']); ?></td>
+									<td style="display: none;"><?php echo($row['14']); ?></td>
+									<td style="display: none;"><?php echo($row['15']); ?></td>
+									<td style="display: none;"><?php echo($row['16']); ?></td>
 									<td>
+										<a data-toggle="modal" role="button" href="<?php echo("#detail".$i); ?>" data-target="<?php echo("#detail".$i); ?>" data-remote="false"> Chi Tiết </a>
+										&nbsp;&nbsp;
 										<a href="addEditDelete/editOneFilmBo.php?filmBoID=<?php echo($row['0']); ?>">Sửa</a>
-										&nbsp;
+										&nbsp;&nbsp;
 										<a href="addEditDelete/deleteOneFilmBo.php?filmBoID=<?php echo($row['0']); ?>&filmBoName=<?php echo($row['1']); ?>&cover=<?php echo($row['11']); ?>&avatar=<?php echo($row['10']); ?>">Xóa</a>
 									</td>
 								</tr>
+								<div class="modal fade" id="<?php echo("detail".$i); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  									<div class="modal-dialog">
+    									<div class="modal-content">
+      										<div class="modal-header">
+        										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        										<h4 class="modal-title text-primary" id="myModalLabel"><strong>Thông Tin Chi Tiết Phim</strong></h4>
+      										</div>
+      										<div class="modal-body">
+      											<div class="row">
+      												<label class="col-md-3">ID Phim:</label>
+      												<div class="col-md-9"><?php echo($row['0']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Tên Phim:</label>
+      												<div class="col-md-9"><?php echo($row['1']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Tên Tiếng Việt:</label>
+      												<div class="col-md-9"><?php echo($row['2']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Số Tập:</label>
+      												<div class="col-md-9"><?php echo($row['3']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Năm Sản Xuất:</label>
+      												<div class="col-md-9"><?php echo($row['4']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Thể Loại:</label>
+      												<div class="col-md-9"><?php echo($row['5'].", "); ?><?php echo($row['6'].", "); ?><?php echo($row['7']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Nước:</label>
+      												<div class="col-md-9"><?php echo($row['8']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Nhà Sản Xuất:</label>
+      												<div class="col-md-9"><?php echo($row['9']); ?></div>
+      											</div>
+      											<hr />
+      											<div class="row">
+      												<label class="col-md-3">Ảnh Avatar:</label>
+      												<div class="col-md-9"><img width="60" height="90" src="<?php echo($row['10']); ?>"/></div>
+      											</div>
+      											<hr />
+      											<div class="row">
+      												<label class="col-md-3">Ảnh Cover:</label>
+      												<div class="col-md-9"><img width="100" height="60" src="<?php echo($row['11']); ?>" /></div>
+      											</div>
+      											<hr />
+      											<div class="row">
+      												<label class="col-md-3">Đạo Diễn:</label>
+      												<div class="col-md-9"><?php echo($row['12']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Diễn Viên:</label>
+      												<div class="col-md-9"><?php echo($row['13']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Ngày Đăng:</label>
+      												<div class="col-md-9"><?php echo($row['14']." (<strong>yyyy/MM/dd</strong>)"); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Lượt View:</label>
+      												<div class="col-md-9"><?php echo($row['15']); ?></div>
+      											</div>
+      											
+      											<div class="row">
+      												<label class="col-md-3">Rating:</label>
+      												<div class="col-md-9"><?php echo($row['16']); ?></div>
+      											</div>
+      											
+     										</div>
+      										<div class="modal-footer">
+        										<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button> -->
+      										</div>
+    									</div>
+  									</div>
+								</div>
 								<?php
 								}
 								}

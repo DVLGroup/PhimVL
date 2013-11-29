@@ -33,7 +33,8 @@
 		require 'connect_db.php';
 		if (isset($_POST['emailLogin']) && isset($_POST['passwordLogin'])) {
 			$emailLog = $_POST['emailLogin'];
-			$passLog = $_POST['passwordLogin'];
+			$passLog = sha1($_POST['passwordLogin']);
+			
 			$queryLog = "SELECT * FROM user WHERE user_level_id = '1' and user_email = '" . $emailLog . "' and user_password = '" . $passLog . "'";
 			$resultLog = mysql_query($queryLog);
 			mysql_close($link);
