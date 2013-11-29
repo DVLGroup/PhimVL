@@ -8,7 +8,7 @@ $(document).ready(function(){
 	$('button#search-btn').on('click', function(){
 		$search_string = $("input#search").val();
 		if($search_string == '' || $search_string == ' '){
-			alert("ko");
+			//alert("ko");
 		}
 	});
 	

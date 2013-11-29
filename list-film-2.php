@@ -75,7 +75,7 @@
 					$rs_FilmLe 	= mysql_query($query_FilmLe, $my_connect);
 					while($row = mysql_fetch_array($rs_FilmLe)){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
 						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 						echo 		'<br>';
@@ -107,7 +107,7 @@
 					$rs_FilmBo 	= mysql_query($query_FilmBo, $my_connect);
 					while($row = mysql_fetch_array($rs_FilmBo)){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
 						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 						echo 		'<br>';

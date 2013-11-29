@@ -61,7 +61,7 @@
 		echo '<li class="rs_filmLe">Danh sách phim bộ:';
 		echo	'<ul>';
 		foreach ($results_filmBo as $rs) {
-			$display_img = $rs['film_bo_avatar'];
+			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_bo_avatar'];
 			$display_url = 'index.php?filmBoID='.$rs['film_bo_id'];
 			$display_name = $rs['film_bo_name'].' - ' .$rs['film_bo_name_vi'].' - ' .$rs['film_bo_namsx'];
 			
@@ -79,7 +79,7 @@
 		echo '<li><i class="tt">Danh sách phim lẻ:</i>';
 		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmLe as $rs) {
-			$display_img = $rs['film_le_avatar'];
+			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_le_avatar'];
 			$display_url = 'index.php?filmLeID='.$rs['film_le_id'];
 			$display_name = $rs['film_le_name'].' - ' .$rs['film_le_name_vi'].' - ' .$rs['film_le_namsx'];
 			
@@ -99,7 +99,7 @@
 		echo '<li><i class="tt">Danh sách phim bộ:</i>';
 		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmBo as $rs) {
-			$display_img = $rs['film_bo_avatar'];
+			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_bo_avatar'];
 			$display_url = 'index.php?filmBoID='.$rs['film_bo_id'];
 			$display_name = $rs['film_bo_name'].' - ' .$rs['film_bo_name_vi'].' - ' .$rs['film_bo_namsx'];
 			
@@ -132,7 +132,7 @@
 		echo '<li><i class="tt">Danh sách phim lẻ:</i>';
 		echo	'<ul>';
 		foreach ($results_filmLe as $rs) {
-			$display_img = $rs['film_le_avatar'];
+			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_le_avatar'];
 			$display_url = 'index.php?filmLeID='.$rs['film_le_id'];
 			$display_name = $rs['film_le_name'].' - ' .$rs['film_le_name_vi'].' - ' .$rs['film_le_namsx'];
 			
@@ -147,7 +147,7 @@
 		
 	}
 	else{
-		echo 'No result found! Please try again!';
+		echo 'Không có kết quả phù hợp! Xin thử lại';
 	}
 	mysql_close($my_connect);
 ?>

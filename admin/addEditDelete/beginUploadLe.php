@@ -102,12 +102,14 @@
 					<label class="col-md-2 control-label">Chọn Hình Cover</label>
 					<div class="col-md-8">
 						<input accept="image/*" onchange="changeImageCover()" class="form-control" type="file" id="cover" name="cover" />
+						<h5 class="text-info">Khuyên Dùng Hình Cover Có Tỉ Lệ: 2x1</h5>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-2 control-label">Chọn Hình Avatar</label>
 					<div class="col-md-8">
 						<input accept="image/*" onchange="changeImageAvatar()" class="form-control" type="file" id="avatar" name="avatar" />
+						<h5 class="text-info">Khuyên Dùng Hình Avatar Có Tỉ Lệ: 2x3</h5>
 					</div>
 				</div>
 				

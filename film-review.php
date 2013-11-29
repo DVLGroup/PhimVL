@@ -129,7 +129,7 @@ function bbcode_to_html($bbtext){
 	<h2 class="title"><?php echo $row_filmReview[''.$film.'name_vi']; ?> - <?php echo $row_filmReview[''.$film.'name']; ?> - <?php echo $row_filmReview[''.$film.'namsx']; ?></h2>
 	<div>
 		<div id="dt">
-			<img class="cover" alt="Avatar cua phim" src="<?php echo $row_filmReview[''.$film.'avatar'];?>"/>
+			<img class="cover" alt="Avatar cua phim" src="admin/upload/hinhPhimAvatar/<?php echo $row_filmReview[''.$film.'avatar'];?>"/>
 			<div class="info">
 				<h2><?php echo $row_filmReview[''.$film.'name_vi'];?></h2>
 				<h3><?php echo $row_filmReview[''.$film.'name'];?></h3>
@@ -272,7 +272,7 @@ function bbcode_to_html($bbtext){
 				<?php
 					foreach($results_filmCungTL as $row){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
 						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 						echo 		'<br>';

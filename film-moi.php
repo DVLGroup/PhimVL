@@ -123,7 +123,7 @@
 				$film = "film_le_";
 				while ($row = mysql_fetch_array($result_dsPhimLe)) {
 					echo '<li>';
-					echo 	'<a href="index.php?filmLeID='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+					echo 	'<a href="index.php?filmLeID='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
 					echo 		'<span class="name_vi"> <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 					echo 		'<br>';
@@ -158,7 +158,7 @@
 				$film = "film_bo_";
 				while ($row = mysql_fetch_array($result_dsPhimBo)) {
 					echo '<li>';
-					echo 	'<a href="index.php?filmBoID='.$row[''.$film.'id'].'"> <img class="poster" src="'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+					echo 	'<a href="index.php?filmBoID='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
 					echo 		'<span class="name_vi"> <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
 					echo 		'<br>';

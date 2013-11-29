@@ -167,6 +167,7 @@
 								<label class="control-label col-md-2">Hình Avatar</label>
 								<div class="col-md-8">
 								<input type="file" accept="jpeg|png|jpg" onchange="changeImageAvatar()" id="avatar" name="avatar" class="form-control required" value=""  />
+								<h5 class="text-info">Khuyên Dùng Hình Avatar Có Tỉ Lệ: 2x3</h5>
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
@@ -174,6 +175,7 @@
 								<label class="control-label col-md-2">Hình Cover</label>
 								<div class="col-md-8">
 								<input type="file" accept="jpeg|png|jpg" onchange="changeImageCover()" id="cover" name="cover" class="form-control required" value=""   />
+								<h5 class="text-info">Khuyên Dùng Hình Cover Có Tỉ Lệ: 2x1</h5>
 								</div>
 								<div class="col-md-offset-2"></div>
 							</div>
@@ -348,12 +350,12 @@
       											<hr />
       											<div class="row">
       												<label class="col-md-3">Ảnh Avatar:</label>
-      												<div class="col-md-9"><img width="60" height="90" src="<?php echo($row['10']); ?>"/></div>
+      												<div class="col-md-9"><img width="60" height="90" src="../admin/upload/hinhPhimAvatar/<?php echo($row['10']); ?>"/></div>
       											</div>
       											<hr />
       											<div class="row">
       												<label class="col-md-3">Ảnh Cover:</label>
-      												<div class="col-md-9"><img width="100" height="60" src="<?php echo($row['11']); ?>" /></div>
+      												<div class="col-md-9"><img width="100" height="60" src="../admin/upload/hinhPhimCover/<?php echo($row['11']); ?>" /></div>
       											</div>
       											<hr />
       											<div class="row">

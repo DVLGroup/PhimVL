@@ -24,7 +24,7 @@
 		$result_filmPlay	= mysql_query($query, $my_connect);
 		$row_filmPlay		= mysql_fetch_array($result_filmPlay);
 		//Hiển thị hình cover vào slider của website
-		echo '<img class="cover" src="'.$row_filmPlay[''.$film.'cover'].'">';
+		echo '<img class="cover" src="admin/upload/hinhPhimCover/'.$row_filmPlay[''.$film.'cover'].'">';
 	}
 	elseif(isset($_REQUEST['filmPlay'])){
 		if(isset($_REQUEST['filmLeID'])){

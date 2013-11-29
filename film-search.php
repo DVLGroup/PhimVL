@@ -31,7 +31,7 @@
 		////và giải phóng vùng nhớ 
 		while($rw = mysql_fetch_array($rs_searchFilmLe)){
 			$results[] = $rw;
-			echo $rw[1];
+			//echo $rw[1];
 		}
 		mysql_free_result($rs_searchFilmLe);
 		while($rw = mysql_fetch_array($rs_searchFilmBo)){
@@ -58,7 +58,7 @@
 				$output = str_replace($filmNameVi, $rs[''.$film.'_name_vi'], $output);
 				$output = str_replace($filmNamsx, $rs[''.$film.'_namsx'], $output);
 				$output = str_replace($filmLink, 'index.php?'.$filmParaID.'='.$rs[''.$film.'_id'], $output);
-				$output = str_replace($imgSrc, $rs[''.$film.'_avatar'],$output);				
+				$output = str_replace($imgSrc, "admin/upload/hinhPhimAvatar/".$rs[''.$film.'_avatar'],$output);				
 			}
 		}
 		//Nếu không có kết quả
