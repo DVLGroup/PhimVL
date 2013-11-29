@@ -54,6 +54,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div id='signup' class="signup-black">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
 							<h3 class="text-warning text-center">ĐĂNG KÝ TÀI KHOẢN</h3>
 							<form method="POST" action="#myModal">
 								<div class="form-group" align="center">
