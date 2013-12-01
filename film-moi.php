@@ -24,7 +24,7 @@
 	</div>
 	<div class="list-film-body">
 		<ul class="film-show-list-ul list-unstyled " style="font-size: 14px">
-			<?php
+			<!-- <?php
 					$film = "film_rap_";
 					while($row = mysql_fetch_array($result_dsPhimRap)){
 						echo '<li>';
@@ -38,7 +38,7 @@
 					echo 	'</div>';
 					echo '</li>';
 					}
-			?>
+			?> -->
 			
 			
 			<li class="list-flim-li-22">

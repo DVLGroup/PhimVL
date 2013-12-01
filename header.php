@@ -32,12 +32,12 @@
 			
 			<header class="wrap">
 				
-				<img class="logo" src="images/header/logo.png">
+				<a href='index.php'><img class="logo" src="images/header/logo.png"></a>
 				
 				<div id='flogin' class="pull-right">
 					<?php
 						if($isAdmin){
-							echo '<p>Xin chào ông chủ: <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['adminLog'].'</a></p>';
+							echo '<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['adminLog'].'</a></p>';
 							echo '<p><a href="index.php?logout=true" title="Đăng xuất tài khoản">Thoát</a></p>';
 						}
 						if($isUser){
