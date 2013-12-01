@@ -36,12 +36,43 @@
         <script src="js/searchFilm.js" type="text/javascript"></script>
         <script src="js/jquery.wysibb.js" type="text/javascript"></script>
         
+        <!-- Bat fly-->
+        <script type='text/javascript'>
+			$(function() {
+				$(window).scroll(function() {
+					if ($(this).scrollTop() !== 0) {
+						$('#bttop').fadeIn();
+					} else {
+						$('#bttop').fadeOut().animate({
+							bottom : "30px",
+							right : "10px"
+						});
+					}
+				});
+				$('#bttop').click(function() {
+					$('body,html').animate({
+						scrollTop : 0
+					}, 800);
+					$('#bttop').animate({
+						bottom : "700px",
+						right : "850px"
+					}, 1500);
+				});
+				$('#submit').click(function() {
+					$('body,html').animate({
+						scrollTop : 0
+					}, 300);
+				});
+			});
+		</script>
 		
 		<!-- Start WOWSlider.com HEAD section -->
 		<link rel="stylesheet" type="text/css" href="slider/css/style.css" />
 	</head>
 
 	<body>
+		<div class="btn btn-lg" id="bttop"><img width="90" height="40" src="images/batman-icon.png" />
+		</div>
 		<div id="layout">
 			
 			

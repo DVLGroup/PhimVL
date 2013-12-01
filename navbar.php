@@ -12,7 +12,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<p class="navbar-brand padding-50"> </p>
+						<p class="navbar-brand"> </p>
 						
 					</div>	
 					
@@ -60,7 +60,7 @@
 						</div>
 						</form>
 						
-						<form class="navbar-form pull-right" role="search" action="" method="GET" style="position: relative">
+						<form class="navbar-form pull-right" role="search" action="" method="GET" style="position: relative; padding-right: 15px;">
 							<div class="form-group">
 								<input id="search" class="form-control" type="text" placeholder="Nhập từ khóa tìm kiếm"  name="string_search" autocomplete="off" style="width: 300px"/>
 							</div>
