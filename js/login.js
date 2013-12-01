@@ -16,6 +16,25 @@ function showLoginForm(){
 	}
 }
 
+function exitLogin(){
+	
+	alert('ok');
+	
+	var data_exitlogin = "logout=true";
+	$.ajax({
+		type: "POST",
+		url: "login.php",
+		data: data_exitlogin,
+		success: function(rs){
+			console.log(rs)
+			if(rs == "success"){
+				location.reload();
+			}
+		}
+	});
+
+				
+}
 
 function login(){
 	var uemail = $('#login-form input[name="user_email"]').val();
@@ -32,8 +51,8 @@ function login(){
 				alert('Đăng nhập thất bại!');
 			}
 			else{
-				$('div#flogin').html('<p>Xin chào <a href="#Properties" title="Đến trang quản lý">'+result+'</a></p>'+
-				'<p><a href="index.php?logout=true" title="Đăng xuất tài khoản">Thoát</a></p>');
+				$('div#flogin').html('<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'+result+'</a></p>'+
+				'<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>');
 				
 				//Thông báo thành công
 				//alert('Đăng nhập thành công!');
@@ -47,10 +66,4 @@ function exitLoginForm(){
 	$('#flogin a#btnShowLogin').removeClass("afterClick");
 }
 
-function exitLogin(){
-	
-//Reload lai trang sau 3s
-				setTimeout(function(){
-					location.replace('index.php');
-				}, 3000);
-}
+

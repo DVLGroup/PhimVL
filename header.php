@@ -16,12 +16,12 @@
 		//Kiểm tra session hiện tại là gì?
 		
 		////Nếu là admin thì gán $isAdmin = true
-		if(array_key_exists('adminLog', $_SESSION)){
+		if(array_key_exists('admin', $_SESSION)){
 			$isAdmin = true;
 			$noOne = false;
 		}
 		////Nếu là user thì gán $isUser = true
-		if(array_key_exists('userLog', $_SESSION)){
+		if(array_key_exists('user', $_SESSION)){
 			$isUser = true;
 			$noOne = false;
 		}
@@ -37,12 +37,12 @@
 				<div id='flogin' class="pull-right">
 					<?php
 						if($isAdmin){
-							echo '<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['adminLog'].'</a></p>';
-							echo '<p><a href="index.php?logout=true" title="Đăng xuất tài khoản">Thoát</a></p>';
+							echo '<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['admin'].'</a></p>';
+							echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
 						}
 						if($isUser){
-							echo '<p>Xin chào <a href="#Properties" title="Đến trang quản lý">'.$_SESSION['userLog'].'</a></p>';
-							echo '<p><a href="index.php?logout=true" title="Đăng xuất tài khoản">Thoát</a></p>';
+							echo '<p>Xin chào <a href="#Properties" title="Đến trang quản lý">'.$_SESSION['user'].'</a></p>';
+							echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
 						}
 						else if($noOne){
 					?>

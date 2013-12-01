@@ -33,10 +33,10 @@
 		if($dem == 1){
 			session_start();
 			if($level == 'admin'){
-				$_SESSION['adminLog'] = $uemail;
+				$_SESSION['admin'] = $uemail;
 			}
 			if($level == 'user'){
-				$_SESSION['userLog'] = $uemail;
+				$_SESSION['user'] = $uemail;
 			}
 			echo $uemail;
 		}
@@ -46,4 +46,10 @@
 		
 		
 		mysql_close($my_connect);
+	}
+
+	if(isset($_REQUEST['logout'])){
+		session_start();
+		session_destroy();
+		echo "success";
 	}
