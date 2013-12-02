@@ -9,7 +9,7 @@
 	$quey_linkFilm	= null;
 	$link 	= null;		//Đường link của video phim
 	
-	if((isset($_REQUEST['filmLeID']) OR (isset($_REQUEST['filmBoID'])) AND !isset($_REQUEST['filmPlay']))){
+	if((isset($_REQUEST['filmLeID']) OR (isset($_REQUEST['filmBoID']))) AND !isset($_REQUEST['filmPlay'])){
 		if(isset($_REQUEST['filmLeID'])){
 			$filmID = $_REQUEST['filmLeID'];
 			$film 	= "film_le_";
@@ -43,7 +43,10 @@
 		$result = mysql_query($query_linkFilm, $my_connect);
 		$row = mysql_fetch_array($result);
 		$link = $row[0];
-		echo '<iframe width="100%" height="100%" src="//www.youtube.com/embed/kPYvE_AlXpQ" frameborder="0" allowfullscreen></iframe>';
+		echo '<video width="100%" height="100%" controls>
+  				<source src="admin/upload/'.$link.'" type="video/mp4">
+				 Browser của mày không support HTML5.
+			   </video>';
 	}
 	else{
 ?>
