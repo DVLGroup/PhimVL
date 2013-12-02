@@ -15,17 +15,21 @@ function showLoginForm(){
 	}
 }
 
-function exitLogin(){
-	
+function exitLogin(e){
+	$('#requestFilm-form').slideUp();
+	$('#changePass-form').slideUp();
+	$('button[name="uemail"]').html('exit loading...');
 	var data_exitlogin = "logout=true";
 	$.ajax({
 		type: "POST",
 		url: "login.php",
 		data: data_exitlogin,
 		success: function(rs){
-			console.log(rs)
+			console.log(rs);
 			if(rs == "success"){
-				location.reload();
+				//location.reload();
+				$('#flogin').load('header.php #flogin-content');
+				e.preventDefault();
 			}
 		}
 	});
@@ -59,19 +63,21 @@ function login(){
 					liQuanLy = '<li id="showfRequestFilmBtn"><a onclick="showfRequestFilm()"><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
 				}
 				
-				$('div#flogin').html('<div class="btn-group">'
-				+'<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">'
-				+'<i class="glyphicon glyphicon-user"></i> '+uemail+' <span class="caret"></span>'
-				+'</button>'
-				+'<ul class="dropdown-menu dropdown-menu-default" role="menu">'
-				+liQuanLy
-				+'<li id="showfChangePass"><a><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>'
-				+'<li><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()"><i class="glyphicon glyphicon-user"></i> Thoát</a></li>'
-				+'</div>');
+				$('#flogin').load('header.php #flogin-content');
 				
-				$('#dacbiet').load('film-request.php #requestFilm-form');
-				//Thông báo thành công
-				//alert('Đăng nhập thành công!');
+				// $('div#flogin').html('<div class="btn-group">'
+				// +'<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="uemail">'
+				// +'<i class="glyphicon glyphicon-user"></i> '+uemail+' <span class="caret"></span>'
+				// +'</button>'
+				// +'<ul class="dropdown-menu dropdown-menu-default" role="menu">'
+				// +liQuanLy
+				// +'<li id="showfChangePass"><a><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>'
+				// +'<li><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()"><i class="glyphicon glyphicon-user"></i> Thoát</a></li>'
+				// +'</div>');
+				
+				//Thêm các form tương tác của người dùng
+				$('#accfAction #frequest').load('film-request.php #requestFilm-form');
+				$('#accfAction #fchangePass').load('film-changePass.php #changePass-form');
 			}
 		}
 	});

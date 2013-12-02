@@ -41,6 +41,7 @@
 				$_SESSION['user'] = $uemail;
 			}
 			$_SESSION['userID'] = $userID;
+			$_SESSION['uemail'] = $uemail;
 			$rs = array('uemail' => $uemail
 						,'level' => $level);
 			
@@ -54,6 +55,7 @@
 	}
 
 	if(isset($_REQUEST['logout'])){
+		sleep(1);
 		session_start();
 		session_destroy();
 		echo "success";

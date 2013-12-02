@@ -1,44 +1,5 @@
-<?php
-	
-?>		
-			
-			
-			<header class="wrap">
-				
-				<a href='index.php'><img class="logo" src="images/header/logo.png"></a>
-				
-				<div id='flogin' class="pull-right">
-					<div id='flogin-content'>
+<div id='flogin-content'>
 					<?php
-					session_start();
-	//Tạo biến gán quyền tương đương với session
-		$isAdmin = false; //Là Admin
-		$isUser = false; // Là user bình thường
-		$noOne = true; // Không ai cả tức là chưa đăng nhập
-		
-	//Nếu logout thì xóa session
-	if(isset($_REQUEST['logout'])){
-		session_destroy();
-	}
-	
-	//Nếu không phải thì tạo session
-	else{
-		
-		//Kiểm tra session hiện tại là gì?
-		
-		////Nếu là admin thì gán $isAdmin = true
-		if(array_key_exists('admin', $_SESSION)){
-			$isAdmin = true;
-			$noOne = false;
-		}
-		////Nếu là user thì gán $isUser = true
-		if(array_key_exists('user', $_SESSION)){
-			$isUser = true;
-			$noOne = false;
-		}
-		////Trường hợp còn lại là khách $noOne
-	}
-	
 						if(!$noOne){
 							$liQuanLy = '';
 							$sessionName = 'guest';
@@ -47,16 +8,16 @@
 								$liQuanLy = '<li><a href="admin/index-admin.php"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
 							}
 							if($isUser){
-								$liQuanLy = '<li id="showfRequestFilmBtn"><a onclick="showfRequestFilm()"><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
+								$liQuanLy = '<li id="showfRequestFilmBtn"><a><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
 								$sessionName = $_SESSION['user'];
 							}
 							echo '<div class="btn-group">';
-							  echo '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="uemail">';
+							  echo '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
 							  echo '<i class="glyphicon glyphicon-user"></i> '.$sessionName.' <span class="caret"></span>';
 							  echo '</button>';
 							  echo '<ul class="dropdown-menu dropdown-menu-default" role="menu">';
 							  echo $liQuanLy ;
-							  echo '<li><a onclick="showfChangePass()"><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>';
+							  echo '<li id="showfchangePassBtn"><a href="#"><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>';
 							  echo '<li><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()"><i class="glyphicon glyphicon-user"></i> Thoát</a></li>';
 							echo '</div>';
 							
@@ -168,10 +129,3 @@
 					
 					<img class='fbloginbtn' src="images/fbloginbtn.png" />
 				</div>
-				<?php } ?>
-				</div>
-			</header>
-			
-	<?php
-		include 'accfAction.php';
-		?>

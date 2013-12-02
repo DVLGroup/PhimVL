@@ -26,12 +26,21 @@
 		//$query_signup = "INSERT INTO user VALUES('3', '$uemail', '$hash_pass', '2')";
 		
 		$rs = mysql_query($sql, $my_connect);
+		//Nếu đăng ký thành công
+		///Xóa hết các session trước đó
+		///và tạo session mới cho tài khoản vừa mới đc đăng ký
+		///Và gửi thông báo thành công
+		if($rs){
+			session_start();
+			//Tạo session là user bình thường.
+			$_SESSION['user'] = $uemail;
+			$_SESSION['uemail'] = $uemail;
+			echo "success";
+		}else{
+			echo "error";
+		}
 		
-		session_start();
-		$_SESSION['user'] = $uemail;
 		
-		echo "success";
-		return;
 	}
 	else {
 		echo "false";

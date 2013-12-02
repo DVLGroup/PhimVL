@@ -29,7 +29,8 @@ var d4 = false;
 
 $(document).ready(function(){
 	//
-	$('#signup input[name="user_name"]').blur(function(){
+	$('#flogin').on('blur', 'input[name="user_name"]', function(e){
+		e.preventDefault();
 		var user_name = $(this).val();
 		if(user_name == '' || user_name == ' ' || (user_name.length < 4)){
 			warning("#user_name");
@@ -38,10 +39,24 @@ $(document).ready(function(){
 			offwarning("#user_name");
 			d1 = true;
 		}
+		e.preventDefault();
 		return false;
 	});
+	// $('#signup input[name="user_name"]').on('blur', function(e){
+// 		
+		// var user_name = $(this).val();
+		// if(user_name == '' || user_name == ' ' || (user_name.length < 4)){
+			// warning("#user_name");
+			// d1 = false;
+		// }else{
+			// offwarning("#user_name");
+			// d1 = true;
+		// }
+		// e.preventDefault();
+		// return false;
+	// });
 	
-	$('#signup input[name="user_email"]').blur(function(){
+	$('#flogin').on('blur','input[name="user_email"]',function(){
 		var user_email = $(this).val();
 		var email_regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 		if(user_email == '' || user_email == ' ' || !email_regex.test(user_email)){
@@ -78,7 +93,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$('#signup input[name="user_password"]').blur(function(){
+	$('#flogin').on('blur','input[name="user_password"]',function(){
 		var user_password = $(this).val();
 		var user_password2 = $('#signup input[name="user_password2"]').val();
 		if(user_password.length < 6){
@@ -102,7 +117,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$('#signup input[name="user_password2"]').blur(function(){
+	$('#flogin').on('blur','input[name="user_password2"]',function(){
 		var user_password2 = $(this).val();
 		var user_password = $('#signup input[name="user_password"]').val();
 		if(user_password2 == '' || user_password2 == ' ' || user_password2 != user_password){
@@ -116,25 +131,13 @@ $(document).ready(function(){
 	});	
 	
 	
-	
-	//YÊU CẦU PHIM
-	//Xác định sự kiện khi nhấp vào nút Yêu cầu phim
-	//$('#showfRequestFilmBtn').click(function(){
-		
-	//});
-	//$('#requestFilm-form .exitBtn, .exitLoginbtn, #showfchangePassBtn ').click(function(){
-	//	$('#requestFilm-form').slideUp();
-	//});
-	//Show khung nhập yêu cầu
-	
-	//Thông tin gồm, họ tên, email, Tên gốc của phim, Tên phim theo tiếng việt, năm sx
-	
-	//xác định hàm thêm yêu cầu -> xử lý bằng php + ajax
 });
 
 
 
 function checkSignup(){
+		$('#signup .error').fadeOut();
+		$('#signup .success').fadeOut('slow');
 		$('#signup .loading').html('Loading...');
 		if(d1 && d2 && d3 && d4){
 			var user_name = $('#signup input[name="user_name"]').val();
@@ -146,17 +149,21 @@ function checkSignup(){
 				data:	{signup:"ok", uname:user_name, uemail:user_email, upassword:user_password},
 				success:	function(result){
 					$('#signup .loading').html('');
-					//console.log(result);
+					console.log(result);
 					if(result == 'success'){
 						$('#signup .success').slideDown('slow');
-						$('#signup .error').fadeOut();
 						$('#signup .signup-content').fadeOut();
-						setTimeout(function(){
-							location.reload();
-						},2000);
+						$('#myModal').fadeOut();
+						$('#flogin').load('header.php #flogin-content');
+						//setTimeout(function(){
+						//	location.reload();
+						//},2000);
+						delay(2000);
+						//refresh form tương tác của người dùng
+						$('#accfAction #frequest').load('film-request.php #requestFilm-form');
+						$('#accfAction #fchangePass').load('film-changePass.php #changePass-form');
+						
 					}else {
-						$('#signup .loading').html('');
-						$('#signup .success').fadeOut();
 						$('#signup .error').slideDown('slow');
 					}
 				}
@@ -201,15 +208,16 @@ function readCookie(name) {
 }
 
 
+
+///////////////////YÊU CẦU PHIM //////////////
 function showfRequestFilm(){
+	$('#changePass-form').fadeOut('fast');
 	$('#requestFilm-form').slideDown();
+	
 }
 function closefRequestFilm(){
 	$('#requestFilm-form').slideUp();
 }
-
-
-
 
 function requestFilm(){
 	$('#requestFilm-form .loading').html('Loading...');
@@ -245,4 +253,43 @@ function requestFilm(){
 }
 
 
+
+/////////////THAY ĐỔI MẬT KHẨU/////////////////////
+function showfChangePass(){
+	$('#requestFilm-form').fadeOut('fast');
+	$('#changePass-form').slideDown();
+}
+function closefChangePass(){
+	$('#changePass-form').slideUp();
+}
+
+function changePass(){
+	$('#changePass-form .loading').html('Loading...');
+	$('#changePass-form .error').fadeOut();
+	$('#changePass-form .success').fadeOut();
+	var uemail = $('#changePass-form input[name="user_email"]').val();
+	var upass = $('#changePass-form input[name="user_pass"]').val();
+	var newpass = $('#changePass-form input[name="changePass_newpass1"]').val();
+	data_chagePass = 'changePass=true&uemail='+uemail+'&upass='+upass+'&newpass='+newpass;
+	
+	$.ajax({
+		type: 'POST',
+		url: 'changePass.php',
+		data: data_chagePass,
+		success: function(rs){
+			console.log(rs);
+			$('#changePass-form .loading').html('');
+			if(rs == 'passError'){
+				$('#changePass-form .error').slideDown();
+			}else{
+				$('#changePass-form input[name="user_pass"]').val('');
+				$('#changePass-form input[name="changePass_newpass1"]').val('');
+				$('#changePass-form .success').slideDown();
+				setTimeout(function(){
+					$('#requestFilm-form').slideUp();
+				},2000);
+			}
+		}
+	});
+}
 

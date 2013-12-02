@@ -1,7 +1,7 @@
 
 <div id="requestFilm-form">
 	<div style="height: 5px">
-		<button type="button" class="close exitBtn">
+		<button type="button" class="close exitBtn" onclick="closefRequestFilm()">
 			<i class="glyphicon glyphicon-remove"></i>
 		</button>
 	</div>
@@ -15,7 +15,7 @@
 			<div id='user_email' class="form-group">
 				<label>Email: </label>
 				<i class="iwarning glyphicon"> </i>
-				<input name='user_email' type="email" class="form-control" value="<?php session_start(); echo $_SESSION['user'];?>" readonly="readonly"/>
+				<input name='user_email' type="email" class="form-control" value="<?php session_start(); if(array_key_exists('uemail', $_SESSION)){echo $_SESSION['uemail'];}else echo $sessionName;?>" readonly="readonly"/>
 			</div>
 			<div class="form-group">
 				<label>Tên gốc của phim: </label>
@@ -37,7 +37,7 @@
 				<button type="button" class="btn btn-sm btn-primary" onclick="requestFilm()">
 					Gửi yêu cầu
 				</button>
-				<button type="button" class="btn btn-sm btn-default exitBtn" >
+				<button type="button" class="btn btn-sm btn-default exitBtn" onclick="closefRequestFilm()">
 					Hủy
 				</button>
 			</div>
