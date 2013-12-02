@@ -114,12 +114,28 @@ $(document).ready(function(){
 		}
 		return false;
 	});	
+	
+	
+	
+	//YÊU CẦU PHIM
+	//Xác định sự kiện khi nhấp vào nút Yêu cầu phim
+	//$('#showfRequestFilmBtn').click(function(){
+		
+	//});
+	//$('#requestFilm-form .exitBtn, .exitLoginbtn, #showfchangePassBtn ').click(function(){
+	//	$('#requestFilm-form').slideUp();
+	//});
+	//Show khung nhập yêu cầu
+	
+	//Thông tin gồm, họ tên, email, Tên gốc của phim, Tên phim theo tiếng việt, năm sx
+	
+	//xác định hàm thêm yêu cầu -> xử lý bằng php + ajax
 });
 
 
 
 function checkSignup(){
-		$('.loader').stop().fadeIn('fast');
+		$('#signup .loading').html('Loading...');
 		if(d1 && d2 && d3 && d4){
 			var user_name = $('#signup input[name="user_name"]').val();
 			var user_email = $('#signup input[name="user_email"]').val();
@@ -129,27 +145,30 @@ function checkSignup(){
 				url:	"signup.php",
 				data:	{signup:"ok", uname:user_name, uemail:user_email, upassword:user_password},
 				success:	function(result){
-					console.log(result);
+					$('#signup .loading').html('');
+					//console.log(result);
 					if(result == 'success'){
 						$('#signup .success').slideDown('slow');
 						$('#signup .error').fadeOut();
 						$('#signup .signup-content').fadeOut();
 						setTimeout(function(){
 							location.reload();
-						},3000);
+						},2000);
 					}else {
+						$('#signup .loading').html('');
 						$('#signup .success').fadeOut();
 						$('#signup .error').slideDown('slow');
-						
 					}
 				}
 			});
+			
 		}
 		else{
+			$('#signup .loading').html('');
 			$('#signup .warning').focus();
 			alert('Một vài thông tin bị thiếu hoặc sai sót nên không thể đăng ký! Hãy xem lại');
 		}
-		$('.loader').fadeOut('fast');
+		
 }
 
 
@@ -180,3 +199,50 @@ function readCookie(name) {
     }
     return '';
 }
+
+
+function showfRequestFilm(){
+	$('#requestFilm-form').slideDown();
+}
+function closefRequestFilm(){
+	$('#requestFilm-form').slideUp();
+}
+
+
+
+
+function requestFilm(){
+	$('#requestFilm-form .loading').html('Loading...');
+	var uemail = $('#requestFilm-form input[name="user_email"]').val();
+	var fname = $('#requestFilm-form input[name="film_name"]').val();
+	var fnamevi = $('#requestFilm-form input[name="film_name_vi"]').val();
+	var fnamsx = $('#requestFilm-form input[name="film_namsx"]').val();
+	
+	var data_request_film = 'requestFilm=true&fname='+fname+'&fnamevi='+fnamevi+'&fnamsx='+fnamsx;
+	
+	$.ajax({
+		type: 'POST',
+		url: 'requestfilm.php',
+		data: data_request_film,
+		success: function(rs){
+			console.log(rs);
+			$('#requestFilm-form .loading').html('');
+			if(rs == "success"){
+				$('#requestFilm-form .success').fadeIn();
+				fname = $('#requestFilm-form input[name="film_name"]').val('');
+				fnamevi = $('#requestFilm-form input[name="film_name_vi"]').val('');
+				fnamsx = $('#requestFilm-form input[name="film_namsx"]').val('');
+				setTimeout(function(){
+					$('#requestFilm-form').slideUp();
+				},2000);
+				$('#requestFilm-form .success').fadeOut('slow');
+			}
+			else{
+				$('#requestFilm-form .error').fadeIn();
+			}
+		}
+	});
+}
+
+
+

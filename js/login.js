@@ -4,7 +4,6 @@
 
 
 
-
 function showLoginForm(){
 	if($('#login-form').is(':visible')){
 		$('#login-form').fadeOut('fast');
@@ -17,8 +16,6 @@ function showLoginForm(){
 }
 
 function exitLogin(){
-	
-	alert('ok');
 	
 	var data_exitlogin = "logout=true";
 	$.ajax({
@@ -37,6 +34,7 @@ function exitLogin(){
 }
 
 function login(){
+	$('#login-form .loading').html('Loading...');
 	var uemail = $('#login-form input[name="user_email"]').val();
 	var upass = $('#login-form input[name="user_password"]').val();
 	var data_login = 'login=true&uemail='+uemail+'&upass='+upass;
@@ -46,14 +44,32 @@ function login(){
 		url:	"login.php",
 		data:	data_login,
 		success: function(result){
-			console.log(result);
+			//console.log(result);
+			$('#login-form .loading').html('');
 			if(result == "login error"){
-				alert('Đăng nhập thất bại!');
+				$('#login-form .loading').html('<i class="text-danger">Đăng nhập thất bại</i>');
 			}
 			else{
-				$('div#flogin').html('<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'+result+'</a></p>'+
-				'<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>');
+				var getData = $.parseJSON(result);
+				var liQuanLy = '';
+				if(getData.level == 'admin'){
+					liQuanLy = '<li><a href="admin/index-admin.php"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
+				}
+				if(getData.level == 'user'){
+					liQuanLy = '<li id="showfRequestFilmBtn"><a onclick="showfRequestFilm()"><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
+				}
 				
+				$('div#flogin').html('<div class="btn-group">'
+				+'<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">'
+				+'<i class="glyphicon glyphicon-user"></i> '+uemail+' <span class="caret"></span>'
+				+'</button>'
+				+'<ul class="dropdown-menu dropdown-menu-default" role="menu">'
+				+liQuanLy
+				+'<li id="showfChangePass"><a><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>'
+				+'<li><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()"><i class="glyphicon glyphicon-user"></i> Thoát</a></li>'
+				+'</div>');
+				
+				$('#dacbiet').load('film-request.php #requestFilm-form');
 				//Thông báo thành công
 				//alert('Đăng nhập thành công!');
 			}

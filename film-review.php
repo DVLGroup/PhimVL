@@ -182,8 +182,8 @@ function bbcode_to_html($bbtext){
 				</p>
 				<p>
 					<a href="index.php?filmPlay=1&<?php echo $filmParName ?>=<?php echo $filmID?><?php if($isFilmBo) echo '&ep=1' ?>">
-					<button type="button" class="btn btn-lg btn-primary">
-						<i class="glyphicon glyphicon-play"></i> Xem Phim
+					<button type="button" class="btn btn-lg btn-danger">
+						<i class="glyphicon glyphicon-play" style="font-size: 18px; color: #fff"></i> Xem Phim
 					</button></a>
 				</p>
 				</br>

@@ -10,6 +10,7 @@
 		//Phân quyền
 		$level = '';
 		$dem = 0;
+		$userID = '';
 		//Tạo câu lệnh query
 		$query_login = "SELECT * FROM user WHERE user_email ='$uemail' AND user_password = '$hash_pass'";
 		//Thực hiện câu lệnh 
@@ -24,13 +25,14 @@
 			if($row['user_level_id'] == '2'){
 				$level = 'user';
 			}
-				
-			
+			$userID = $row['user_id'];	
+			mysql_close($my_connect);
 		}
 		//Kiểm tra xem có 1 kết quả trả về hay không?
 		////Nếu có thì xuất ra login success
 		////Nếu không có thì xuất ra login error
 		if($dem == 1){
+			sleep(1);
 			session_start();
 			if($level == 'admin'){
 				$_SESSION['admin'] = $uemail;
@@ -38,14 +40,17 @@
 			if($level == 'user'){
 				$_SESSION['user'] = $uemail;
 			}
-			echo $uemail;
+			$_SESSION['userID'] = $userID;
+			$rs = array('uemail' => $uemail
+						,'level' => $level);
+			
+			
+			echo json_encode($rs);
 		}
 		else {
 			echo "login error";
+			die;
 		}
-		
-		
-		mysql_close($my_connect);
 	}
 
 	if(isset($_REQUEST['logout'])){

@@ -5,6 +5,10 @@
 	font-size: 13px;
 }
 
+a:hover{
+	cursor: pointer;
+}
+
 body{
 	background-color: #161616;
 	
@@ -28,7 +32,7 @@ header #flogin{
 	float: right;
 	position: relative;
 	top: 35px;
-	right: 0;
+	right: 30px;
 	line-height: 30px;
 }
 header #flogin #user p{
@@ -84,7 +88,7 @@ div#signup .btnAction{
 	float: right;
 }
 div#signup .loader{
-	display: none;
+	--display: none;
 }
 div#signup .warning{
 	display: none;
@@ -110,6 +114,21 @@ div#login-form{
 div#login-form .btnAction{
 	float:right;
 }
+.exitLoginbtn:hover{
+	cursor: pointer;
+}
+
+
+
+/*Phim yêu cầu
+*/
+#requestFilm-form{
+	display: none;
+	padding: 10px;
+	width: 350px;
+	margin: 0 auto;
+}
+
 
 header > #Navbar{
 	position: relative;
@@ -166,3 +185,75 @@ footer{
 .eps{
 	width: 700px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pagination{
+	display: inline-block;
+	padding-left: 0;
+	margin: 20px 0;
+	border-radius: 4px;	
+}
+
+/*Pagination Default */
+.pagination > li{
+	display: inline;
+}
+.pagination > .active > a{
+	border-radius: 50%;
+}
+.pagination > li > a{
+	background-color: transparent;
+	border: none;
+}
+.pagination > li > a:hover{
+	background-color: transparent;
+}
+.pagination > .disabled > a, .pagination > .disabled > a:hover{
+	background-color: transparent;
+}
+
+
+/*Button Default */
+.btn-default{
+	color: #1388CA;
+	background-color: transparent;
+	border: 1px groove #DBD8E0;
+	border-radius: 0px;
+}
+.btn-default:hover, .btn-default:focus{
+	color: #357ebd;
+	background-color: transparent;
+}
+.btn-default{
+	background-color: transparent;
+}
+.open .dropdown-toggle.btn-default{
+	color: #FCFCFC;
+	background-color: #3276b1;
+}
+
+.dropdown-menu-default{
+	width: 100%;
+	border-radius: 0px;
+}
+
+.dropdown-menu{
+	background-color: #181818;
+}
+.dropdown-menu > li > a{
+	color: #E4E1E1;
+}
+
+
+

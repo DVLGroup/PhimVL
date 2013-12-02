@@ -36,16 +36,40 @@
 				
 				<div id='flogin' class="pull-right">
 					<?php
-						if($isAdmin){
-							echo '<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['admin'].'</a></p>';
-							echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
+						if(!$noOne){
+							$liQuanLy = '';
+							$sessionName = 'guest';
+							if($isAdmin){
+								$sessionName = $_SESSION['admin'];
+								$liQuanLy = '<li><a href="admin/index-admin.php"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
+							}
+							if($isUser){
+								$liQuanLy = '<li id="showfRequestFilmBtn"><a><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
+								$sessionName = $_SESSION['user'];
+							}
+							echo '<div class="btn-group">';
+							  echo '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
+							  echo '<i class="glyphicon glyphicon-user"></i> '.$sessionName.' <span class="caret"></span>';
+							  echo '</button>';
+							  echo '<ul class="dropdown-menu dropdown-menu-default" role="menu">';
+							  echo $liQuanLy ;
+							  echo '<li id="showfchangePassBtn"><a href="#"><i class="glyphicon glyphicon-cog"></i> Đổi mật khẩu</a></li>';
+							  echo '<li><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()"><i class="glyphicon glyphicon-user"></i> Thoát</a></li>';
+							echo '</div>';
+							
+							//if($isAdmin){
+							//echo '<p>Xin chào <a href="admin/index-admin.php" title="Đến trang quản lý">'.$_SESSION['admin'].'</a></p>';
+							//echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
+							//}
+							//if($isUser){
+							//	echo '<p>Xin chào <a href="#Properties" title="Đến trang quản lý">'.$_SESSION['user'].'</a></p>';
+							//	echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
+							//}
 						}
-						if($isUser){
-							echo '<p>Xin chào <a href="#Properties" title="Đến trang quản lý">'.$_SESSION['user'].'</a></p>';
-							echo '<p><a class="exitLoginbtn" title="Đăng xuất tài khoản" onclick="exitLogin()">Thoát</a></p>';
-						}
-						else if($noOne){
+						if($noOne){
+							
 					?>
+					
 					
 					<!-- Button trigger modal -->
 					<a href="#myModal" id="btnShowSignup" data-toggle="modal" data-target="#myModal"> Đăng ký </a>
@@ -58,6 +82,7 @@
 									<h3 class="text-warning text-center">ĐĂNG KÝ TÀI KHOẢN</h3>
 									<form method="POST" action="#myModal">
 										<div class="form-group" align="center">
+											<span class="loading text-primary"> </span>
 											<span class='success text-success'>Đăng ký thành công!</span>
 											<span class='error text-danger'>Đăng ký thất bại!</span>
 										</div>
@@ -98,7 +123,7 @@
 												</p>
 											</div>
 											<div class="form-group btnAction">
-												<span class="loader"><img src="images/loader.gif"> </span>
+												
 												<button type="button" class="btn btn-sm btn-primary" onclick="checkSignup()">
 													Đăng ký
 												</button>
@@ -117,8 +142,10 @@
 					<!-- ĐĂNG NHẬP -->
 					<a id="btnShowLogin" onclick="showLoginForm()">Đăng nhập</a>
 					<div id="login-form">
+						<p class="loading text-primary" align="center"></p>
 						<form>
 							<div class="form-group">
+								
 								<input name="user_email" type="email" class="form-control input-sm" placeholder="Nhập email của bạn"/>
 							</div>
 							<div>
