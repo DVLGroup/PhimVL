@@ -76,7 +76,7 @@ div#signup{
 div#signup h3{
 	font-weight: bold;
 }
-div#signup .success, .error{
+.success, .error{
 	display: none;
 }
 div#signup .form-control{
@@ -90,7 +90,7 @@ div#signup .btnAction{
 div#signup .loader{
 	--display: none;
 }
-div#signup .warning{
+.warning{
 	display: none;
 	color: #D11919;
 }

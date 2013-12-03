@@ -15,7 +15,7 @@
 			<div id='user_email' class="form-group">
 				<label>Email: </label>
 				<i class="iwarning glyphicon"> </i>
-				<input name='user_email' type="email" class="form-control" value="<?php session_start(); if(array_key_exists('uemail', $_SESSION)){echo $_SESSION['uemail'];}else echo $sessionName;?>" readonly="readonly"/>
+				<input name='user_email' type="email" class="form-control" value="<?php if(!isset($_SESSION)){session_start();echo $_SESSION['uemail'];}else echo $sessionName;?>" readonly="readonly"/>
 			</div>
 			<div class="form-group">
 				<label>Tên gốc của phim: </label>

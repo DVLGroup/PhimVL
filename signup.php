@@ -46,5 +46,4 @@
 		echo "false";
 		return;
 	}
-	
-?>
+	mysql_close($my_connect);

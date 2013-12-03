@@ -15,7 +15,7 @@ function showLoginForm(){
 	}
 }
 
-function exitLogin(e){
+function exitLogin(){
 	$('#requestFilm-form').slideUp();
 	$('#changePass-form').slideUp();
 	$('button[name="uemail"]').html('exit loading...');
@@ -29,7 +29,6 @@ function exitLogin(e){
 			if(rs == "success"){
 				//location.reload();
 				$('#flogin').load('header.php #flogin-content');
-				e.preventDefault();
 			}
 		}
 	});
@@ -48,8 +47,10 @@ function login(){
 		url:	"login.php",
 		data:	data_login,
 		success: function(result){
-			//console.log(result);
+			console.log(result);
 			$('#login-form .loading').html('');
+			//Nếu kết quả echo 
+			////Là 1 chuỗi
 			if(result == "login error"){
 				$('#login-form .loading').html('<i class="text-danger">Đăng nhập thất bại</i>');
 			}

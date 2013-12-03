@@ -1,16 +1,5 @@
 <?php
-	
-?>		
-			
-			
-			<header class="wrap">
-				
-				<a href='index.php'><img class="logo" src="images/header/logo.png"></a>
-				
-				<div id='flogin' class="pull-right">
-					<div id='flogin-content'>
-					<?php
-					session_start();
+	session_start();
 	//Tạo biến gán quyền tương đương với session
 		$isAdmin = false; //Là Admin
 		$isUser = false; // Là user bình thường
@@ -38,6 +27,16 @@
 		}
 		////Trường hợp còn lại là khách $noOne
 	}
+?>		
+			
+			
+			<header class="wrap">
+				
+				<a href='index.php'><img class="logo" src="images/header/logo.png"></a>
+				
+				<div id='flogin' class="pull-right">
+					<div id='flogin-content'>
+					<?php
 	
 						if(!$noOne){
 							$liQuanLy = '';
@@ -47,8 +46,8 @@
 								$liQuanLy = '<li><a href="admin/index-admin.php"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
 							}
 							if($isUser){
-								$liQuanLy = '<li id="showfRequestFilmBtn"><a onclick="showfRequestFilm()"><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
 								$sessionName = $_SESSION['user'];
+								$liQuanLy = '<li id="showfRequestFilmBtn"><a onclick="showfRequestFilm()"><i class="glyphicon glyphicon-film"></i> Yêu cầu phim</a></li>';
 							}
 							echo '<div class="btn-group">';
 							  echo '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="uemail">';
@@ -174,4 +173,4 @@
 			
 	<?php
 		include 'accfAction.php';
-		?>
+	?>

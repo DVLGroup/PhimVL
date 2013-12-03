@@ -1,24 +1,22 @@
-
 <?php
-
 	include 'core/Connect.php';
-	
 	if(isset($_POST['changePass'])){
+		sleep(2);
 		$uemail = $_POST['uemail'];
 		$upass = $_POST['upass'];
 		$newpass = $_POST['newpass'];
+		//ma hoa
+		$hash_upass = sha1($upass);
+		$hash_newpass = sha1($newpass);
+		//$query = "UPDATE user SET user_password = '123' WHERE user_password ='$upass' ";
+		$query = "UPDATE `user` SET `user_password` ='$hash_newpass' WHERE `user_email` ='$uemail' AND `user_password` ='$hash_upass'";
+		$rs = mysql_query($query, $my_connect);
 		
-		$query = "UPDATE user SET user_password = '$newpass' WHERE user_email = '$uemail' AND user_password = '$upass'";
-		
-		if(mysql_query($query)){
+		if(mysql_affected_rows()>0){
 			echo "success";
-			return;
 		}
 		else {
-			echo "passError";
+			echo "Error";
 		}
-	}
-	else {
-		echo "passError";
-		return;
+		mysql_close($my_connect);
 	}

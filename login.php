@@ -3,6 +3,7 @@
 	include 'core/Connect.php';
 	
    if(isset($_POST['login'])){
+   		sleep(1);
 		//Lấy uemail, upass và biến đếm kết quả
 		$uemail = $_POST['uemail'];
 		$upass = $_POST['upass'];
