@@ -12,7 +12,7 @@
 			function changeFile() {
 				var file = _("file1").files[0];
 
-				if (file.type != "video/x-flv" && file.type != "video/mp4") {
+				if (file.type != "video/mp4") {
 					alert("Không Phải Định Dạng Video Cho Phép (MP4 và FLV)!");
 					_("file1").value = null;
 				}
@@ -74,7 +74,7 @@
 					_("status").innerHTML = "File Upload Đã " + event.target.responseText + " Upload Không Thành Công";
 				} else {
 					$("#cancelButton").attr("disabled", "disabeled");
-					_("link").value = fileName;
+					_("link").value = event.target.responseText;
 					_("status").innerHTML = "Upload " + event.target.responseText + " Thành Công";
 					$("#upload_form").submit();
 				}
@@ -117,7 +117,7 @@
 					<label class="control-label col-md-2">Upload Phim</label>
 					<div class="col-md-8">
 						<input accept="video/*" onchange="changeFile()" class="form-control required" type="file" name="file1" id="file1">
-						<h4 class="text-danger"><strong>KHÔNG</strong> Chọn File Upload Có Unicode</h4>
+						<h4 class="text-danger"><strong>KHÔNG</strong> Chọn File Upload Có Unicode Và Ký Tự Đặc Biệt <strong>'</strong></h4>
 					</div>
 				</div>
 				

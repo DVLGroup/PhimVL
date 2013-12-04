@@ -15,8 +15,10 @@ if (isset($_FILES["file1"]["name"])) {
 		exit();
 	}
 	if (!is_file("../upload/$fileName")) {
-		if (move_uploaded_file($fileTmpLoc, "../upload/" . $fileName)) {
-			echo(mb_convert_encoding($fileName, "UTF-8"));
+		$fileInfo = pathinfo($_FILES["file1"]["name"]);
+		$file = uniqid().'.'.$fileInfo['extension'];
+		if (move_uploaded_file($fileTmpLoc, "../upload/".$file)) {
+			echo($file);
 		} else {
 			echo "Không";
 
