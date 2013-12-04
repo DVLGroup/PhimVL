@@ -119,7 +119,6 @@ div#login-form .btnAction{
 }
 
 
-
 /*Phim yêu cầu
 */
 #requestFilm-form, #changePass-form{
@@ -201,7 +200,7 @@ footer{
 .pagination{
 	display: inline-block;
 	padding-left: 0;
-	margin: 20px 0;
+	margin: 0;
 	border-radius: 4px;	
 }
 

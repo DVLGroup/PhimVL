@@ -1,4 +1,3 @@
-
 <?php
 	include 'core/Connect.php';
 	
@@ -9,7 +8,7 @@
 		$html_filmLe	.= 	'<a href=urlString_filmLe>';
 		$html_filmLe 	.= 	'<img class="media-object" src="imgSrc_filmLe" />';
 		$html_filmLe 	.=	'<div class="media-body">';
-		$html_filmLe 	.= 	'<span class="media-heading">nameString_filmLe</span>';
+		$html_filmLe 	.= 	'<p class="media-heading">nameString_filmLe</p>';
 		$html_filmLe 	.=	'</div>';
 		$html_filmLe	.= 	'</a>';
 		$html_filmLe 	.=	'</div>';
@@ -24,7 +23,7 @@
 		$html_filmBo	.= 	'<a href=urlString_filmBo>';
 		$html_filmBo 	.= 	'<img class="media-object" src="imgSrc_filmBo" />';
 		$html_filmBo 	.=	'<div class="media-body">';
-		$html_filmBo 	.= 	'<span class="media-heading">nameString_filmBo</span>';
+		$html_filmBo 	.= 	'<p class="media-heading">nameString_filmBo</p>';
 		$html_filmBo 	.=	'</div>';
 		$html_filmBo	.= 	'</a>';
 		$html_filmBo 	.=	'</div>';
@@ -58,8 +57,8 @@
 	if(isset($results_filmBo) AND isset($results_filmLe)){
 		
 		//Print danh sách phim bộ
-		echo '<li class="rs_filmLe">Danh sách phim bộ:';
-		echo	'<ul>';
+		echo '<li class="tt"><p class="tt">Danh sách phim bộ:</p>';
+		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmBo as $rs) {
 			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_bo_avatar'];
 			$display_url = 'index.php?filmBoID='.$rs['film_bo_id'];
@@ -76,7 +75,7 @@
 		echo '</li>';
 		
 		//Print danh sách phim lẻ
-		echo '<li><i class="tt">Danh sách phim lẻ:</i>';
+		echo '<li><p class="tt">Danh sách phim lẻ:</p>';
 		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmLe as $rs) {
 			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_le_avatar'];
@@ -96,7 +95,7 @@
 	
 	elseif(isset($results_filmBo)){
 		//Print danh sách phim bộ
-		echo '<li><i class="tt">Danh sách phim bộ:</i>';
+		echo '<li><p class="tt">Danh sách phim bộ:</p>';
 		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmBo as $rs) {
 			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_bo_avatar'];
@@ -114,7 +113,7 @@
 		echo '</li>';
 		
 		//Print danh sách phim lẻ
-		echo '<li><i class="tt">Danh sách phim lẻ:</i>';
+		echo '<li><p class="tt">Danh sách phim lẻ:</p>';
 		echo	'<ul>';
 		echo 	'Không có kết quả';
 		echo	'</ul>';
@@ -122,15 +121,15 @@
 	}
 	elseif (isset($results_filmLe)) {
 		//Print danh sách phim bộ
-		echo '<li><i class="tt">Danh sách phim bộ:</i>';
+		echo '<li><p class="tt">Danh sách phim bộ:</p>';
 		echo	'<ul>';
 		echo 	'Không có kết quả';
 		echo	'</ul>';
 		echo '</li>';
 		
 		//Print danh sách phim lẻ
-		echo '<li><i class="tt">Danh sách phim lẻ:</i>';
-		echo	'<ul>';
+		echo '<li><p class="tt">Danh sách phim lẻ:</p>';
+		echo	'<ul class="list-unstyled">';
 		foreach ($results_filmLe as $rs) {
 			$display_img = "admin/upload/hinhPhimAvatar/".$rs['film_le_avatar'];
 			$display_url = 'index.php?filmLeID='.$rs['film_le_id'];

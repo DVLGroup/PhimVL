@@ -1,12 +1,12 @@
 
 div#resultSearch{
 	display: none;
+	background-color: #071A29;
+	border-radius: 0;
 	position: absolute;
 	top: 36px;
-	border-radius: 10px;
-	background-color: rgb(7, 6, 4);
 	padding: 5px;
-	width: 302px;
+	width: 300px;
 	color: #000000;
 }
 
@@ -17,7 +17,7 @@ ul#results{
 }
 ul#results li ul li{
 	margin: 5px 0;
-	border: 1px solid #CCC;
+	border: 1px solid #797888;
 	padding: 5px;
 }
 ul#results li ul li a img{
@@ -30,10 +30,27 @@ ul#results li ul li a h4{
 	margin-left: 10px;
 }
 
-ul#results span.media-heading{
-	padding-left: 10px;
+ul#results p.media-heading{
+	padding-left: 5px;
+	color: #BCC2C2;
 }
 
 .nonedisplay{
 	display: none;
+}
+
+/*NAvibar
+ * 
+ */
+
+#resultSearch ul li p.tt{
+	margin-top: 15px;
+	display: block;
+	background-color: #042B4B;
+	padding: 2px;
+	font-weight: bold;
+}
+
+ul#results li ul li:hover{
+	background-color: #1D4769;
 }

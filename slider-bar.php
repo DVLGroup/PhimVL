@@ -1,94 +1,6 @@
 <?php
 		include 'core/Connect.php';			
 ?>
-
-<div class="row">
-	<div class="list-film col-lg-8 pull-left ">
-		<div class="list-film-header">
-			<p class="title">
-				Phim Lẻ Mới
-			</p>
-		</div>
-		<div class="list-film-body">
-			<ul class="film-show-list-ul list-unstyled">
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li class="list-flim-li-22">
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-				<li>
-					<a href=""> <img class="poster" src="images/film/thumbnail/nguoi-sat-3-2013.jpg" alt='abc' /> </a>
-
-					<div class="name">
-						<span class="name_vi"> <a href="">Nam Dam Huyen Thoai</a> </span>
-						<br>
-						<span class="name_en"> <a href="">First of Legend</a> </span>
-						<br>
-						<span > <a href="">2013</a> </span>
-					</div>
-				</li>
-
-			</ul>
-		</div>
-		<div class="clearfix"></div>
-		<div class="list-film-footer"></div>
-	</div>
-	
 	<div class="sliderbar col-lg-4 pull-right">
 		
 		
@@ -141,13 +53,13 @@
 				<ul class="list-cataloge list-unstyled">
 					 <?php
 						$sql = "SELECT * FROM film_cataloge";
-						$result = mysqli_query($my_connect, $sql);
-						while($row = mysqli_fetch_array($result)){
+						$result = mysql_query($sql, $my_connect);
+						while($row = mysql_fetch_array($result)){
 							echo "<li>";
-							echo 	"<a href='filmCountryID=$row[0]'>$row[1]</a>";
+							echo 	"<a href='index.php?filmCatID=$row[0]'>$row[1]</a>";
 							echo "</li>";	
 						}
-						mysqli_free_result($result);
+						mysql_free_result($result);
 					 ?>
 					<div class="clearfix"></div>							
 				</ul>
@@ -162,13 +74,13 @@
 				<ul class="list-cataloge list-unstyled">
 					 <?php
 						$sql = "SELECT * FROM film_country";
-						$result = mysqli_query($my_connect, $sql);
-						while($row = mysqli_fetch_array($result)){
+						$result = mysql_query($sql, $my_connect);
+						while($row = mysql_fetch_array($result)){
 							echo "<li>";
-							echo 	"<a href='filmCountryID=$row[0]'>$row[1]</a>";
+							echo 	"<a href='index.php?filmCountryID=$row[0]'>$row[1]</a>";
 							echo "</li>";	
 						}
-						mysqli_free_result($result);
+						mysql_free_result($result);
 					 ?>
 					<div class="clearfix"></div>			
 				</ul>
@@ -181,8 +93,3 @@
 </div>
 
 <div class="clearfix"></div>
-
-
-<?php
-	mysqli_close($my_connect);		
-?>

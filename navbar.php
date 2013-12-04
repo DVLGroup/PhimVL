@@ -62,7 +62,7 @@
 						
 						<form class="navbar-form pull-right" role="search" action="" method="GET" style="position: relative; padding-right: 15px;">
 							<div class="form-group">
-								<input id="search" class="form-control" type="text" placeholder="Nhập từ khóa tìm kiếm"  name="string_search" autocomplete="off" style="width: 300px"/>
+								<input id="search" class="form-control" type="text" placeholder="Nhập từ khóa tìm kiếm"  name="string_search" autocomplete="off" style="width: 300px; border-radius: 0"/>
 							</div>
 							<button type="submit" id="search-btn" class="btn btn-primary" name="searchFilm" value="1" >Tìm kiếm</button>
 							
