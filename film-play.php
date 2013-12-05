@@ -63,7 +63,7 @@
 	<a href="#" 
 	  onclick="
 	    window.open(
-	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('http://trongloi193.vv.si/'), 
+	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('http://127.0.0.1/PhimVL/index.php?filmPlay=1&filmLeID=2'), 
 	      'facebook-share-dialog', 
 	      'width=626,height=436'); 
 	    return false;">

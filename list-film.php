@@ -1,40 +1,6 @@
 <?php
 	include 'core/Connect.php';
-	
-	function Pagination($page, $totalPage, $self){
-		if($totalPage == 1){}else{
-					echo '<div align="center">';
-					echo '<ul class="pagination">';
-					if($page == 1){
-						echo '<li class="disabled"><a href="#">&laquo;</a></li>';
-					}
-					else {
-						echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
-					}
-					
-					for($i = 1; $i <= $totalPage; $i++){
-						if($i == $page){
-							echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
-						}
-						else {
-							echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
-						}
-					}
-					
-					if($page == $totalPage){
-						echo '<li class="disabled"><a href="#">&raquo;</a></li>';
-					}
-					else {
-						echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
-					}
-					echo '</ul>';
-					echo '</div>';
-				}
-	
-	}
-	
-	
-	
+
 	$limit	= 30;	//Giới hạn số phim hiển thị
 	$title	= null; //Tiêu đề list phim
 	$query	= null; //Câu lệnh sql
@@ -120,6 +86,37 @@
 		
 <!--PHAN TRANG -->
 			<?php
+				function Pagination($page, $totalPage, $self){
+				if($totalPage == 1){}else{
+							echo '<div align="center">';
+							echo '<ul class="pagination">';
+							if($page == 1){
+								echo '<li class="disabled"><a href="#">&laquo;</a></li>';
+							}
+							else {
+								echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
+							}
+							
+							for($i = 1; $i <= $totalPage; $i++){
+								if($i == $page){
+									echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+								}
+								else {
+									echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+								}
+							}
+							
+							if($page == $totalPage){
+								echo '<li class="disabled"><a href="#">&raquo;</a></li>';
+							}
+							else {
+								echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
+							}
+							echo '</ul>';
+							echo '</div>';
+						}
+			
+			}
 				Pagination($page, $totalPage, $self);
 			?>
 			

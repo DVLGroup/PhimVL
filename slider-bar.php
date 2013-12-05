@@ -2,8 +2,6 @@
 		include 'core/Connect.php';			
 ?>
 	<div class="sliderbar col-lg-4 pull-right">
-		
-		
 		<div class="sliderbar-content">
 			<div class="sliderbar-heading">
 				<h4 class="sliderbar-title" >PHIM XEM NHIỀU TRONG NGÀY</h4>
@@ -86,10 +84,5 @@
 				</ul>
 			</div>
 		</div>
-		
+		<div class="clearfix"></div>	
 	</div>
-		
-				
-</div>
-
-<div class="clearfix"></div>
