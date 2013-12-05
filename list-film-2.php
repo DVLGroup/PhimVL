@@ -71,17 +71,19 @@
 			<ul class="film-show-list-ul list-unstyled">
 				<?php
 					$filmParName	= "filmLeID";
-					$film	= "film_le_";
+					$film	= "film_le";
 					$rs_FilmLe 	= mysql_query($query_FilmLe, $my_connect);
 					while($row = mysql_fetch_array($rs_FilmLe)){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'_avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
-						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name_vi'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
+						echo 		'<br>';
+						echo 		'<span style="font-size:10px; color: #868484;">Lượt xem: '.$row[''.$film.'_viewed'].'</span>';
 						echo 	'</div>';
 						echo '</li>';
 					}
@@ -103,17 +105,19 @@
 			<ul class="film-show-list-ul list-unstyled">
 				<?php
 					$filmParName	= "filmBoID";
-					$film	= "film_bo_";
+					$film	= "film_bo";
 					$rs_FilmBo 	= mysql_query($query_FilmBo, $my_connect);
 					while($row = mysql_fetch_array($rs_FilmBo)){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'_avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
-						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name_vi'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
+						echo 		'<br>';
+						echo 		'<span style="font-size:10px; color: #868484;">Lượt xem: '.$row[''.$film.'_viewed'].'</span>';
 						echo 	'</div>';
 						echo '</li>';
 					}

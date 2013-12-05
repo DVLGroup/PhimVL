@@ -16,7 +16,7 @@ $(document).ready(function() {
 	if((isset($_REQUEST['filmBoID']) OR isset($_REQUEST['filmLeID'])) ){
 		if(isset($_REQUEST['filmBoID'])){
 			$filmID	= $_REQUEST['filmBoID'];
-			$film 	= "film_bo_"; 
+			$film 	= "film_bo"; 
 			$query 	= "SELECT * FROM film_bo WHERE film_bo_id = '".$filmID."'";
 			$filmParName  = "filmBoID";
 			$isFilmBo = TRUE;
@@ -25,16 +25,21 @@ $(document).ready(function() {
 		}
 		elseif(isset($_REQUEST['filmLeID'])){
 			$filmID = $_REQUEST['filmLeID'];
-			$film 	= "film_le_";
+			$film 	= "film_le";
 			$query 	= "SELECT * FROM film_le WHERE film_le_id = '".$filmID."'";
 			$filmParName = "filmLeID";
 			
 			$self = $_SERVER['PHP_SELF']."?filmLeD=$filmID";
 		}
 	}
-			
+		
 	$result_filmReview 	= mysql_query($query, $my_connect);
 	$row_filmReview 	= mysql_fetch_array($result_filmReview);
+	
+	//Tăng lượt view
+	$view = (int)$row_filmReview[''.$film.'_viewed'] + 1;
+	$query_updateView = "UPDATE $film SET ".$film."_viewed = '$view' WHERE ".$film."_id = $filmID";
+	mysql_query($query_updateView, $my_connect);
 ?>
 
 <?php
@@ -126,23 +131,23 @@ function bbcode_to_html($bbtext){
 
 
 <div id="filmReview" class="mg-15">
-	<h2 class="title"><?php echo $row_filmReview[''.$film.'name_vi']; ?> - <?php echo $row_filmReview[''.$film.'name']; ?> - <?php echo $row_filmReview[''.$film.'namsx']; ?></h2>
+	<h2 class="title"><?php echo $row_filmReview[''.$film.'_name_vi']; ?> - <?php echo $row_filmReview[''.$film.'_name']; ?> - <?php echo $row_filmReview[''.$film.'_namsx']; ?></h2>
 	<div>
 		<div id="dt">
-			<img class="cover" alt="Avatar cua phim" src="admin/upload/hinhPhimAvatar/<?php echo $row_filmReview[''.$film.'avatar'];?>"/>
+			<img class="cover" alt="Avatar cua phim" src="admin/upload/hinhPhimAvatar/<?php echo $row_filmReview[''.$film.'_avatar'];?>"/>
 			<div class="info">
-				<h2><?php echo $row_filmReview[''.$film.'name_vi'];?></h2>
-				<h3><?php echo $row_filmReview[''.$film.'name'];?></h3>
+				<h2><?php echo $row_filmReview[''.$film.'_name_vi'];?></h2>
+				<h3><?php echo $row_filmReview[''.$film.'_name'];?></h3>
 				<p>
-					<b>Đạo diễn:</b> <?php echo $row_filmReview[''.$film.'daodien'];?> 
+					<b>Đạo diễn:</b> <?php echo $row_filmReview[''.$film.'_daodien'];?> 
 				</p>
 				<p>
-					<b>Diễn viên:</b> <?php echo $row_filmReview[''.$film.'dienvien'];?>
+					<b>Diễn viên:</b> <?php echo $row_filmReview[''.$film.'_dienvien'];?>
 				</p>
 				<p>
 					<b>Thế loại:</b>
 					<?php
-						$sql1 = "SELECT * FROM film_cataloge WHERE film_cataloge_id = '".$row_filmReview[''.$film.'cataloge_id_first']."' OR film_cataloge_id = '".$row_filmReview[''.$film.'cataloge_id_second']."' OR film_cataloge_id = '".$row_filmReview[''.$film.'cataloge_id_third']."' ";
+						$sql1 = "SELECT * FROM film_cataloge WHERE film_cataloge_id = '".$row_filmReview[''.$film.'_cataloge_id_first']."' OR film_cataloge_id = '".$row_filmReview[''.$film.'_cataloge_id_second']."' OR film_cataloge_id = '".$row_filmReview[''.$film.'_cataloge_id_third']."' ";
 						$rs1 = mysql_query( $sql1, $my_connect);
 						
 						while($rw1 = mysql_fetch_array($rs1)){
@@ -155,7 +160,7 @@ function bbcode_to_html($bbtext){
 				<p>
 					<b>Quốc gia:</b> 
 					<?php
-						$sql2 = "SELECT * FROM film_country WHERE film_country_id = '".$row_filmReview[''.$film.'country_id']."' ";
+						$sql2 = "SELECT * FROM film_country WHERE film_country_id = '".$row_filmReview[''.$film.'_country_id']."' ";
 						$rs2 = mysql_query( $sql2, $my_connect);
 						
 						while($rw2 = mysql_fetch_array($rs2)){
@@ -167,7 +172,7 @@ function bbcode_to_html($bbtext){
 				<p>
 					<b>Nhà sản xuất:</b> 
 					<?php
-						$sql3 = "SELECT film_nhasx_name FROM film_nhasx WHERE film_nhasx_id = '".$row_filmReview[''.$film.'nhasx_id']."'";
+						$sql3 = "SELECT film_nhasx_name FROM film_nhasx WHERE film_nhasx_id = '".$row_filmReview[''.$film.'_nhasx_id']."'";
 						$rs3 = mysql_query( $sql3, $my_connect);
 						$rw3 = mysql_fetch_array($rs3);
 						echo $rw3['film_nhasx_name'];
@@ -175,7 +180,7 @@ function bbcode_to_html($bbtext){
 					?> 
 				</p>
 				<p>
-					<b>Năm sản xuất:</b> <?php echo $row_filmReview[''.$film.'namsx']?> 
+					<b>Năm sản xuất:</b> <?php echo $row_filmReview[''.$film.'_namsx']?> 
 				</p>
 				<p>
 					<b>Thời lượng:</b> 111 phút
@@ -199,7 +204,7 @@ function bbcode_to_html($bbtext){
 	<div class="entry">
 		<p class="tomtatPhim">
 			<?php 
-				$contentFilm = $row_filmReview[''.$film.'content'];
+				$contentFilm = $row_filmReview[''.$film.'_content'];
 				echo bbcode_to_html($contentFilm);
 			?>
 		</p>
@@ -210,16 +215,16 @@ function bbcode_to_html($bbtext){
 
 <?php //Show film with cataloge 
 	
-	$query_TLFilm	= "SELECT ".$film."cataloge_id_first, ".$film."cataloge_id_second, ".$film."cataloge_id_third FROM ".rtrim($film,'_')." WHERE ".$film."id = '$filmID'";
+	$query_TLFilm	= "SELECT ".$film."_cataloge_id_first, ".$film."_cataloge_id_second, ".$film."_cataloge_id_third FROM ".rtrim($film,'_')." WHERE ".$film."_id = '$filmID'";
 	
 	$result_TLFilm	= mysql_query($query_TLFilm, $my_connect);
 	
 	
 	
 	while($row = mysql_fetch_array($result_TLFilm)){		
-		$sql	= "SELECT * FROM ".rtrim($film,'_')." WHERE ".$film."cataloge_id_first = '$row[0]' OR ".$film."cataloge_id_second = '$row[0]' OR ".$film."cataloge_id_third = '$row[0]' ";
-		$sql	.= "OR ".$film."cataloge_id_first = '$row[1]' OR ".$film."cataloge_id_second = '$row[1]' OR ".$film."cataloge_id_third = '$row[1]' ";
-		$sql	.= "OR ".$film."cataloge_id_first = '$row[2]' OR ".$film."cataloge_id_second = '$row[2]' OR ".$film."cataloge_id_third = '$row[2]' ";
+		$sql	= "SELECT * FROM $film WHERE ".$film."_cataloge_id_first = '$row[0]' OR ".$film."_cataloge_id_second = '$row[0]' OR ".$film."_cataloge_id_third = '$row[0]' ";
+		$sql	.= "OR ".$film."_cataloge_id_first = '$row[1]' OR ".$film."_cataloge_id_second = '$row[1]' OR ".$film."_cataloge_id_third = '$row[1]' ";
+		$sql	.= "OR ".$film."_cataloge_id_first = '$row[2]' OR ".$film."_cataloge_id_second = '$row[2]' OR ".$film."_cataloge_id_third = '$row[2]' ";
 	}
 	
 	//foreach($results as $result){
@@ -272,13 +277,13 @@ function bbcode_to_html($bbtext){
 				<?php
 					foreach($results_filmCungTL as $row){
 						echo '<li class="list-flim-li-22">';
-						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+						echo 	'<a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'_avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 						echo 	'<div class="name">';
-						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+						echo 		'<span class="name_vi"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name_vi'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 						echo 		'<br>';
-						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
 						echo 	'</div>';
 						echo '</li>';
 					}

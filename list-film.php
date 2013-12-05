@@ -72,6 +72,8 @@
 						echo 		'<span class="name_en"> <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 						echo 		'<br>';
 						echo 		'<span > <a href="index.php?'.$filmParName.'='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
+						echo 		'<br>';
+						echo 		'<span style="font-size:10px; color: #868484;">Lượt xem: '.$row[''.$film.'_viewed'].'</span>';
 						echo 	'</div>';
 						echo '</li>';
 					}
