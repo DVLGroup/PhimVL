@@ -19,7 +19,7 @@
 							<div class="form-group">
 								<label class="control-label col-md-2">Mật Khẩu</label>
 								<div class="col-md-8">
-									<input type="text" name="password" class="form-control required" minlength="8" value="" placeholder="Nhập Mật Khẩu" />
+									<input type="password" name="password" class="form-control required" minlength="8" value="" placeholder="Nhập Mật Khẩu" />
 								</div>
 								<div class="col-md-offset-2"></div>
 

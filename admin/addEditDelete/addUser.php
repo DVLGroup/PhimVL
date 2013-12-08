@@ -58,7 +58,7 @@
 						<div class="col-md-8 col-md-offset-2">
 							<div class="alert alert-danger">
 								<p class="text-center">
-									Thêm Không Thành Công!
+									Thêm Không Thành Công! Email Đã Tồn Tại...
 								</p>
 							</div>
 						</div>

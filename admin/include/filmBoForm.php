@@ -240,7 +240,7 @@
 						<span class="loading text-primary">Loading...</span>
 					</div>
 					<hr id="Four" />
-					<div id="tableFour" class="table-responsive table-scrollable">
+					<div id="tableFour" class="table-responsive">
 						<table class="table table-striped table-hover">
 							<thead style="white-space: nowrap;">
 								<tr>
