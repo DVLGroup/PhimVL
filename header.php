@@ -43,7 +43,7 @@
 							$sessionName = 'guest';
 							if($isAdmin){
 								$sessionName = $_SESSION['admin'];
-								$liQuanLy = '<li><a href="admin/index-admin.php"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
+								$liQuanLy = '<li><a href="admin/index-admin.php" target="_blank"><i class="glyphicon glyphicon-wrench"></i> Quản lý</a></li>';
 							}
 							if($isUser){
 								$sessionName = $_SESSION['user'];
@@ -165,7 +165,7 @@
 						</form>
 					</div>
 					
-					<img class='fbloginbtn' src="images/fbloginbtn.png" />
+					<img class='fbloginbtn' src="images/fbloginbtn.png" onclick="loginFB()"/>
 				</div>
 				<?php } ?>
 				</div>

@@ -37,7 +37,7 @@
 <?php
 	
 	$page 		= 1;
-	$perPage	= 1;	// Elements on per page
+	$perPage	= 9;	// Elements on per page
 	
 	$start		= 0;		//Oder number of first element on this page
 	
@@ -45,7 +45,7 @@
 	$sql_totalPage = "SELECT COUNT(*) FROM film_bo";
 	$rs = mysql_query($sql_totalPage);
 	$rw = mysql_fetch_array($rs);
-	$totalPage = $rw[0];
+	$totalPage = ceil($rw[0]/$perPage);
 	
 	if(isset($_REQUEST['page'])){
 		$page = $_REQUEST['page'];
@@ -133,28 +133,37 @@
 			<ul class="pagination">
 			<?php
 			
-				if($page == 1){
-					echo '<li class="disabled"><a href="#">&laquo;</a></li>';
+				function Pagination($page, $totalPage, $self){
+				if($totalPage == 1){}else{
+							echo '<div align="center">';
+							echo '<ul class="pagination">';
+							if($page == 1){
+								echo '<li class="disabled"><a href="#">&laquo;</a></li>';
+							}
+							else {
+								echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
+							}
+							
+							for($i = 1; $i <= $totalPage; $i++){
+								if($i == $page){
+									echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+								}
+								else {
+									echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
+								}
+							}
+							
+							if($page == $totalPage){
+								echo '<li class="disabled"><a href="#">&raquo;</a></li>';
+							}
+							else {
+								echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
+							}
+							echo '</ul>';
+							echo '</div>';
+						}
 				}
-				else {
-					echo '<li><a href="'.$self.'&page='.($page - 1).'">&laquo;</a></li>';
-				}
-				
-				for($i = 1; $i <= $totalPage; $i++){
-					if($i == $page){
-						echo '<li class="active"><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
-					}
-					else {
-						echo '<li><a href="'.$self.'&page='.$i.'">'.$i.'</a></li>';
-					}
-				}
-				
-				if($page == $totalPage){
-					echo '<li class="disabled"><a href="#">&raquo;</a></li>';
-				}
-				else {
-					echo '<li><a href="'.$self.'&page='.($page + 1).'">&raquo;</a></li>';
-				}
+				Pagination($page, $totalPage, $self);
 			?>
 			
 			</ul>

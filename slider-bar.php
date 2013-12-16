@@ -1,5 +1,6 @@
 <?php
-		include 'core/Connect.php';			
+	include 'core/Connect.php';		
+	
 ?>
 	<div class="sliderbar col-lg-4 pull-right">
 		<div class="sliderbar-content">

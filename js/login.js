@@ -2,7 +2,55 @@
  * @author TrongLoi
  */
 
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '531718326909547',
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
+};
+  
 
+  // Load the SDK asynchronously
+  (function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "js/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+
+function loginFB(){
+	$('.fbloginbtn').click(function(){
+		FB.login(function(response){
+			FB.api('/me', function(response){
+				if(response.email != ''){
+					var data_fblogin = 'fbemail='+response.email;
+					$.ajax({
+						type: "GET",
+						url: 'fblogin.php',
+						data: data_fblogin,
+						success: function(rs){
+							console.log(rs);
+							if(rs == 'error'){
+								alert('Có lỗi rồi!');
+							}else{
+								if(rs == 'signup success'){
+									alert('Tài khoản đã được tạo! Với email: '+response.email+' - Mật khẩu: 123456');
+								}
+							}
+							$('#flogin').load('header.php #flogin-content');
+							$('#accfAction #frequest').load('film-request.php #requestFilm-form');
+							$('#accfAction #fchangePass').load('film-changePass.php #changePass-form');
+						}
+					})
+				};
+			})
+		}, {scope: 'email'});		
+	});
+}
 
 function showLoginForm(){
 	if($('#login-form').is(':visible')){

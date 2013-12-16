@@ -49,12 +49,58 @@
 			   </video>';
 	}
 	else{
+		//Chọn ra top 5 phim lẻ mới nhất lấy cover để chạy slider
+		$query = "SELECT * from film_le LIMIT 5";
+		$result = mysql_query($query, $my_connect);
+		while($row = mysql_fetch_array($result)){
+			$resultsCV[] = $row;
+		}
 ?>
 
 <!-- Start WOWSlider.com HEAD section -->
 
 	<div id="wowslider-container1">
-		<div class="ws_images">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+		  </ol>
+		
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+		  	<?php
+		  		if(isset($resultsCV)){
+		  			foreach ($resultsCV as $rs) {
+						echo '<div class="item">';
+						echo '<img src="admin/upload/hinhPhimCover/'.$rs[11].'" alt="'.$rs[1].'">';
+						echo '<div class="carousel-caption">';
+						echo '<h3>'.$rs[1].'</h3>';
+						echo '<p>'.$rs[2].' - '.$rs[4].'</p>';
+						echo '</div>';
+						echo '</div>';
+					  }
+		  		}
+		  	?>
+		    
+		  </div>
+		
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div>
+
+		
+		
+		
+		<!-- <div class="ws_images">
 			<ul>
 				<li>
 					<a href="abc"><img src="slider/images/3396181920x1080.jpg" alt="Lamborghini" title="Lamborghini" id="wows1_0"/></a>Aventure
@@ -73,7 +119,7 @@
 		<span class="wsl"><a href="http://wowslider.com">HTML5 Slide Show</a> by WOWSlider.com v4.7</span>
 		<div class="ws_shadow"></div>
 		<script type="text/javascript" src="slider/js/wowslider.js"></script>
-		<script type="text/javascript" src="slider/js/script.js"></script>
+		<script type="text/javascript" src="slider/js/script.js"></script> -->
 	</div>
 
 <?php } ?>

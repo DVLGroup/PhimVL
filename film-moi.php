@@ -120,16 +120,18 @@
 	<div class="list-film-body">
 		<ul class="film-show-list-ul list-unstyled " style="font-size: 14px">
 			<?php
-				$film = "film_le_";
+				$film = "film_le";
 				while ($row = mysql_fetch_array($result_dsPhimLe)) {
 					echo '<li>';
-					echo 	'<a href="index.php?filmLeID='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+					echo 	'<a href="index.php?filmLeID='.$row[''.$film.'_id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'_avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
-					echo 		'<span class="name_vi"> <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+					echo 		'<span class="name_vi"> <a href="index.php?filmLeID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name_vi'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span class="name_en"> <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+					echo 		'<span class="name_en"> <a href="index.php?filmLeID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span > <a href="index.php?filmLeID='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+					echo 		'<span > <a href="index.php?filmLeID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
+					echo 		'<br>';
+					echo 		'<span style="font-size:10px; color: #868484;">Lượt xem: '.$row[''.$film.'_viewed'].'</span>';
 					echo 	'</div>';
 					echo '</li>';
 				}
@@ -155,16 +157,18 @@
 	<div class="list-film-body">
 		<ul class="film-show-list-ul list-unstyled " style="font-size: 14px">
 			<?php
-				$film = "film_bo_";
+				$film = "film_bo";
 				while ($row = mysql_fetch_array($result_dsPhimBo)) {
 					echo '<li>';
-					echo 	'<a href="index.php?filmBoID='.$row[''.$film.'id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
+					echo 	'<a href="index.php?filmBoID='.$row[''.$film.'_id'].'"> <img class="poster" src="admin/upload/hinhPhimAvatar/'.$row[''.$film.'_avatar'].'" alt="'.$row[2].' - '.$row[1].' - '.$row[3].'" /> </a>';
 					echo 	'<div class="name">';
-					echo 		'<span class="name_vi"> <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'name_vi'].'</a> </span>';
+					echo 		'<span class="name_vi"> <a href="index.php?filmBoID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name_vi'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span class="name_en"> <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'name'].'</a> </span>';
+					echo 		'<span class="name_en"> <a href="index.php?filmBoID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_name'].'</a> </span>';
 					echo 		'<br>';
-					echo 		'<span > <a href="index.php?filmBoID='.$row[''.$film.'id'].'">'.$row[''.$film.'namsx'].'</a> </span>';
+					echo 		'<span > <a href="index.php?filmBoID='.$row[''.$film.'_id'].'">'.$row[''.$film.'_namsx'].'</a> </span>';
+					echo 		'<br>';
+					echo 		'<span style="font-size:10px; color: #868484;">Lượt xem: '.$row[''.$film.'_viewed'].'</span>';
 					echo 	'</div>';
 					echo '</li>';
 				}

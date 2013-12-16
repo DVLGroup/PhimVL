@@ -63,7 +63,7 @@
 	<a href="#" 
 	  onclick="
 	    window.open(
-	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('http://127.0.0.1/PhimVL/index.php?filmPlay=1&filmLeID=2'), 
+	      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('http://localhost/PhimVL/index.php?filmPlay=1&filmLeID=2'), 
 	      'facebook-share-dialog', 
 	      'width=626,height=436'); 
 	    return false;">
@@ -76,7 +76,7 @@
 <div class="">
 	<h1 class="text-primary"><?php echo $row[''.$film.'name_vi'];?> - <?php echo $row[''.$film.'name'];?> - <?php echo $row[''.$film.'namsx'];?></h1>
 	<!--Facebook comment -->
-	<div class="fb-comments" data-href="http://example.com/comments" data-colorscheme="dark" data-numposts="10" data-width="920"></div>
+	<div class="fb-comments" data-href="http://localhost/PhimVL/index.php?filmPlay=1&filmBoID=3&ep=1" data-colorscheme="dark" data-numposts="10" data-width="920"></div>
 </div>
 
 

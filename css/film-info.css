@@ -26,6 +26,7 @@
 
 
 #dt > .info{
+	width: 570px;
 	float: left;
 	margin: 0 15px;
 }
