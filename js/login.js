@@ -45,9 +45,9 @@ function loginFB(){
 							$('#accfAction #frequest').load('film-request.php #requestFilm-form');
 							$('#accfAction #fchangePass').load('film-changePass.php #changePass-form');
 						}
-					})
+					});
 				};
-			})
+			});
 		}, {scope: 'email'});		
 	});
 }
