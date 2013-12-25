@@ -14,7 +14,6 @@
 								<!-- <input type="hidden" name="check" value="1" /> -->
 								</div>
 								<div class="col-md-offset-2"></div>
-
 							</div>
 							<div class="form-group">
 								<label class="control-label col-md-2">Mật Khẩu</label>

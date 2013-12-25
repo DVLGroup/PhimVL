@@ -41,7 +41,7 @@
 		});
 		$(document).ready(function() {
 			$("#editor").wysibb();
-		})
+		});
 	}); 
 </script>
 <div class="btn btn-lg" id="bttop"><img width="65" height="32" src="../images/batmanToTop.png" />
